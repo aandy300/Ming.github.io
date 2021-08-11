@@ -100,7 +100,7 @@ html, body {
 }
 
 body {
-  background-color: red;
+  background-color: #1e1e1e;
 }
 
 header {
@@ -538,7 +538,7 @@ header .top_slogan .slogan_text p {
 .container .product_box_all .layer_left {
   display: flex;
   flex-direction: column;
-  margin: 10px 20px 10px 40px;
+  margin: 10px 5px 10px 40px;
 }
 
 .container .product_box_all .left_top_menu {
@@ -580,6 +580,7 @@ header .top_slogan .slogan_text p {
 }
 
 .container .product_box_all .layer_right .top_menu input {
+  margin-left: 20px;
   border: 2px solid #3d1101;
   background-color: #efe9e7;
 }
@@ -614,6 +615,7 @@ header .top_slogan .slogan_text p {
 
 .container .product_box_all .layer_right .bot_product_list {
   display: flex;
+  margin-left: 20px;
   flex-wrap: wrap;
   margin-top: 20px;
 }
@@ -653,7 +655,7 @@ header .top_slogan .slogan_text p {
 
 .container .product_box_all .layer_right .bot_product_list .product h3 {
   font-size: 22px;
-  padding: 2px 0px;
+  margin: 20px 0px 0px 0px;
 }
 
 .container .product_box_all .layer_right .bot_product_list .product p {
@@ -662,7 +664,6 @@ header .top_slogan .slogan_text p {
 
 .container .product_box_all .layer_right .bot_product_list .product img {
   max-width: 220px;
-  padding-bottom: 20px;
 }
 
 .container .product_box_all .layer_right .bot_product_list .product .line {
