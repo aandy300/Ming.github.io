@@ -348,13 +348,13 @@ header .top_slogan .slogan_text p {
   margin: 0px 10px;
 }
 
+.container .login {
+  margin: auto auto;
+}
+
 .container .login_box {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  margin: 20px;
   font-family: NotoSansCJKtc-Black;
-  flex: 1;
   color: #3D1101;
 }
 
@@ -370,7 +370,7 @@ header .top_slogan .slogan_text p {
 }
 
 .container .login_box form {
-  box-shadow: 3px 3px 4px 0px rgba(0, 0, 0, 0.16);
+  box-shadow: 3px 3px 4px 3px rgba(0, 0, 0, 0.16);
   border-top: 3px solid orange;
 }
 
@@ -392,7 +392,14 @@ header .top_slogan .slogan_text p {
 }
 
 .container .login_box form .register_info_box input {
-  background: url("../assets/twitter.png") no-repeat scroll 7px 7px;
+  background: url("../assets/email.png") no-repeat scroll 7px 7px;
+  background-size: 20px 20px;
+  background-color: white;
+  line-height: 0.5;
+}
+
+.container .login_box form .register_info_box .lock_icon {
+  background: url("../assets/padlock2.png") no-repeat scroll 7px 7px;
   background-size: 20px 20px;
   background-color: white;
   line-height: 0.5;
@@ -431,10 +438,11 @@ header .top_slogan .slogan_text p {
   margin: 15px 20px;
 }
 
+.container .register {
+  margin: auto auto;
+}
+
 .container .register_box {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
   font-family: NotoSansCJKtc-Black;
   color: #3D1101;
 }
@@ -451,7 +459,7 @@ header .top_slogan .slogan_text p {
 }
 
 .container .register_box form {
-  box-shadow: 3px 3px 4px 0px rgba(0, 0, 0, 0.16);
+  box-shadow: 3px 3px 4px 3px rgba(0, 0, 0, 0.16);
   border-top: 3px solid #ff5e45;
 }
 
@@ -468,6 +476,7 @@ header .top_slogan .slogan_text p {
 }
 
 .container .register_box form fieldset .form_box .register_about {
+  margin-left: 15px;
   font-family: MicrosoftJhengHeiRegular;
   font-size: 17px;
   color: #3D1101;
@@ -481,7 +490,7 @@ header .top_slogan .slogan_text p {
 }
 
 .container .register_box form fieldset .form_box .register_info_box input {
-  background: url("../assets/twitter.png") no-repeat scroll 7px 7px;
+  background: url("../assets/email.png") no-repeat scroll 7px 7px;
   background-size: 20px 20px;
   background-color: white;
   line-height: 0.5;
@@ -513,6 +522,13 @@ header .top_slogan .slogan_text p {
   color: gray;
 }
 
+.container .register_box form fieldset .form_box .register_info_box .lock_icon {
+  background: url("../assets/padlock2.png") no-repeat scroll 7px 7px;
+  background-size: 20px 20px;
+  background-color: white;
+  line-height: 0.5;
+}
+
 .container .register_box form fieldset .form_box .submit_btn_box {
   display: flex;
   justify-content: flex-end;
@@ -524,6 +540,13 @@ header .top_slogan .slogan_text p {
   color: #FFFFFF;
   padding: 7px 50px;
   margin: 0px 15px 5px 0px;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .container .line {
@@ -569,9 +592,9 @@ header .top_slogan .slogan_text p {
 }
 
 .container .product_box_all .layer_right {
-  margin: 35px 25px 20px 5px;
+  margin: 35px 0px 20px 5px;
   width: 100%;
-  max-width: 1100px;
+  max-width: 1300px;
 }
 
 .container .product_box_all .layer_right .top_menu {
@@ -587,13 +610,17 @@ header .top_slogan .slogan_text p {
 
 .container .product_box_all .layer_right .top_menu .search_box a {
   position: relative;
-  right: 3px;
+  right: 5px;
   top: 7px;
+}
+
+.container .product_box_all .layer_right .top_menu .search_box a img {
+  width: 24px;
 }
 
 .container .product_box_all .layer_right .top_menu .shop_car_box {
   display: flex;
-  margin: 5px 0px;
+  margin: 5px 20px;
 }
 
 .container .product_box_all .layer_right .top_menu .shop_car_box .line {
@@ -604,8 +631,9 @@ header .top_slogan .slogan_text p {
 }
 
 .container .product_box_all .layer_right .top_menu .shop_car_box a {
-  padding: 0px 0px;
-  margin: 0px 0px;
+  display: flex;
+  align-items: center;
+  color: #3D1101;
 }
 
 .container .product_box_all .layer_right .top_menu .shop_car_box a img {

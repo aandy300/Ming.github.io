@@ -1,14 +1,11 @@
 // 登入
 .container
+    .login    
+        margin: auto auto
     .login_box
-        display: flex
-        flex-direction: column
-        justify-content: center
-        align-items: center
-        font-family: NotoSansCJKtc-Black
-        
-        flex: 1
-        // font-size: 18px
+        margin: 20px
+        font-family: NotoSansCJKtc-Black        
+
         color: #3D1101
         .mid_slogan_box
             text-align: center
@@ -18,7 +15,7 @@
             color: rgb(61, 17, 1)
             font-weight: bold
         form            
-            box-shadow: 3px 3px 4px 0px rgba(0,0,0,0.16)
+            box-shadow: 3px 3px 4px 3px rgba(0,0,0,0.16)
             border-top: 3px solid orange
             fieldset
                 display: flex
@@ -30,20 +27,18 @@
                 flex-direction: column
                 padding: 0px 20px
                 label
-                    padding: 0px 0px                
-                input
-                    // 舊的 新的可以有內容時取消icon
-                    // background: url("../assets/header_desktop.png") no-repeat scroll 7px 7px
-                    // background: url("../assets/twitter.png") no-repeat scroll 7px 7px
-                    // background-size: 20px 20px
-                    // background-color: white    
+                    padding: 0px 0px 
                 input      
-                    background: url("../assets/twitter.png") no-repeat scroll 7px 7px
+                    background: url("../assets/email.png") no-repeat scroll 7px 7px
                     background-size: 20px 20px
                     background-color: white
                     line-height: 0.5
-                // type="password" 沒作用 其實JQ處理就好?
-                // pw問題耗太多時間 之後再處理
+                .lock_icon
+                    background: url("../assets/padlock2.png") no-repeat scroll 7px 7px
+                    background-size: 20px 20px
+                    background-color: white
+                    line-height: 0.5
+                // pw問題耗太多時間 之後再處理type="password" 沒作用 其實JQ處理就好?
                 input:not([value=""]):not(:focus):invalid
                     background: url("")
                     background-color: white
@@ -63,8 +58,6 @@
                 a:active
                     color: gray
             .submit_btn_box
-                // 要把index的按鈕 input > button也改回來
-                // 結構錯誤所無效
                 button
                     font-size: 14px
                     font-family: PingFangTC-Regular                

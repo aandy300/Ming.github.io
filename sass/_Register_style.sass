@@ -1,11 +1,9 @@
 // 註冊
 .container
+    .register
+        margin: auto auto
     .register_box
-        display: flex
-        flex-direction: column
-        align-items: center
         font-family: NotoSansCJKtc-Black
-        // font-size: 18px
         color: #3D1101
         .mid_slogan_box
             text-align: center
@@ -15,7 +13,7 @@
             color: rgb(61, 17, 1)
             font-weight: bold
         form            
-            box-shadow: 3px 3px 4px 0px rgba(0,0,0,0.16)
+            box-shadow: 3px 3px 4px 3px rgba(0,0,0,0.16)
             border-top: 3px solid rgb(255, 94, 69)
             fieldset
                 display: flex
@@ -26,6 +24,7 @@
                     display: flex
                     max-width: 620px
                     .register_about
+                        margin-left: 15px
                         font-family: MicrosoftJhengHeiRegular
                         font-size: 17px
                         color: #3D1101
@@ -35,7 +34,7 @@
                         flex-direction: column            
                         padding: 0px 13px 0px 15px                                                
                         input      
-                            background: url("../assets/twitter.png") no-repeat scroll 7px 7px
+                            background: url("../assets/email.png") no-repeat scroll 7px 7px
                             background-size: 20px 20px
                             background-color: white
                             line-height: 0.5
@@ -55,6 +54,11 @@
                             color: rgb(133, 35, 0)
                         a:active
                             color: gray
+                        .lock_icon
+                            background: url("../assets/padlock2.png") no-repeat scroll 7px 7px
+                            background-size: 20px 20px
+                            background-color: white
+                            line-height: 0.5
                     .submit_btn_box
                         display: flex
                         justify-content: flex-end                    
