@@ -61,9 +61,10 @@ html,body
         flex-direction: column
         justify-content: centera
         align-items: center
-        background-image: url("../assets/header_mobile.png")
-        img
-            max-height: none
+        .top_menu
+            img
+                max-height: none
+                max-width: none
         .top_menu
             position: fixed
             width: 100%
@@ -76,46 +77,35 @@ html,body
             margin: auto auto
             .slogan_text
                 margin: auto auto
-        h1
-            color: gray
-
     .top_btn_right      
         // /*隱藏選單開始*/
         max-height: 0px
         overflow: hidden
-
     // 因為是下在body 所以在最外層 在內層指定不到
     .menu-show 
         .top_btn_right
-            // margin: auto auto
-            max-height: none   
-            // width: 1000px
+            max-height: none               
             width: 100%
             overflow: visible
             position: absolute
             z-index: 100
-            top: 54px
-            background: blue
-            background-color: yellow
-        li
-            display: flex
-            justify-content: center
-            align-items: center
-            width: 100%
-            // padding: 20px
-            background-color: black
-            text-align: center
-            // color: red
-            a
-                width: 100%
-                background-color: #1c1c1c
-                // transition: : all 5s
-            a:hover
-                background-color: gray            
-            a:active
-                background-color: gray
-        li:hover
-            // background-color: gray            
+            top: 54px            
+        .top_menu
+            .top_btn_right
+            li
+                display: flex
+                justify-content: center
+                align-items: center
+                width: 100%                
+                background-color: black
+                text-align: center                
+                a
+                    width: 100%
+                    background-color: #1c1c1c                    
+                a:hover
+                    background-color: gray            
+                a:active
+                    background-color: gray            
 
     
         

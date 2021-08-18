@@ -805,10 +805,10 @@ footer .bot_link_group_right .icon {
     flex-direction: column;
     justify-content: centera;
     align-items: center;
-    background-image: url("../assets/header_mobile.png");
   }
-  header img {
+  header .top_menu img {
     max-height: none;
+    max-width: none;
   }
   header .top_menu {
     position: fixed;
@@ -826,9 +826,6 @@ footer .bot_link_group_right .icon {
   header .top_slogan .slogan_text {
     margin: auto auto;
   }
-  header h1 {
-    color: gray;
-  }
   .top_btn_right {
     max-height: 0px;
     overflow: hidden;
@@ -840,10 +837,8 @@ footer .bot_link_group_right .icon {
     position: absolute;
     z-index: 100;
     top: 54px;
-    background: blue;
-    background-color: yellow;
   }
-  .menu-show li {
+  .menu-show .top_menu li {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -851,14 +846,14 @@ footer .bot_link_group_right .icon {
     background-color: black;
     text-align: center;
   }
-  .menu-show li a {
+  .menu-show .top_menu li a {
     width: 100%;
     background-color: #1c1c1c;
   }
-  .menu-show li a:hover {
+  .menu-show .top_menu li a:hover {
     background-color: gray;
   }
-  .menu-show li a:active {
+  .menu-show .top_menu li a:active {
     background-color: gray;
   }
 }
