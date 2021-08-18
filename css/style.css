@@ -1,4 +1,3 @@
-@charset "UTF-8";
 /* http://meyerweb.com/eric/tools/css/reset/ 
    v2.0 | 20110126
    License: none (public domain)
@@ -821,17 +820,6 @@ footer .bot_link_group_right .icon {
     padding-right: 30px;
     display: block;
   }
-  header .top_menu .top_btn_right {
-    /*隱藏選單開始*/
-    /*隱藏選單結束*/
-    margin-top: 1px;
-    /*絕對定位疊在網頁上*/
-    position: absolute;
-    z-index: 100;
-    /*header 80px+1px boder 線條*/
-    top: 54px;
-    background: black;
-  }
   header .top_slogan {
     margin: auto auto;
   }
@@ -846,6 +834,7 @@ footer .bot_link_group_right .icon {
     overflow: hidden;
   }
   .menu-show .top_btn_right {
+    max-height: none;
     width: 100%;
     overflow: visible;
     position: absolute;
@@ -859,9 +848,18 @@ footer .bot_link_group_right .icon {
     justify-content: center;
     align-items: center;
     width: 100%;
-    padding: 20px;
-    background-color: red;
+    background-color: black;
     text-align: center;
+  }
+  .menu-show li a {
+    width: 100%;
+    background-color: #1c1c1c;
+  }
+  .menu-show li a:hover {
+    background-color: gray;
+  }
+  .menu-show li a:active {
+    background-color: gray;
   }
 }
 /*# sourceMappingURL=style.css.map */
