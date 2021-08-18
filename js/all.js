@@ -15,7 +15,8 @@ $(document).ready(function() {
 //    }
    // $('body').toggleClass('menu-show', false);
    // });
-   $('body:not(.onclick-dropdown-link)').click(function(e){
+   // 點的如果不是特定clss 就  ...
+   $('body:not(.outherclass)').click(function(e){
       $('body').removeClass('menu-show');
     });
 });

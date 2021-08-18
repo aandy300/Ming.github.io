@@ -56,6 +56,8 @@ html,body
 @import '_Footer.sass'
 
 @media(max-width: 736px)
+
+    // header
     header
         display: flex
         flex-direction: column
@@ -75,12 +77,35 @@ html,body
                 display: block
         .top_slogan
             margin: auto auto
-            .slogan_text
-                margin: auto auto
+
+    // footer
+    footer
+        flex-direction: column
+        h2
+            padding-bottom: 0px
+        .bot_info_left
+            flex-direction: column
+            justify-content: center
+            align-items: center
+            text-align: center
+            .about_me
+                margin-bottom: 20px
+            .about_connection
+                margin-bottom: 20px
+        // 右邊
+        .bot_info_right 
+            .bot_link_group_right
+                justify-content: center       
+            .bot_info_name
+                h1
+                    display: none                    
+    
+    
+    // RWD Menu
     .top_btn_right      
         // /*隱藏選單開始*/
         max-height: 0px
-        overflow: hidden
+        overflow: hidden    
     // 因為是下在body 所以在最外層 在內層指定不到
     .menu-show 
         .top_btn_right
@@ -101,7 +126,7 @@ html,body
                 text-align: center                
                 a
                     width: 100%
-                    background-color: #c02b2b                    
+                    background-color: #1c1c1c                    
                 a:hover
                     background-color: gray            
                 a:active

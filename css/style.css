@@ -823,8 +823,29 @@ footer .bot_link_group_right .icon {
   header .top_slogan {
     margin: auto auto;
   }
-  header .top_slogan .slogan_text {
-    margin: auto auto;
+  footer {
+    flex-direction: column;
+  }
+  footer h2 {
+    padding-bottom: 0px;
+  }
+  footer .bot_info_left {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+  footer .bot_info_left .about_me {
+    margin-bottom: 20px;
+  }
+  footer .bot_info_left .about_connection {
+    margin-bottom: 20px;
+  }
+  footer .bot_info_right .bot_link_group_right {
+    justify-content: center;
+  }
+  footer .bot_info_right .bot_info_name h1 {
+    display: none;
   }
   .top_btn_right {
     max-height: 0px;
@@ -848,7 +869,7 @@ footer .bot_link_group_right .icon {
   }
   .menu-show .top_menu li a {
     width: 100%;
-    background-color: #c02b2b;
+    background-color: #1c1c1c;
   }
   .menu-show .top_menu li a:hover {
     background-color: gray;
