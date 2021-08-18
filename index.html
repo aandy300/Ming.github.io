@@ -4,9 +4,11 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="js/jquery-3.1.1.min.js"></script>
+    <script src="js/all.js"></script>
     <link rel="stylesheet" href="css/pure-min.css">
     <link rel="stylesheet" href="css/style.css">
-    <title>123</title>
+    <title>RWD實作</title>
 </head>
 <body>
     <header>
@@ -15,12 +17,12 @@
                 <img src="assets/logo_w(null).svg" alt="">
             </a>
             
-            <div class="top_btn_right">
-                <a href="porduct.html">特色</a>
-                <a href="login.html">主廚</a>
-                <a href="register.html">地圖</a>                
-            </div>
-
+            <ul class="top_btn_right">
+                <li><a href="porduct.html">商品</a></li>
+                <li><a href="register.html">註冊</a></li>
+                <li><a href="login.html">登入</a></li>
+            </ul>
+            <a href="" class="rwd_menu showmenu">Menu</a>
         </div>
         
         <div class="top_slogan">
@@ -28,10 +30,10 @@
                 <h1>咬一口就無法忘懷的漢堡</h1>
                 <p>七夕絕對無法錯選的好滋味</p>
                 <p>六角大漢堡</p>
-            </div>     
-        </div>
+            </div>
+        </div>        
     </header>
-    <div class="container">
+    <!-- <div class="container">
         <div class="layer1">
             <div class="mid_slogan">
                 <h2>
@@ -56,8 +58,7 @@
                     <img src="assets/feature_3@2x.png" alt="" width="200">
                     <h3>對於專業絕不能退讓</h3>
                     <p>Fusce rhoncus porttitor velit, eu bibendum nibh aliquet vel. Fusce lorem leo, vehicula at nibh quis, facilisis accumsan turpis.</p>
-                    <br>
-                    <!-- <p>Sed ullamcorper tellus erat, non ultrices sem tincidunt euismod. Fusce rhoncus porttitor velit, eu bibendum nibh aliquet vel. Fusce lorem leo, vehicula at nibh quis, facilisis accumsan turpis.</p> -->
+                    <br>                    
                 </div>
             </div>
         </div>
@@ -129,10 +130,7 @@
                 <div class="map_info_box"><img src="assets/Map@2x.png" alt="" width="460"></div>
                 <div class="map_info_box">
                         <form action="" class="pure-form">
-                            <!-- <fieldset></fieldset> = 標籤 -->
                             <fieldset>
-                                <!-- <legend></legend> = 分組的標題 -->
-                                <!-- <legend></legend> -->
                                 <label for="">姓名</label>
                                 <input type="text" name="name" placeholder=" 王小明" size="40" /><br>
                                 <label for="">電話</label>
@@ -195,6 +193,6 @@
                 </div>          
             </div>
         </div>
-    </footer>
+    </footer> -->
 </body>
 </html>

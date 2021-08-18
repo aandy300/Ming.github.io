@@ -1,3 +1,4 @@
+@charset "UTF-8";
 /* http://meyerweb.com/eric/tools/css/reset/ 
    v2.0 | 20110126
    License: none (public domain)
@@ -61,6 +62,10 @@ img {
   height: auto;
 }
 
+.hide {
+  display: none;
+}
+
 h2 {
   font-size: 22px;
   font-weight: bold;
@@ -97,10 +102,17 @@ button, input, optgroup, select, textarea {
 html, body {
   height: 100%;
   margin: 0;
+  background-color: #efe9e7;
 }
 
-body {
-  background-color: #1e1e1e;
+.all {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.all .container {
+  flex: 1;
 }
 
 header {
@@ -117,16 +129,26 @@ header .top_menu {
   justify-content: space-between;
   align-items: center;
   background-color: #000000bd;
+  height: 55px;
 }
 
 header .top_menu a {
   padding: 15px 20px;
 }
 
+header .top_menu .top_btn_right {
+  display: flex;
+}
+
 header .top_menu .top_btn_right a {
   font-size: 18px;
   font-weight: bold;
   color: #d3d3d3;
+}
+
+header .top_menu .rwd_menu {
+  display: none;
+  color: white;
 }
 
 header .top_slogan {
@@ -167,9 +189,9 @@ header .top_slogan .slogan_text p {
   margin: auto auto;
   position: relative;
   bottom: 85px;
-  z-index: 1;
   max-width: 600px;
-  border: 1px solid #381f00;
+  height: 1px;
+  background-color: black;
 }
 
 .container .layer1 .mid_slogan h2 {
@@ -297,6 +319,7 @@ header .top_slogan .slogan_text p {
   flex-direction: column;
   align-items: center;
   background-color: #f6f4f3;
+  width: 100%;
 }
 
 .container .layer4 .mid_slogan {
@@ -349,6 +372,7 @@ header .top_slogan .slogan_text p {
 }
 
 .container .login {
+  max-width: 350px;
   margin: auto auto;
 }
 
@@ -435,11 +459,13 @@ header .top_slogan .slogan_text p {
   font-family: PingFangTC-Regular;
   color: #FFFFFF;
   padding: 10px 48px;
-  margin: 15px 20px;
+  margin: 15px 5px;
 }
 
 .container .register {
+  max-width: 650px;
   margin: auto auto;
+  margin-bottom: 20px;
 }
 
 .container .register_box {
@@ -540,13 +566,6 @@ header .top_slogan .slogan_text p {
   color: #FFFFFF;
   padding: 7px 50px;
   margin: 0px 15px 5px 0px;
-}
-
-.container {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: center;
 }
 
 .container .line {
@@ -681,6 +700,11 @@ header .top_slogan .slogan_text p {
   z-index: 1;
 }
 
+.container .product_box_all .layer_right .bot_product_list .product a {
+  padding: 0px;
+  margin: 0px;
+}
+
 .container .product_box_all .layer_right .bot_product_list .product h3 {
   font-size: 22px;
   margin: 20px 0px 0px 0px;
@@ -710,7 +734,6 @@ header .top_slogan .slogan_text p {
 }
 
 .container .product_box_all .layer_right .bot_product_list .product .add_to_car_box {
-  display: flex;
   position: relative;
   top: 35px;
 }
@@ -726,7 +749,7 @@ header .top_slogan .slogan_text p {
 .container .product_box_all .layer_right .bot_product_list .product .add_to_car_box img {
   width: 20px;
   position: absolute;
-  top: 4px;
+  top: -2px;
   left: 25px;
 }
 
@@ -768,14 +791,6 @@ footer .bot_info_right {
   flex-direction: column;
 }
 
-footer .bot_info_right .bot_info_name h1 {
-  font-size: 45px;
-  font-weight: bold;
-  padding-top: 30px;
-  padding-bottom: 10px;
-  color: #2e2200;
-}
-
 footer .bot_link_group_right {
   display: flex;
   justify-content: flex-end;
@@ -785,13 +800,68 @@ footer .bot_link_group_right .icon {
   margin: 20px 5px 0px;
 }
 
-.all {
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
-}
-
-.all .container {
-  flex: 1;
+@media (max-width: 736px) {
+  header {
+    display: flex;
+    flex-direction: column;
+    justify-content: centera;
+    align-items: center;
+    background-image: url("../assets/header_mobile.png");
+  }
+  header img {
+    max-height: none;
+  }
+  header .top_menu {
+    position: fixed;
+    width: 100%;
+    background-color: black;
+    top: 0px;
+  }
+  header .top_menu .rwd_menu {
+    padding-right: 30px;
+    display: block;
+  }
+  header .top_menu .top_btn_right {
+    /*隱藏選單開始*/
+    /*隱藏選單結束*/
+    margin-top: 1px;
+    /*絕對定位疊在網頁上*/
+    position: absolute;
+    z-index: 100;
+    /*header 80px+1px boder 線條*/
+    top: 54px;
+    background: black;
+  }
+  header .top_slogan {
+    margin: auto auto;
+  }
+  header .top_slogan .slogan_text {
+    margin: auto auto;
+  }
+  header h1 {
+    color: gray;
+  }
+  .top_btn_right {
+    max-height: 0px;
+    overflow: hidden;
+  }
+  .menu-show .top_btn_right {
+    width: 100%;
+    overflow: visible;
+    position: absolute;
+    z-index: 100;
+    top: 54px;
+    background: blue;
+    background-color: yellow;
+  }
+  .menu-show li {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    padding: 20px;
+    background-color: red;
+    text-align: center;
+  }
 }
 /*# sourceMappingURL=style.css.map */
