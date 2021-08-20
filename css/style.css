@@ -949,9 +949,9 @@ footer .bot_link_group_right .icon {
     display: block;
     height: 460px;
     width: 454px;
-    margin-right: 20px;
     background-color: red;
     background: url("../assets/main_chef_brown.png") no-repeat center center;
+    background-position: -55px 0px;
   }
   .container .layer2 .layer2_right h3 {
     margin-top: 60px;
