@@ -1,3 +1,4 @@
+@charset "UTF-8";
 /* http://meyerweb.com/eric/tools/css/reset/ 
    v2.0 | 20110126
    License: none (public domain)
@@ -534,8 +535,6 @@ header .top_slogan .slogan_text p {
 
 .container .register_box form fieldset .form_box .register_info_box a {
   font-size: 14px;
-  position: relative;
-  bottom: 10px;
   color: #f56c23;
 }
 
@@ -567,7 +566,7 @@ header .top_slogan .slogan_text p {
   margin: 0px 15px 5px 0px;
 }
 
-.container .line {
+.container .product_line {
   height: 1px;
   background-color: black;
 }
@@ -805,6 +804,8 @@ footer .bot_link_group_right .icon {
     flex-direction: column;
     justify-content: centera;
     align-items: center;
+    padding-top: 55px;
+    background-color: black;
   }
   header .top_menu img {
     max-height: none;
@@ -819,6 +820,12 @@ footer .bot_link_group_right .icon {
   header .top_menu .rwd_menu {
     padding-right: 30px;
     display: block;
+  }
+  header .top_menu .rwd_menu:hover {
+    background-color: gray;
+  }
+  header .top_menu .rwd_menu:active {
+    background-color: gray;
   }
   header .top_slogan {
     margin: auto auto;
@@ -836,10 +843,10 @@ footer .bot_link_group_right .icon {
     text-align: center;
   }
   footer .bot_info_left .about_me {
-    margin-bottom: 20px;
+    margin-bottom: 25px;
   }
   footer .bot_info_left .about_connection {
-    margin-bottom: 20px;
+    margin-bottom: 25px;
   }
   footer .bot_info_right .bot_link_group_right {
     justify-content: center;
@@ -848,8 +855,10 @@ footer .bot_link_group_right .icon {
     display: none;
   }
   .top_btn_right {
+    /*隱藏選單開始*/
     max-height: 0px;
     overflow: hidden;
+    /*隱藏選單結束*/
   }
   .menu-show .top_btn_right {
     max-height: none;
@@ -876,6 +885,18 @@ footer .bot_link_group_right .icon {
   }
   .menu-show .top_menu li a:active {
     background-color: gray;
+  }
+  .container .layer1 .mid_slogan {
+    position: static;
+  }
+  .container .layer1 .mid_slogan .line {
+    height: 0px;
+  }
+  .container .layer1 .mid_slogan h2 {
+    position: static;
+  }
+  .container .layer1 .feature_box {
+    flex-direction: column;
   }
 }
 /*# sourceMappingURL=style.css.map */

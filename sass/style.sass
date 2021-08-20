@@ -53,7 +53,7 @@ html,body
 @import '_Product_style'
 
 // Footer
-@import '_Footer.sass'
+@import '_Footer'
 
 @media(max-width: 736px)
 
@@ -63,6 +63,9 @@ html,body
         flex-direction: column
         justify-content: centera
         align-items: center
+        padding-top: 55px
+        background-color: black
+
         .top_menu
             img
                 max-height: none
@@ -75,6 +78,10 @@ html,body
             .rwd_menu                
                 padding-right: 30px
                 display: block
+            .rwd_menu:hover
+                background-color: gray            
+            .rwd_menu:active
+                background-color: gray
         .top_slogan
             margin: auto auto
 
@@ -89,9 +96,9 @@ html,body
             align-items: center
             text-align: center
             .about_me
-                margin-bottom: 20px
+                margin-bottom: 25px
             .about_connection
-                margin-bottom: 20px
+                margin-bottom: 25px
         // 右邊
         .bot_info_right 
             .bot_link_group_right
@@ -102,19 +109,26 @@ html,body
     
     
     // RWD Menu
+    // 隱藏
     .top_btn_right      
-        // /*隱藏選單開始*/
+        /*隱藏選單開始*/
         max-height: 0px
-        overflow: hidden    
+        overflow: hidden  
+        /*隱藏選單結束*/  
+
     // 因為是下在body 所以在最外層 在內層指定不到
+    //
     .menu-show 
         .top_btn_right
-            max-height: none               
+            max-height: none            
+            // height: 500px                
+            // transition: max-height 1.3s
             width: 100%
             overflow: visible
             position: absolute
             z-index: 100
-            top: 54px            
+            top: 54px 
+
         .top_menu
             .top_btn_right
             li
@@ -132,6 +146,18 @@ html,body
                 a:active
                     background-color: gray            
 
-    
+    // index
+    .container        
+        .layer1
+            .mid_slogan
+                position: static
+                .line
+                    height: 0px
+                h2
+                    position: static
+                
+            .feature_box
+                flex-direction: column
+                
         
 
