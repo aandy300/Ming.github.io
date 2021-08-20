@@ -217,8 +217,22 @@ header .top_slogan .slogan_text p {
   margin: 20px 60px 20px 60px;
 }
 
-.container .layer1 .feature_box .feature .feature_1, .container .layer1 .feature_box .feature .feature_2, .container .layer1 .feature_box .feature .feature_1 {
-  display: none;
+.container .layer1 .feature_box .feature .feature_1, .container .layer1 .feature_box .feature .feature_2, .container .layer1 .feature_box .feature .feature_3 {
+  height: 200px;
+  width: 200px;
+  border-radius: 200px;
+}
+
+.container .layer1 .feature_box .feature .feature_1 {
+  background: url("../assets/feature_1.png") no-repeat center center;
+}
+
+.container .layer1 .feature_box .feature .feature_2 {
+  background: url("../assets/feature_2.png") no-repeat center center;
+}
+
+.container .layer1 .feature_box .feature .feature_3 {
+  background: url("../assets/feature_3.png") no-repeat center center;
 }
 
 .container .layer1 .feature_box .feature h3 {
@@ -229,10 +243,6 @@ header .top_slogan .slogan_text p {
   max-width: 260px;
   font-family: MicrosoftJhengHeiRegular;
   color: #7d5e54;
-}
-
-.container .layer1 .feature_box .feature img {
-  border-radius: 210px 210px;
 }
 
 .container .layer2 {
@@ -927,12 +937,27 @@ footer .bot_link_group_right .icon {
   .container .layer2 {
     flex-direction: column;
   }
-  .container .layer2 .layer2_right {
-    margin: 0px;
-    max-width: 0px;
-  }
   .container .layer2 img {
     display: none;
+  }
+  .container .layer2 .chief_img_box {
+    height: 460px;
+    width: 414px;
+    overflow: hidden;
+  }
+  .container .layer2 .chief_img_box .rwd_chief {
+    display: block;
+    height: 460px;
+    width: 454px;
+    margin-right: 20px;
+    background-color: red;
+    background: url("../assets/main_chef_brown.png") no-repeat center center;
+  }
+  .container .layer2 .layer2_right h3 {
+    margin-top: 60px;
+  }
+  .container .layer2 .layer2_right p {
+    margin-bottom: 60px;
   }
 }
 /*# sourceMappingURL=style.css.map */

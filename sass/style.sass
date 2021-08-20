@@ -165,7 +165,7 @@ html,body
                         display: block
                         height: 200px
                         width: 200px
-                        border-radius: 200px
+                        border-radius: 200px                    
                     .feature_1
                         background: url('../assets/feature_1.png') no-repeat center center
                     .feature_2
@@ -174,12 +174,29 @@ html,body
                         background: url('../assets/feature_3.png') no-repeat center center
         .layer2
             flex-direction: column
-            .layer2_right
-                margin: 0px
-                max-width: 0px
+            // 廚師圖片
             img
-                display: none
-            
+                display: none                       
+            .chief_img_box
+                height: 460px
+                width: 414px
+                overflow: hidden
+                .rwd_chief
+                    display: block
+                    height: 460px
+                    width: 454px
+                    margin-right: 20px
+                    background-color: red
+                    background: url('../assets/main_chef_brown.png') no-repeat center center
+                    
+            .layer2_right
+                // align-items: center
+                // text-align: center
+                h3
+                    margin-top: 60px
+                p
+                    margin-bottom: 60px
+                    
                 
         
 
