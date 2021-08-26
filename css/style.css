@@ -287,6 +287,10 @@ header .top_slogan .slogan_text p {
   padding-bottom: 50px;
 }
 
+.container .layer3 .review_1, .container .layer3 .review_2, .container .layer3 .review_3 {
+  display: none;
+}
+
 .container .layer3 .mid_slogan {
   padding-top: 40px;
   padding-bottom: 40px;
@@ -952,6 +956,30 @@ footer .bot_link_group_right .icon {
   }
   .container .layer2 .layer2_right p {
     margin-bottom: 60px;
+  }
+  .container .layer3 .review_box {
+    flex-direction: column;
+  }
+  .container .layer3 .review_box .review {
+    margin-bottom: 20px;
+  }
+  .container .layer3 img {
+    display: none;
+  }
+  .container .layer3 .review_1, .container .layer3 .review_2, .container .layer3 .review_3 {
+    display: block;
+    height: 64px;
+    width: 64px;
+    border-radius: 200px;
+  }
+  .container .layer3 .review_1 {
+    background: url("../assets/avatar_1.png") no-repeat center center;
+  }
+  .container .layer3 .review_2 {
+    background: url("../assets/avatar_2.png") no-repeat center center;
+  }
+  .container .layer3 .review_3 {
+    background: url("../assets/avatar_3.png") no-repeat center center;
   }
 }
 /*# sourceMappingURL=style.css.map */
