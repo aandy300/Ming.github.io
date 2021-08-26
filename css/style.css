@@ -916,15 +916,6 @@ footer .bot_link_group_right .icon {
   .container .layer1 .feature_box {
     flex-direction: column;
   }
-  .container .layer1 .feature_box .feature img {
-    display: none;
-  }
-  .container .layer1 .feature_box .feature .feature_1, .container .layer1 .feature_box .feature .feature_2, .container .layer1 .feature_box .feature .feature_3 {
-    display: block;
-    height: 200px;
-    width: 200px;
-    border-radius: 200px;
-  }
   .container .layer1 .feature_box .feature .feature_1 {
     background: url("../assets/feature_1.png") no-repeat center center;
   }
@@ -952,6 +943,9 @@ footer .bot_link_group_right .icon {
     background-color: red;
     background: url("../assets/main_chef_brown.png") no-repeat center center;
     background-position: -55px 0px;
+  }
+  .container .layer2 .layer2_right {
+    margin: 0px 80px;
   }
   .container .layer2 .layer2_right h3 {
     margin-top: 60px;
