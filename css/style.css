@@ -981,5 +981,24 @@ footer .bot_link_group_right .icon {
   .container .layer3 .review_3 {
     background: url("../assets/avatar_3.png") no-repeat center center;
   }
+  .container .layer4 .map_info_box img {
+    height: 100%;
+    width: 100%;
+  }
+  .container .layer4 .map_info {
+    flex-direction: column;
+  }
+  .container .layer4 .map_info form {
+    width: 370px;
+  }
+  .container .layer4 .map_info form input {
+    width: 100%;
+  }
+  .container .layer4 .map_info form .vegetarian_radio {
+    display: flex;
+  }
+  .container .layer4 .map_info form .vegetarian_radio input {
+    width: 20px;
+  }
 }
 /*# sourceMappingURL=style.css.map */
