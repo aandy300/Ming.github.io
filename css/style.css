@@ -626,6 +626,11 @@ header .top_slogan .slogan_text p {
   background-color: #3d1101;
 }
 
+.container .product_box_all ul a :active {
+  color: white;
+  background-color: #832402;
+}
+
 .container .product_box_all ul p {
   padding: 3px 10px;
 }
@@ -990,6 +995,7 @@ footer .bot_link_group_right .icon {
   }
   .container .layer4 .map_info form {
     width: 370px;
+    margin-top: 20px;
   }
   .container .layer4 .map_info form input {
     width: 100%;
@@ -999,6 +1005,58 @@ footer .bot_link_group_right .icon {
   }
   .container .layer4 .map_info form .vegetarian_radio input {
     width: 20px;
+  }
+  .container .register {
+    display: flex;
+    justify-content: center;
+  }
+  .container .register form {
+    width: 350px;
+  }
+  .container .register form fieldset .form_box .register_about {
+    display: none;
+  }
+  .container .product_box_all {
+    flex-direction: column;
+    font-weight: bold;
+  }
+  .container .product_box_all .layer_left {
+    width: 350px;
+    margin: 0px;
+    margin: 20px  auto;
+  }
+  .container .product_box_all .left_top_menu {
+    padding: 0px;
+    margin: 20px 0px;
+    justify-content: flex-start;
+  }
+  .container .product_box_all .layer_right {
+    margin: 20px auto;
+  }
+  .container .product_box_all .layer_right .top_menu {
+    flex-direction: column;
+  }
+  .container .product_box_all .layer_right .top_menu .search_box form {
+    margin-left: 15px;
+    width: 313px;
+  }
+  .container .product_box_all .layer_right .top_menu .search_box form input {
+    width: 100%;
+  }
+  .container .product_box_all .layer_right .top_menu .search_box a {
+    left: 355px;
+    top: -24px;
+  }
+  .container .product_box_all .layer_right .top_menu .shop_car_box {
+    align-items: center;
+    position: relative;
+    left: 255px;
+    top: 0px;
+  }
+  .container .product_box_all .layer_right .top_menu .shop_car_box .product_line {
+    margin: 0px 15px;
+    width: 1px;
+    height: 20px;
   }
 }
 /*# sourceMappingURL=style.css.map */
