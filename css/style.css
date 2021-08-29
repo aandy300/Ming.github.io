@@ -1034,22 +1034,26 @@ footer .bot_link_group_right .icon {
     margin: 20px auto;
   }
   .container .product_box_all .layer_right .top_menu {
+    width: 100%;
     flex-direction: column;
   }
+  .container .product_box_all .layer_right .top_menu .lll {
+    margin-left: 290px;
+  }
   .container .product_box_all .layer_right .top_menu .search_box form {
-    margin-left: 15px;
-    width: 313px;
+    width: 318px;
+    margin-left: 35px;
   }
   .container .product_box_all .layer_right .top_menu .search_box form input {
     width: 100%;
+    margin: 0px 0px;
   }
   .container .product_box_all .layer_right .top_menu .search_box a {
-    left: 355px;
+    left: 325px;
     top: -24px;
   }
   .container .product_box_all .layer_right .top_menu .shop_car_box {
     align-items: center;
-    position: relative;
     left: 255px;
     top: 0px;
   }
