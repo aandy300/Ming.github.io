@@ -1023,18 +1023,9 @@ footer .bot_link_group_right .icon {
   .container .register form fieldset .form_box .register_about {
     display: none;
   }
-  .container {
-    height: 100%;
-    position: static;
-  }
   .container .product_box_all {
     flex-direction: column;
     font-weight: bold;
-  }
-  .container .product_box_all .box {
-    height: 200px;
-    width: 200px;
-    background-color: red;
   }
   .container .product_box_all .layer_left {
     width: 350px;
@@ -1078,15 +1069,8 @@ footer .bot_link_group_right .icon {
     width: 1px;
     height: 20px;
   }
-  .container .product_box_all .layer_right .bot_product_list {
-    width: 300px;
-    height: 120px;
-    margin: auto;
-  }
   .container .product_box_all .layer_right .bot_product_list .product {
     margin: 10px auto;
-    margin-bottom: 300px;
-    flex-direction: column;
   }
   .container .product_box_all .layer_right .bot_product_list .product .rwd_product_a img {
     display: none;

@@ -239,14 +239,8 @@ html,body
 
     // product
     .container
-        // height: 100% 沒有的話footer跑上來
-        height: 100%  
-        position: static      
-        .product_box_all
-            .box
-                height: 200px
-                width: 200px
-                background-color: red
+        // height: 100% 反而讓footer跑上來 web更新lag        
+        .product_box_all            
             flex-direction: column
             font-weight: bold            
             // 上面左邊
@@ -285,14 +279,9 @@ html,body
                             width: 1px
                             height: 20px
                 // 商品
-                .bot_product_list
-                    width: 300px
-                    height: 120px
-                    margin: auto
+                .bot_product_list                    
                     .product                        
-                        margin: 10px auto
-                        margin-bottom: 300px
-                        flex-direction: column                        
+                        margin: 10px auto                                                                       
                         .rwd_product_a                         
                             img
                                 display: none
