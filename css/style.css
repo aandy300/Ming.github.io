@@ -743,6 +743,10 @@ header .top_slogan .slogan_text p {
   max-width: 220px;
 }
 
+.container .product_box_all .layer_right .bot_product_list .product .rwd_product_img1, .container .product_box_all .layer_right .bot_product_list .product .rwd_product_img2, .container .product_box_all .layer_right .bot_product_list .product .rwd_product_img3 {
+  display: none;
+}
+
 .container .product_box_all .layer_right .bot_product_list .product .line {
   width: 100px;
   margin: 15px 0px;
@@ -1019,9 +1023,18 @@ footer .bot_link_group_right .icon {
   .container .register form fieldset .form_box .register_about {
     display: none;
   }
+  .container {
+    height: 100%;
+    position: static;
+  }
   .container .product_box_all {
     flex-direction: column;
     font-weight: bold;
+  }
+  .container .product_box_all .box {
+    height: 200px;
+    width: 200px;
+    background-color: red;
   }
   .container .product_box_all .layer_left {
     width: 350px;
@@ -1057,7 +1070,7 @@ footer .bot_link_group_right .icon {
     top: -24px;
   }
   .container .product_box_all .layer_right .top_menu .shop_car_box {
-    left: 255px;
+    left: 250px;
     top: 0px;
   }
   .container .product_box_all .layer_right .top_menu .shop_car_box .product_line {
@@ -1066,16 +1079,25 @@ footer .bot_link_group_right .icon {
     height: 20px;
   }
   .container .product_box_all .layer_right .bot_product_list {
-    width: 414px;
-    margin: 0px 0px;
+    width: 300px;
+    height: 120px;
+    margin: auto;
   }
   .container .product_box_all .layer_right .bot_product_list .product {
-    padding: 0px 0px;
     margin: 10px auto;
-    width: 80%;
+    margin-bottom: 300px;
+    flex-direction: column;
   }
-  .container .product_box_all .layer_right .bot_product_list .product a img {
-    width: 200px;
+  .container .product_box_all .layer_right .bot_product_list .product .rwd_product_a img {
+    display: none;
+  }
+  .container .product_box_all .layer_right .bot_product_list .product .rwd_product_img1, .container .product_box_all .layer_right .bot_product_list .product .rwd_product_img2, .container .product_box_all .layer_right .bot_product_list .product .rwd_product_img3 {
+    display: block;
+  }
+  .container .product_box_all .layer_right .bot_product_list .product .rwd_product_img1 {
+    width: 300px;
+    height: 120px;
+    background: url("../assets/product_1.png") no-repeat;
   }
 }
 /*# sourceMappingURL=style.css.map */

@@ -238,10 +238,17 @@ html,body
                             display: none
 
     // product
-    .container        
+    .container
+        // height: 100% 沒有的話footer跑上來
+        height: 100%  
+        position: static      
         .product_box_all
+            .box
+                height: 200px
+                width: 200px
+                background-color: red
             flex-direction: column
-            font-weight: bold
+            font-weight: bold            
             // 上面左邊
             .layer_left                
                 width: 350px
@@ -271,21 +278,27 @@ html,body
                             left: 325px                            
                             top: -24px                        
                     .shop_car_box                                                                                     
-                        left: 255px                            
+                        left: 250px                            
                         top: 0px
                         .product_line
                             margin: 0px 15px
                             width: 1px
                             height: 20px
+                // 商品
                 .bot_product_list
-                    width: 414px
-                    margin: 0px 0px
-                    .product
-                        padding: 0px 0px
+                    width: 300px
+                    height: 120px
+                    margin: auto
+                    .product                        
                         margin: 10px auto
-                        // max-width: 1300px
-                        width: 80%
-                        a
+                        margin-bottom: 300px
+                        flex-direction: column                        
+                        .rwd_product_a                         
                             img
-                                width: 200px
-            // 追加 RWD的 div bkimg吧 商品圖
+                                display: none
+                        .rwd_product_img1, .rwd_product_img2, .rwd_product_img3
+                            display: block
+                        .rwd_product_img1                                
+                            width: 300px
+                            height: 120px
+                            background: url('../assets/product_1.png') no-repeat                            
