@@ -55,7 +55,7 @@ html,body
 // Footer
 @import '_Footer'
 
-@media(max-width: 736px)
+@media(max-width: 536px)
 
     // header
     header
@@ -129,7 +129,8 @@ html,body
             z-index: 100
             top: 54px 
 
-        .top_menu
+        .top_menu                         
+            z-index: 100
             .top_btn_right
             li
                 display: flex
@@ -256,10 +257,8 @@ html,body
                 .top_menu
                     width: 100%                    
                     flex-direction: column                    
-                    // margin: 0px auto
-                    // align-items: center
-                    .lll
-                        margin-left: 290px
+                    .shop_car_marginleft
+                        margin-left: 280px
                     .search_box
                         form                            
                             width: 318px
@@ -267,15 +266,26 @@ html,body
                             input
                                 width: 100%
                                 margin: 0px 0px                                
-                        a                            
+                        a    
+                            position: relative                         
                             left: 325px                            
-                            top: -24px
-                    .shop_car_box                        
-                        align-items: center                        
+                            top: -24px                        
+                    .shop_car_box                                                                                     
                         left: 255px                            
                         top: 0px
                         .product_line
                             margin: 0px 15px
                             width: 1px
                             height: 20px
-                        
+                .bot_product_list
+                    width: 414px
+                    margin: 0px 0px
+                    .product
+                        padding: 0px 0px
+                        margin: 10px auto
+                        // max-width: 1300px
+                        width: 80%
+                        a
+                            img
+                                width: 200px
+            // 追加 RWD的 div bkimg吧 商品圖
