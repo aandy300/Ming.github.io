@@ -32,13 +32,10 @@ button, input, optgroup, select, textarea
 html,body
     height: 100%
     margin: 0
-    background-color: rgb(239, 233, 231)
+    // background-color: rgb(239, 233, 231)
 .all
-    display: flex //啟用flex
-    flex-direction: column //設定由上到下排列
-    min-height: 100vh // 至少佔據可視範圍的整個高度
-    .container
-        flex: 1 // 高度自動伸展至所有剩餘的空間
+    max-width: 1024px
+    margin: 0 auto
 
 // header
 @import '_Header';
@@ -174,15 +171,14 @@ html,body
             .chief_img_box
                 height: 460px
                 width: 414px
-                overflow: hidden
-                // margin-right: 20px
-                .rwd_chief
-                    display: block
-                    height: 460px
-                    width: 454px                    
-                    background-color: red
-                    background: url('../assets/main_chef_brown.png') no-repeat center center
-                    background-position: -55px 0px
+                overflow: hidden                
+            .rwd_chief
+                display: block
+                height: 460px
+                width: 454px                    
+                background-color: red
+                background: url('../assets/main_chef_brown.png') no-repeat center center
+                background-position: -55px 0px
                     
             .layer2_right
                 margin: 0px 80px
@@ -215,6 +211,9 @@ html,body
                     width: 100%
             .map_info
                 flex-direction: column
+                iframe
+                    width: 380px
+                    height: 450px
                 form
                     width: 370px
                     margin-top: 20px

@@ -102,17 +102,11 @@ button, input, optgroup, select, textarea {
 html, body {
   height: 100%;
   margin: 0;
-  background-color: #efe9e7;
 }
 
 .all {
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
-}
-
-.all .container {
-  flex: 1;
+  max-width: 1024px;
+  margin: 0 auto;
 }
 
 header {
@@ -352,7 +346,13 @@ header .top_slogan .slogan_text p {
 
 .container .layer4 .map_info {
   display: flex;
+  align-items: center;
   padding-bottom: 40px;
+}
+
+.container .layer4 .map_info iframe {
+  width: 550px;
+  height: 450px;
 }
 
 .container .layer4 .map_info .map_info_box {
@@ -952,7 +952,7 @@ footer .bot_link_group_right .icon {
     width: 414px;
     overflow: hidden;
   }
-  .container .layer2 .chief_img_box .rwd_chief {
+  .container .layer2 .rwd_chief {
     display: block;
     height: 460px;
     width: 454px;
@@ -999,6 +999,10 @@ footer .bot_link_group_right .icon {
   }
   .container .layer4 .map_info {
     flex-direction: column;
+  }
+  .container .layer4 .map_info iframe {
+    width: 380px;
+    height: 450px;
   }
   .container .layer4 .map_info form {
     width: 370px;
