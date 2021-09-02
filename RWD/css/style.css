@@ -947,15 +947,11 @@ footer .bot_link_group_right .icon {
   .container .layer2 img {
     display: none;
   }
-  .container .layer2 .chief_img_box {
-    height: 460px;
-    width: 414px;
-    overflow: hidden;
-  }
   .container .layer2 .rwd_chief {
     display: block;
     height: 460px;
-    width: 454px;
+    width: 414px;
+    overflow: hidden;
     background-color: red;
     background: url("../assets/main_chef_brown.png") no-repeat center center;
     background-position: -55px 0px;
