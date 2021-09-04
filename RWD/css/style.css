@@ -605,15 +605,16 @@ header .top_slogan .slogan_text p {
 }
 
 .container .product_box_all .left_top_menu {
-  display: flex;
-  justify-content: flex-end;
-  padding: 20px 60px 10px 40px;
+  padding: 20px 60px 10px 10px;
 }
 
 .container .product_box_all .left_top_menu h2 {
   font-size: 18px;
   white-space: nowrap;
-  margin-left: 10px;
+}
+
+.container .product_box_all .left_top_menu i {
+  margin-right: 10px;
 }
 
 .container .product_box_all ul a {
