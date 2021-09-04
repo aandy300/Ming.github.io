@@ -646,6 +646,7 @@ header .top_slogan .slogan_text p {
 .container .product_box_all .layer_right .top_menu {
   display: flex;
   justify-content: space-between;
+  align-items: center;
 }
 
 .container .product_box_all .layer_right .top_menu input {
@@ -654,37 +655,35 @@ header .top_slogan .slogan_text p {
   background-color: #efe9e7;
 }
 
-.container .product_box_all .layer_right .top_menu .search_box a {
-  position: relative;
-  right: 5px;
-  top: 7px;
+.container .product_box_all .layer_right .top_menu .search_box form {
+  display: flex;
 }
 
-.container .product_box_all .layer_right .top_menu .search_box a img {
-  width: 24px;
+.container .product_box_all .layer_right .top_menu .search_box form i, .container .product_box_all .layer_right .top_menu .search_box form button {
+  background-color: #3e1101;
+}
+
+.container .product_box_all .layer_right .top_menu .search_box form i {
+  color: white;
 }
 
 .container .product_box_all .layer_right .top_menu .shop_car_box {
   display: flex;
+  justify-content: center;
+  align-items: center;
   margin: 5px 20px;
 }
 
-.container .product_box_all .layer_right .top_menu .shop_car_box .line {
-  width: 2px;
-  height: 25px;
-  margin: 2px 20px 0px 20px;
-  background-color: #3d1101;
+.container .product_box_all .layer_right .top_menu .shop_car_box i {
+  color: #3d1101;
+  font-size: 29px;
 }
 
-.container .product_box_all .layer_right .top_menu .shop_car_box a {
-  display: flex;
-  align-items: center;
-  color: #3D1101;
-}
-
-.container .product_box_all .layer_right .top_menu .shop_car_box a img {
-  margin: 2px 0px;
-  max-width: 25px;
+.container .product_box_all .layer_right .top_menu .shop_car_box p {
+  color: #3d1101;
+  padding-right: 15px;
+  margin-right: 15px;
+  border-right: 2px solid;
 }
 
 .container .product_box_all .layer_right .bot_product_list {
@@ -1045,30 +1044,21 @@ footer .bot_link_group_right .icon {
     width: 100%;
     flex-direction: column;
   }
-  .container .product_box_all .layer_right .top_menu .shop_car_marginleft {
-    margin-left: 280px;
+  .container .product_box_all .layer_right .top_menu .search_box {
+    margin: 0 auto;
   }
   .container .product_box_all .layer_right .top_menu .search_box form {
-    width: 318px;
-    margin-left: 35px;
+    width: 350px;
   }
   .container .product_box_all .layer_right .top_menu .search_box form input {
     width: 100%;
     margin: 0px 0px;
   }
-  .container .product_box_all .layer_right .top_menu .search_box a {
-    position: relative;
-    left: 325px;
-    top: -24px;
-  }
   .container .product_box_all .layer_right .top_menu .shop_car_box {
-    left: 250px;
-    top: 0px;
+    margin: 20px 0px 0px 0px;
   }
-  .container .product_box_all .layer_right .top_menu .shop_car_box .product_line {
-    margin: 0px 15px;
-    width: 1px;
-    height: 20px;
+  .container .product_box_all .layer_right .top_menu .shop_car_marginleft {
+    margin-left: 240px;
   }
   .container .product_box_all .layer_right .bot_product_list .product {
     margin: 10px auto;
