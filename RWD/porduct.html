@@ -32,6 +32,7 @@
     <!-- CSS、JS、JQ -->
     <script src="js/jquery-3.1.1.min.js"></script>
     <script src="js/all.js"></script>
+    <script src="js/cart.js"></script>
     <link rel="stylesheet" href="css/pure-min.css">
     <link rel="stylesheet" href="css/style.css">
     <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css' />
@@ -86,16 +87,13 @@
                     <div class="search_box">
                         <form action="">
                             <input type="text" name="" id="" size="40">
-                            <button><i class="fas fa-search"></i></button>
-                            <!-- <a href=""><img src="assets/search2.png" alt=""></a> -->                            
+                            <button><i class="fas fa-search"></i></button>                            
                         </form>
                     </div>
                     <!-- 購物車 -->
                     <a class="shop_car_box shop_car_marginleft"  href="#">
                         <p>結帳去</p>
-                        <i class="fas fa-shopping-cart"></i>
-                        <!-- <div class="product_line"></div> -->
-                        <!-- <a href="" class="buy_car"><img src="assets/cart2.png" alt=""></a> -->
+                        <i class="fas fa-shopping-cart"></i>                        
                     </a>
                 </div>
 
@@ -103,111 +101,90 @@
                 <div class="bot_product_list">
                     <!-- 商品選項 -->
                     <div class="product">
-                        <!-- 至頂按鈕 -->
-                        <div class="favor">
-                            <input type="checkbox" name="vehicle1" value="Bike">
+                        <!-- 至頂按鈕 -->                        
+                        <div class="like">
+                            <i class="far fa-heart"></i>
                         </div>
-                        <div class="hot_sale">
-                            <div class="hot_sale_icon">HOT</div>
-                        </div>
-                        <!-- 商品圖 -->
-                        <a class="rwd_product_a" href="">
-                            <img class="lock_img" src="assets/product_1@2x.png" alt="">
-                            <div class="rwd_product_img1"></div>
-                        </a>
+                        <div class="label">
+                            熱銷美食
+                        </div>                        
+                        <!-- 商品圖 -->                                            
+                        <div class="rwd_product_img1"></div>                        
                         <!-- 內文 -->
                         <h3>經典漢堡套餐</h3>
                         <p>Classic Hamburger Package</p>
                         <div class="product_line"></div>
                         <p class="price">$ 120</p>
-                        <!-- 加入購物車 -->
-                        <div class="add_to_car_box">
+                        <!-- 加入購物車 a img ver-->
+                        <!-- <div class="add_to_car_box">
                             <a href="">
                                 <img src="assets/shopping-basket.png" alt="">加入購物車
                             </a>
-                        </div>
+                        </div> -->
+                        <!-- 加入購物車 btn ver -->
+                        <button class="add_to_car_box">
+                            <i class="fas fa-shopping-cart"></i>
+                            加入購物車
+                        </button>                        
                     </div>
 
                     <!-- 商品選項 -->
                     <div class="product">
-                        <!-- 至頂按鈕 -->
-                        <div class="favor">
-                            <input type="checkbox" name="vehicle1" value="Bike">
-                        </div>
-                        <div class="hot_sale">
-                            <!-- <div class="hot_sale_icon">HOT</div> -->
-                        </div>
-                        <!-- 商品圖 -->
-                        <a class="rwd_product_a" href="">
-                            <img class="lock_img" src="assets/product_2@2x.png" alt="">
-                            <div class="rwd_product_img2"></div>
-                        </a>
+                        <!-- 至頂按鈕 -->                        
+                        <div class="like">
+                            <i class="far fa-heart"></i>
+                        </div>                       
+                        <!-- 商品圖 -->                                            
+                        <div class="rwd_product_img2"></div>                        
                         <!-- 內文 -->
-                        <h3>英俊香腸</h3>
-                        <p>Handsome Sausage</p>
+                        <h3>經典漢堡套餐</h3>
+                        <p>Classic Hamburger Package</p>
                         <div class="product_line"></div>
-                        <p class="price">$ 1024</p>
-                        <!-- 加入購物車 -->
-                        <div class="add_to_car_box">
-                            <a href="">
-                                <img src="assets/shopping-basket.png" alt="">加入購物車
-                            </a>
-                        </div>
-                    </div>
-
+                        <p class="price">$ 120</p>
+                        <!-- 加入購物車 btn ver -->
+                        <button class="add_to_car_box">
+                            <i class="fas fa-shopping-cart"></i>
+                            加入購物車
+                        </button>                        
+                    </div>  
                     <!-- 商品選項 -->
                     <div class="product">
-                        <!-- 至頂按鈕 -->
-                        <div class="favor">
-                            <input type="checkbox" name="vehicle1" value="Bike">
-                        </div>
-                        <div class="hot_sale">
-                            <!-- <div class="hot_sale_icon">HOT</div> -->
-                        </div>
-                        <!-- 商品圖 -->
-                        <a class="rwd_product_a" href="">
-                            <img class="lock_img" src="assets/product_3@2x.png" alt="">
-                            <div class="rwd_product_img3"></div>
-                        </a>
+                        <!-- 至頂按鈕 -->                        
+                        <div class="like">
+                            <i class="far fa-heart"></i>
+                        </div>                       
+                        <!-- 商品圖 -->                                            
+                        <div class="rwd_product_img3"></div>                        
                         <!-- 內文 -->
-                        <h3>漢堡兄弟</h3>
-                        <p>Hamburg Brothers</p>
+                        <h3>經典漢堡套餐</h3>
+                        <p>Classic Hamburger Package</p>
                         <div class="product_line"></div>
-                        <p class="price">$ 792</p>
-                        <!-- 加入購物車 -->
-                        <div class="add_to_car_box">
-                            <a href="">
-                                <img src="assets/shopping-basket.png" alt="">加入購物車
-                            </a>
-                        </div>
+                        <p class="price">$ 120</p>
+                        <!-- 加入購物車 btn ver -->
+                        <button class="add_to_car_box">
+                            <i class="fas fa-shopping-cart"></i>
+                            加入購物車
+                        </button>                        
                     </div>
-
                     <!-- 商品選項 -->
                     <div class="product">
-                        <!-- 至頂按鈕 -->
-                        <div class="favor">
-                            <input type="checkbox" name="vehicle1" value="Bike">
-                        </div>
-                        <div class="hot_sale">
-                            <!-- <div class="hot_sale_icon">HOT</div> -->
-                        </div>
-                        <!-- 商品圖 -->
-                        <a class="rwd_product_a" href="">
-                            <img class="lock_img" src="assets/product_4@2x.png" alt="">
-                            <div class="rwd_product_img4"></div>
-                        </a>
+                        <!-- 至頂按鈕 -->                        
+                        <div class="like">
+                            <i class="far fa-heart"></i>
+                        </div>                       
+                        <!-- 商品圖 -->                                            
+                        <div class="rwd_product_img4"></div>                        
                         <!-- 內文 -->
-                        <h3>完美願望</h3>
-                        <p>Dragon Ball Package</p>
+                        <h3>經典漢堡套餐</h3>
+                        <p>Classic Hamburger Package</p>
                         <div class="product_line"></div>
-                        <p class="price">$ 9999</p>
-                        <!-- 加入購物車 -->
-                        <div class="add_to_car_box">
-                            <a href="">
-                                <img src="assets/shopping-basket.png" alt="">加入購物車
-                            </a>
-                        </div>
-                    </div>
+                        <p class="price">$ 120</p>
+                        <!-- 加入購物車 btn ver -->
+                        <button class="add_to_car_box">
+                            <i class="fas fa-shopping-cart"></i>
+                            加入購物車
+                        </button>                        
+                    </div>                                        
 
                 </div>
             </div>
