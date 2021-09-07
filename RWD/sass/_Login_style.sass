@@ -1,8 +1,9 @@
 // 登入
-.container    
+.container  
+    padding: 1px 0px
     .login
         max-width: 350px
-        margin: auto auto
+        margin: auto auto     
     .login_box
         margin: 20px
         font-family: NotoSansCJKtc-Black        
@@ -25,7 +26,7 @@
             .register_info_box
                 display: flex
                 flex-direction: column
-                padding: 0px 20px
+                // padding: 0px 20px
                 label
                     padding: 0px 0px 
                 input      
@@ -33,18 +34,19 @@
                     background-size: 20px 20px
                     background-color: white
                     line-height: 0.5
+                    padding-left: 35px                    
                 .lock_icon
                     background: url("../assets/padlock2.png") no-repeat scroll 7px 7px
                     background-size: 20px 20px
                     background-color: white
                     line-height: 0.5
                 // pw問題耗太多時間 之後再處理type="password" 沒作用 其實JQ處理就好?
-                input:not([value=""]):not(:focus):invalid
-                    background: url("")
-                    background-color: white
-                input:focus
-                    background: url("")
-                    background-color: white            
+                // input:not([value=""]):not(:focus):invalid
+                //     background: url("")
+                //     background-color: white
+                // input:focus
+                //     background: url("")
+                //     background-color: white            
                 // input[type="text"]
                     // 想專注的時候取消圖示 但是其他的也會被影響 用追加Class解決?
                     // background: url("")

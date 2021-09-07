@@ -394,6 +394,10 @@ header .top_slogan .slogan_text p {
   margin: 0px 10px;
 }
 
+.container {
+  padding: 1px 0px;
+}
+
 .container .login {
   max-width: 350px;
   margin: auto auto;
@@ -431,7 +435,6 @@ header .top_slogan .slogan_text p {
 .container .login_box form .register_info_box {
   display: flex;
   flex-direction: column;
-  padding: 0px 20px;
 }
 
 .container .login_box form .register_info_box label {
@@ -443,6 +446,7 @@ header .top_slogan .slogan_text p {
   background-size: 20px 20px;
   background-color: white;
   line-height: 0.5;
+  padding-left: 35px;
 }
 
 .container .login_box form .register_info_box .lock_icon {
@@ -450,16 +454,6 @@ header .top_slogan .slogan_text p {
   background-size: 20px 20px;
   background-color: white;
   line-height: 0.5;
-}
-
-.container .login_box form .register_info_box input:not([value=""]):not(:focus):invalid {
-  background: url("");
-  background-color: white;
-}
-
-.container .login_box form .register_info_box input:focus {
-  background: url("");
-  background-color: white;
 }
 
 .container .login_box form .register_info_box a {
@@ -544,16 +538,7 @@ header .top_slogan .slogan_text p {
   background-color: white;
   line-height: 0.5;
   padding: 7px 0px;
-}
-
-.container .register_box form fieldset .form_box .register_info_box input:not([value=""]):not(:focus):invalid {
-  background: url("");
-  background-color: white;
-}
-
-.container .register_box form fieldset .form_box .register_info_box input:focus {
-  background: url("");
-  background-color: white;
+  padding-left: 35px;
 }
 
 .container .register_box form fieldset .form_box .register_info_box a {
