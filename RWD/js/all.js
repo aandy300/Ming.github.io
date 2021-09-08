@@ -16,7 +16,7 @@ $(document).ready(function() {
    // $('body').toggleClass('menu-show', false);
    // });
    // 點的如果不是特定clss 就  ...
-   // $('body:not(.outherclass)').click(function(e){
-   //    $('body').removeClass('menu-show');
-   //  });
+   $('body:not(.outherclass)').click(function(e){
+      $('body').removeClass('menu-show');
+    });
 });
