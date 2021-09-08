@@ -109,6 +109,34 @@ html, body {
   margin: 0 auto;
 }
 
+.top {
+  position: fixed;
+  bottom: 5%;
+  right: 3.5%;
+  z-index: 10;
+}
+
+.top .fa-circle {
+  text-shadow: 0.1em 0.1em 0.2em black;
+}
+
+.top .fa-stack {
+  font-size: 26px;
+  color: #750000;
+}
+
+.top .fa-stack:hover {
+  color: #f56c23;
+}
+
+.top .fa-chevron-up {
+  color: #fff;
+}
+
+.top .fa-chevron-up:hover {
+  color: #fff;
+}
+
 header {
   height: 420px;
   background-color: black;
