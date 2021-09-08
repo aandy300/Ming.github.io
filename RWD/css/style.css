@@ -174,6 +174,10 @@ header .top_menu .rwd_menu {
   color: white;
 }
 
+header .top_menu ul li a:hover {
+  background-color: gray;
+}
+
 header .top_slogan {
   margin-top: 50px;
   display: flex;
@@ -939,17 +943,22 @@ footer .bot_link_group_right .icon {
     /*隱藏選單結束*/
   }
   .menu-show .top_btn_right {
-    max-height: none;
+    max-height: 150px;
+    transition: max-height 0.3s;
     width: 100%;
-    overflow: visible;
     position: absolute;
     z-index: 100;
     top: 54px;
+    background-color: #1c1c1c;
   }
   .menu-show .top_menu {
     z-index: 100;
   }
-  .menu-show .top_menu li {
+  .menu-show .top_menu .top_btn_right {
+    display: flex;
+    flex-direction: column;
+  }
+  .menu-show .top_menu .top_btn_right li {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -957,14 +966,14 @@ footer .bot_link_group_right .icon {
     background-color: black;
     text-align: center;
   }
-  .menu-show .top_menu li a {
+  .menu-show .top_menu .top_btn_right li a {
     width: 100%;
     background-color: #1c1c1c;
   }
-  .menu-show .top_menu li a:hover {
+  .menu-show .top_menu .top_btn_right li a:hover {
     background-color: gray;
   }
-  .menu-show .top_menu li a:active {
+  .menu-show .top_menu .top_btn_right li a:active {
     background-color: gray;
   }
   .container .layer1 .mid_slogan {

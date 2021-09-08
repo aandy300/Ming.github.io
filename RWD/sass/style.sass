@@ -123,7 +123,7 @@ html,body
     
     
     // RWD Menu
-    // 隱藏
+    // 隱藏 未展開 jQ未加.menu-show時
     .top_btn_right      
         /*隱藏選單開始*/
         max-height: 0px
@@ -131,35 +131,65 @@ html,body
         /*隱藏選單結束*/  
 
     // 因為是下在body 所以在最外層 在內層指定不到
-    //
-    .menu-show 
+    // 展開 JQ 在body追加 .menu-show
+    .menu-show        
+        // 三攔式
+        // .top_btn_right
+        //     max-height: none                                    
+        //     width: 100%
+        //     overflow: visible
+        //     position: absolute
+        //     z-index: 100
+        //     top: 54px
+        //     background-color: rgb(28, 28, 28) 
+        // .top_menu                         
+        //     z-index: 100
+        //     .top_btn_right
+        //     li
+        //         display: flex
+        //         justify-content: center
+        //         align-items: center
+        //         width: 100%                
+        //         background-color: black
+        //         text-align: center                
+        //         a
+        //             width: 100%
+        //             background-color: #1c1c1c                    
+        //         a:hover
+        //             background-color: gray            
+        //         a:active
+        //             background-color: gray     
+        //
+        
+        // 直式ver
         .top_btn_right
-            max-height: none            
-            // height: 500px                
-            // transition: max-height 1.3s
-            width: 100%
-            overflow: visible
+            max-height: 150px
+            // transition: 需要max-height height沒用                        
+            transition: max-height 0.3s
+            width: 100%            
             position: absolute
             z-index: 100
-            top: 54px 
-
-        .top_menu                         
+            top: 54px
+            background-color: rgb(28, 28, 28)              
+        .top_menu                                  
             z-index: 100
             .top_btn_right
-            li
                 display: flex
-                justify-content: center
-                align-items: center
-                width: 100%                
-                background-color: black
-                text-align: center                
-                a
-                    width: 100%
-                    background-color: #1c1c1c                    
-                a:hover
-                    background-color: gray            
-                a:active
-                    background-color: gray            
+                flex-direction: column
+                li
+                    display: flex                
+                    justify-content: center
+                    align-items: center
+                    width: 100%                
+                    background-color: black
+                    text-align: center                
+                    a
+                        width: 100%
+                        background-color: #1c1c1c                    
+                    a:hover
+                        background-color: gray            
+                    a:active
+                        background-color: gray                                        
 
     // index
     .container        
