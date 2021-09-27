@@ -159,6 +159,17 @@ header .top_menu a {
   padding: 15px 20px;
 }
 
+header .top_menu .logo {
+  padding: 20px 50px;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-image: url("../assets/logo_w(null).svg");
+  display: block;
+  text-indent: 201%;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
 header .top_menu .top_btn_right {
   display: flex;
 }
@@ -391,6 +402,10 @@ header .top_slogan .slogan_text p {
   margin: 0px 20px 0px 20px;
 }
 
+.container .layer4 .map_info .map_info_box input {
+  margin-bottom: 20px;
+}
+
 .container .layer4 .map_info fieldset {
   display: flex;
   flex-direction: column;
@@ -565,6 +580,7 @@ header .top_slogan .slogan_text p {
 }
 
 .container .register_box form fieldset .form_box .register_info_box input {
+  width: 100%;
   background: url("../assets/email.png") no-repeat scroll 7px 7px;
   background-size: 20px 20px;
   background-color: white;
@@ -616,8 +632,6 @@ header .top_slogan .slogan_text p {
 }
 
 .container .product_box_all .layer_left {
-  display: flex;
-  flex-direction: column;
   margin: 10px 5px 10px 40px;
 }
 
@@ -667,6 +681,7 @@ header .top_slogan .slogan_text p {
 }
 
 .container .product_box_all .layer_right .top_menu input {
+  width: 100%;
   margin-left: 20px;
   border: 2px solid #3d1101;
   background-color: #efe9e7;
@@ -674,6 +689,10 @@ header .top_slogan .slogan_text p {
 
 .container .product_box_all .layer_right .top_menu .search_box form {
   display: flex;
+}
+
+.container .product_box_all .layer_right .top_menu .search_box form button {
+  cursor: pointer;
 }
 
 .container .product_box_all .layer_right .top_menu .search_box form i, .container .product_box_all .layer_right .top_menu .search_box form button {
@@ -748,7 +767,6 @@ header .top_slogan .slogan_text p {
   flex-direction: column;
   align-items: center;
   text-align: center;
-  height: 280px;
   margin-right: 15px;
   margin-bottom: 30px;
   box-shadow: 3px 3px 4px 0px rgba(0, 0, 0, 0.16);
@@ -826,6 +844,7 @@ header .top_slogan .slogan_text p {
   text-align: center;
   padding: 5px;
   margin: 20px auto;
+  cursor: pointer;
 }
 
 .container .product_box_all .layer_right .bot_product_list .product .add_to_car_box:hover {
@@ -838,7 +857,7 @@ footer {
   justify-content: space-between;
   align-items: center;
   background-color: #efe9e7;
-  padding: 50px 50px 50px 50px;
+  padding: 50px;
 }
 
 footer h2 {
