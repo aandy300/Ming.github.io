@@ -29,12 +29,7 @@ list.addEventListener('click', function(e){
 // 監聽 - 點擊待辦事項更新資訊 > input(確認事項時)檢測 tab狀態 照tab狀態 選擇 更新資訊func
 list.addEventListener('click', function(e){
   if(e.target.nodeName == "INPUT"){
-    if(activeTagName == "全部"){    
-    }else if(activeTagName == "待完成"){
-      renderChecked();      
-    }else if(activeTagName == "已完成"){      
-      renderDoneList();
-    }
+    renderTabStatusCheck();
   }
   // console.log(e.target.nodeName);
 })
@@ -54,13 +49,7 @@ tab.addEventListener('click', function(e){
   e.target.setAttribute("class", 'active');  
   activeTagName = e.target.textContent;
   // console.log(activeTagName);
-  if(activeTagName == "全部"){
-    renderDate();
-  }else if(activeTagName == "待完成"){
-    renderChecked();
-  }else if(activeTagName == "已完成"){
-    renderDoneList();
-  }
+  renderTabStatusCheck();
 })
 
 // # 功能類...
@@ -114,7 +103,7 @@ function renderTabStatusCheck(){
     renderChecked();
   }else if(activeTagName == "已完成"){
     renderDoneList();
-    console.log('已完成...render 篩選器')
+    // console.log('已完成...render 篩選器')
   }
 }
 
