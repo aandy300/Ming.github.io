@@ -69,18 +69,19 @@ function addTodo(){
       resetInfo();
 }
 
-// 刪除功能 - 原本用陣列順序刪除會因遞補出問題 改用id各自obj識別
+// 刪除 + 確認已做功能 - 原本用陣列順序刪除會因遞補出問題 改用id各自obj識別
 function delTodo(e){
   const id = e.target.closest("li").getAttribute("data-id"); // 抓ID
-  const index = data.findIndex(function(item){ // 取得index 找出是在陣列中的第幾筆
-    console.log(item.id, id )
-   return item.id == id;
+  const index = data.findIndex(function(item){ // 取得index 找出是在陣列中的第幾筆 
+    console.log(`data資料庫裡的id ${item.id}, 點選到的目標的id ${id}`)
+   return item.id == id; // 回傳 等於data.id的 那筆的index
   });
-  console.log(index)
-  if(e.target.getAttribute('class') == "delete"){      // 如果點到delete 照抓的index 刪除
-      data.splice(index, 1);                          // 他是直接把資料裡的那筆刪除掉了 不是調整狀態 調整狀態是下面的check
-    }else if(data[index].isChecked == ""){
-      data[index].isChecked = "checked";      // 因為是寫入到data裡面所以 render重新印出的時候也會更新 本身未done > 點了 = done
+  console.log(`在data資料庫陣列中的[${index}]`)
+  // 判斷刪除 或者 確認做完
+  if(e.target.getAttribute('class') == "delete"){      // 這裡是刪除 如果點到delete 照抓的index 刪除 data裡的資料後 刷新
+      data.splice(index, 1);                          
+    }else if(data[index].isChecked == ""){ // 這裡是確認是否做完 反向的概念 處理完後刷新
+      data[index].isChecked = "checked";   // 因為是寫入到data裡面所以 render重新印出的時候也會更新 本身未done > 點了 = done
     }else{
       data[index].isChecked = "";      // 反向 本身done 點了 = 沒done
     }
@@ -98,7 +99,7 @@ function del_Checktodo(){
 // render 篩選器 可以改用case?
 function renderTabStatusCheck(){
   if(activeTagName == "全部"){
-    renderDate();
+    renderData();
   }else if(activeTagName == "待完成"){
     renderChecked();
   }else if(activeTagName == "已完成"){
@@ -122,7 +123,7 @@ function strTemplate(item){
 }
 
 // render 全部
-function renderDate(){
+function renderData(){
   let str = "";
   data.forEach(function(item, index){
     str+= strTemplate(item);
@@ -131,7 +132,7 @@ function renderDate(){
   
   //篩選出 待完成項目 待完成項目總數用
   waitTolist = data.filter(function(item){
-    console.log(item)
+    // console.log(item)
     return item.isChecked == ""
   })  
   addDoneTotal(waitTolist);
@@ -178,7 +179,7 @@ function resetInfo(){
     addTxt.value =""
 }
 
-renderDate()
+renderData()
 
 
 
