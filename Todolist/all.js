@@ -8,7 +8,7 @@ const list = document.querySelector('.list'); // list
 const save = document.querySelector('.btn_add'); // +按鍵
 const addTxt = document.querySelector('.txt'); // 待辦輸入框
 const tab = document.querySelector('.tab'); // tab標籤
-const list_footer = document.querySelector('.list_footer') // 底層標籤div容器
+const list_footer = document.querySelector('.list_footer'); // 底層標籤div容器
 let activeTagName = "全部" // 確認現在在哪個tab 預設 全部
 
 // # 監聽類..
@@ -45,7 +45,7 @@ list_footer.addEventListener('click', function(e){
 // https://stackoverflow.com/questions/49423973/how-to-remove-the-active-class-from-all-children-in-a-parent-using-javascript
 tab.addEventListener('click', function(e){  
   let oldActive = document.querySelector('.active');  
-  oldActive.classList.remove('active')    
+  oldActive.classList.remove('active');
   e.target.setAttribute("class", 'active');  
   activeTagName = e.target.textContent;
   // console.log(activeTagName);
@@ -55,7 +55,7 @@ tab.addEventListener('click', function(e){
 // # 功能類...
 // 增加功能
 function addTodo(){
-    if(addTxt.value == ""){
+    if(addTxt.value.trim() === ""){
         alert('不可為空');
         return;
       }    
@@ -65,7 +65,13 @@ function addTodo(){
         content: addTxt.value
       }      
       data.unshift(obj);
-      renderTabStatusCheck()
+      // 追加後移動到全部
+      let oldActive = document.querySelector('.active');  
+      oldActive.classList.remove('active')
+      let allTab = tab.querySelector('li');
+      allTab.setAttribute("class", 'active');
+      activeTagName = "全部"
+      renderTabStatusCheck();
       resetInfo();
 }
 
@@ -73,10 +79,10 @@ function addTodo(){
 function delTodo(e){
   const id = e.target.closest("li").getAttribute("data-id"); // 抓ID
   const index = data.findIndex(function(item){ // 取得index 找出是在陣列中的第幾筆 
-    console.log(`data資料庫裡的id ${item.id}, 點選到的目標的id ${id}`)
+    console.log(`data資料庫裡的id ${item.id}, 點選到的目標的id ${id}`);
    return item.id == id; // 回傳 等於data.id的 那筆的index
   });
-  console.log(`在data資料庫陣列中的[${index}]`)
+  console.log(`在data資料庫陣列中的[${index}]`);
   // 判斷刪除 或者 確認做完
   if(e.target.getAttribute('class') == "delete"){      // 這裡是刪除 如果點到delete 照抓的index 刪除 data裡的資料後 刷新
       data.splice(index, 1);                          
@@ -85,7 +91,7 @@ function delTodo(e){
     }else{
       data[index].isChecked = "";      // 反向 本身done 點了 = 沒done
     }
-    renderTabStatusCheck()
+    renderTabStatusCheck();
 }
 
 // 刪除全部完成的待辦事項 = 回傳篩選出未完成的，完成的略過(反向操作)
