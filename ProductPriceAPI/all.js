@@ -108,12 +108,10 @@ function sortData(e){
     // 抓埋的資訊 price = 上價 sortName = up down
     let sortName = e.target.dataset.sort
     let price = e.target.dataset.price        
-    // console.log('typeof', typeof(ary), typeof(ary[0]), typeof(ary[0][price]))
+    console.log('typeof', typeof(ary), typeof(ary[0]), typeof(ary[0][price]), typeof(price))
     let sortDatas =[]
     if(sortName == 'up'){
-      sortDatas = nowData.sort((a,b)=>{
-        return b[price] - a[price]
-      })  
+      sortDatas = nowData.sort((a,b)=> b[price] - a[price])  
       console.log(sortDatas)
       renderData(sortDatas, 'sortDatas')
     }else{
