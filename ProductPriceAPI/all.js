@@ -13,6 +13,7 @@ axios.get('https://hexschool.github.io/js-filter-data/data.json')
 
 // DOM - 
 const showList = document.querySelector('.showList')
+const allBtn = document.querySelector('.allBtn')
 const vegetablesBtn = document.querySelector('.vegetablesBtn')
 const fruitsBtn = document.querySelector('.fruitsBtn')
 const flowersBtn = document.querySelector('.flowersBtn')
@@ -37,7 +38,7 @@ js_sort_advanced.addEventListener('click', e =>{
   sortData(e)
 })
 // 監聽 - 搜尋按鈕
-searchBtn.addEventListener('click', e =>{      
+searchBtn.addEventListener('click', e =>{ 
   renderData(nowData, 'serach')
 })
 // 監聽 - 搜尋按鈕 Enter
@@ -46,29 +47,36 @@ inputBox.addEventListener('keypress', function (e) {
     renderData(nowData, 'serach')
   }
 })
-
+// 監聽 - 全部按鈕
+allBtn.addEventListener('click', e =>  {  
+  let oldActive = document.querySelector('.active');      
+  // allBtn.classList.toggle('active');
+  listen_state_active_Check('all', oldActive)
+  inputTxt.value = ''
+  renderData_Check();
+})
 // 監聽 - 蔬果按鈕
 vegetablesBtn.addEventListener('click', e =>  {  
-  let oldActive = document.querySelector('.active');  
-  console.log('123',oldActive);  
+  let oldActive = document.querySelector('.active');    
   vegetablesBtn.classList.toggle('active');
   listen_state_active_Check('Vegetables', oldActive)
+  inputTxt.value = ''
   renderData_Check();
 })
 // 監聽 - 水果按鈕
 fruitsBtn.addEventListener('click', e =>  {  
-  let oldActive = document.querySelector('.active');  
-  console.log('123',oldActive);
+  let oldActive = document.querySelector('.active');    
   fruitsBtn.classList.toggle('active');  
   listen_state_active_Check('Fruits', oldActive)
+  inputTxt.value = ''
   renderData_Check();
 })
 // 監聽 - 花朵按鈕
 flowersBtn.addEventListener('click', e =>  {  
-  let oldActive = document.querySelector('.active');  
-  console.log('123',oldActive);
+  let oldActive = document.querySelector('.active');    
   flowersBtn.classList.toggle('active');
   listen_state_active_Check('Flowers', oldActive)
+  inputTxt.value = ''
   renderData_Check();
 })
 
@@ -77,11 +85,15 @@ flowersBtn.addEventListener('click', e =>  {
 // 反向分類狀態用 如果狀態一樣切回all 如果不是切換成選擇的狀態
 function listen_state_active_Check(Chose_state, oldActive){
   if(state == Chose_state){
-    state = 'all'    
+    state = 'all'
+    allBtn.classList.add('active')    
   }else{
     state = Chose_state;
-  } 
-  if (oldActive == null){  
+  }
+  if (Chose_state == 'all'){
+    oldActive.classList.remove('active');
+    allBtn.classList.add('active')
+  }else if (oldActive == null){  
   }else{
     oldActive.classList.remove('active');
     console.log(`remove('active');`)
