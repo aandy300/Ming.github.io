@@ -1,48 +1,50 @@
-// API先把資料抓下來 > 資料儲存 > 把資料篩進去(HTML)
+let ary = []; // 儲存用 - API抓下來的原始資料 
+let nowData = []; // 儲存用 - 現在當下的資料
+let state = 'all'; // 顯示分類狀態用
 
-let ary = [];
-let state = 'all';
+// 抓資料 axios
 axios.get('https://hexschool.github.io/js-filter-data/data.json')
 .then(function (response) {
     console.log('資料有回傳了')
     ary = response.data;
-    console.log(`ary`, ary)
-    renderCoin(ary);
+    console.log(`ary`, ary)    
+    renderData(ary);
 });
 
-
-
-
+// DOM - 
 const showList = document.querySelector('.showList')
 const vegetablesBtn = document.querySelector('.vegetablesBtn')
 const fruitsBtn = document.querySelector('.fruitsBtn')
 const flowersBtn = document.querySelector('.flowersBtn')
 const inputTxt = document.querySelector('.rounded-end')
 const searchBtn = document.querySelector('.search')
+const inputBox = document.querySelector('.rounded-end')
+const js_sort_advanced = document.querySelector('.js-sort-advanced')
+const js_select = document.querySelector('#js-select') 
 
+// #監聽類
 
-// 監聽類
+// 監聽 - 排序篩選 這裡只傳值
+js_select.addEventListener('change',e => {
+  console.log(js_select.value)
+  let sortSelect = e.target.value
+  sortSelectdatas(sortSelect)  
+  console.log('js_select')
+})
 
-searchBtn.addEventListener('click', e =>{
-  // #搜尋render
-  console.log(inputTxt.value)
-  console.log(typeof(inputTxt.value))
-
-  let str = ''
-  // filterAry = ary.filter(item => item.作物名稱 == inputTxt.value)
-  filterAry = ary.filter((item) => {
-    // return item.作物名稱.match(inputTxt.value); // 不知道為啥不被當作是str 用typeof測試 是str
-    // 救星 JavaScript 錯誤：“val.match 不是函數”: https://stackoverflow.com/questions/4882691/javascript-error-val-match-is-not-a-function
-    // 正則篩選參考: https://cythilya.github.io/2017/05/08/javascript-find-item-in-an-array/
-    return String(item.作物名稱).match(inputTxt.value)
-    console.log('item123',item.作物名稱)
-    console.log(typeof(item.作物名稱))
-  })
-  console.log('filterAry',filterAry)
-  console.log(inputTxt.value)
-  filterAry.forEach(item => str+= strTemplate(item))
-  showList.innerHTML = str;     
-  console.log(inputTxt.value)
+// 監聽 - 排序小三角按鈕
+js_sort_advanced.addEventListener('click', e =>{
+  sortData(e)
+})
+// 監聽 - 搜尋按鈕
+searchBtn.addEventListener('click', e =>{      
+  renderData(nowData, 'serach')
+})
+// 監聽 - 搜尋按鈕 Enter
+inputBox.addEventListener('keypress', function (e) {
+  if(e.key === 'Enter'){
+    renderData(nowData, 'serach')
+  }
 })
 
 // 監聽 - 蔬果按鈕
@@ -50,28 +52,30 @@ vegetablesBtn.addEventListener('click', e =>  {
   let oldActive = document.querySelector('.active');  
   console.log('123',oldActive);  
   vegetablesBtn.classList.toggle('active');
-  listen_tate_active_Check('Vegetables', oldActive)
-  renderData_Chick();
+  listen_state_active_Check('Vegetables', oldActive)
+  renderData_Check();
 })
 // 監聽 - 水果按鈕
 fruitsBtn.addEventListener('click', e =>  {  
   let oldActive = document.querySelector('.active');  
   console.log('123',oldActive);
   fruitsBtn.classList.toggle('active');  
-  listen_tate_active_Check('Fruits', oldActive)
-  renderData_Chick();
+  listen_state_active_Check('Fruits', oldActive)
+  renderData_Check();
 })
 // 監聽 - 花朵按鈕
 flowersBtn.addEventListener('click', e =>  {  
   let oldActive = document.querySelector('.active');  
   console.log('123',oldActive);
   flowersBtn.classList.toggle('active');
-  
-  listen_tate_active_Check('Flowers', oldActive)
-  renderData_Chick();
+  listen_state_active_Check('Flowers', oldActive)
+  renderData_Check();
 })
 
-function listen_tate_active_Check(Chose_state, oldActive){
+// #功能類
+
+// 反向分類狀態用 如果狀態一樣切回all 如果不是切換成選擇的狀態
+function listen_state_active_Check(Chose_state, oldActive){
   if(state == Chose_state){
     state = 'all'    
   }else{
@@ -84,27 +88,59 @@ function listen_tate_active_Check(Chose_state, oldActive){
   } 
 }
 
+// 資料排序 - 拉霸 疑問 為啥物件可以[]?
+function sortSelectdatas(sortSelect){
+  console.log('sortSelectdatas()')
+  let sortDatas = []
+  sortDatas = nowData.sort((a,b) => {
+    // console.log(a[sortSelect])
+    return b[sortSelect] - a[sortSelect]
+  })
+  console.log(sortDatas, nowData)
+  renderData(sortDatas, 'sortDatas')
+}
 
-// 功能類
+// 資料排序 - 小三角
+function sortData(e){  
+  if(e.target.nodeName !== "I"){
+    return
+  }
+    // 抓埋的資訊 price = 上價 sortName = up down
+    let sortName = e.target.dataset.sort
+    let price = e.target.dataset.price        
+    // console.log('typeof', typeof(ary), typeof(ary[0]), typeof(ary[0][price]))
+    let sortDatas =[]
+    if(sortName == 'up'){
+      sortDatas = nowData.sort((a,b)=>{
+        return b[price] - a[price]
+      })  
+      console.log(sortDatas)
+      renderData(sortDatas, 'sortDatas')
+    }else{
+      sortDatas = nowData.sort((a,b)=> a[price] - b[price])      
+      renderData(sortDatas, 'sortDatas')
+    }
+}
 
-function renderData_Chick(){
-  console.log(`renderData_Chick()`)  
+// 渲染分流 - 狀態確認+輸入篩選條件
+function renderData_Check(){
+  console.log(`renderData_Check()`)  
   if(state == 'all'){
-    renderCoin(ary);
+    renderData(ary);
     console.log(`renderData();`)
   }else if (state == 'Vegetables'){
-    renderCoin(ary, 'N04')
+    renderData(ary, 'N04')
     console.log(`renderData_Vegetables();`)
   }else if (state == 'Fruits'){
-    renderCoin(ary, 'N05')
+    renderData(ary, 'N05')
     console.log(`renderData_Fruits();`)
   }else if (state == 'Flowers'){
-    renderCoin(ary, 'N06')
+    renderData(ary, 'N06')
     console.log(`renderData_Flowers();`)
   }    
 }
 
-// 寫入用的html格式 str樣板 +=用
+// 寫入用 str樣板 +=用
 function strTemplate(item){
   let style = 
   `
@@ -121,78 +157,38 @@ function strTemplate(item){
   return style
 }
 
-// 渲染 - 蔬果類
-// function renderData_Vegetables(){
-//   // let str = "";
-//   // // let vegetablesList = ary.filter(function(item){
-//   // //   return item.種類代碼 == 'N05';
-//   // // })
-//   // let vegetablesList = ary.filter(item => item.種類代碼 == 'N04')   
-//   // vegetablesList.forEach(function(item, index){
-//   //   str+= strTemplate(item)
-//   // })
-//   // showList.innerHTML = str;  
-//   renderCoin(ary, 'N04')
-// }
-// 渲染 - 水果類
-// function renderData_Fruits(){
-//   // let str = "";  
-//   // let vegetablesList = ary.filter(item => item.種類代碼 == 'N05')   
-//   // vegetablesList.forEach(function(item, index){
-//   //   str+= strTemplate(item)
-//   // })
-//   // showList.innerHTML = str;  
-//   renderCoin(ary, 'N05')
-// }
-// 渲染 - 花朵類
-// function renderData_Flowers(){
-//   // let str = "";  
-//   // let flowersList = ary.filter(item => item.種類代碼 == 'N06')   
-//   // flowersList.forEach(function(item, index){
-//   //   str+= strTemplate(item)
-//   // })
-//   // showList.innerHTML = str;
-//   renderCoin(ary, 'N06')
-// }
-
 // 渲染 - 硬幣
-function renderCoin(datas, filterNum){
+function renderData(datas, filterNum){
   let str = "";
   let aryTemp = [];
-  console.log(datas, aryTemp, filterNum, typeof(filterNum))
-  if(filterNum == undefined){
-    // all render #渲染 普通
-    ary.forEach(function(item, index){
-      str+= strTemplate(item)
-    })
+  // console.log(datas, aryTemp, filterNum, typeof(filterNum))
+  if(filterNum == undefined){ // 渲染 - 全部+原始資料
+    aryTemp = datas
+    aryTemp.forEach(item => str+= strTemplate(item))
     showList.innerHTML = str;
-    console.log(`redercoin if();` )
-  }else if(filterNum !== 'underfined'){
+    nowData = ary
+  }else if(filterNum == 'sortDatas'){ // 渲染 - 排序用 當下資料
+    nowData.forEach(item => str+= strTemplate(item))
+    showList.innerHTML = str;    
+  }else if (filterNum == 'serach'){ // 渲染 - 搜尋用 當下資料挑輸入框內容
+    aryTemp = nowData.filter((item => String(item.作物名稱).match(inputTxt.value)))
+    if(inputTxt.value === ''){
+      alert('請正確輸入查詢內容!')
+    }else if(aryTemp.length == 0){      
+      showList.innerHTML = `搜尋結果為:0 ，請正確輸入並搜尋想比價的作物名稱^＿^`
+    }else{
+      console.log(aryTemp)
+      aryTemp.forEach(item => str+= strTemplate(item))
+      showList.innerHTML = str;
+      nowData = aryTemp
+    }    
+  }else if(filterNum !== 'underfined'){ // 渲染 - 種類代碼篩選
     aryTemp = datas.filter(item => item.種類代碼 == filterNum)
-    aryTemp.forEach((item => str+= strTemplate(item)))
+    aryTemp.forEach(item => str+= strTemplate(item))
     showList.innerHTML = str;
-  }  
+    nowData = aryTemp
+    console.log(nowData)
+  }
 }
-// renderCoin(ary, 'flower')
-// 渲染 - 普通
-// function renderData(){
-  // let str = "";
-  // ary.forEach(function(item, index){
-  //   str+= `
-  //         <tr>
-  //           <td>${item.作物名稱}</td>
-  //           <td>${item.市場名稱}</td>
-  //           <td>${item.上價}</td>
-  //           <td>${item.中價}</td>
-  //           <td>${item.下價}</td>
-  //           <td>${item.平均價}</td>
-  //           <td>${item.交易量}</td>
-  //         </tr>
-  //         `
-  // })
-  // showList.innerHTML = str;     
-  // console.log(`rederData();`, ary)
-  // renderCoin(ary)
-// }
-// renderData();
-renderCoin(ary)
+
+renderData(ary)

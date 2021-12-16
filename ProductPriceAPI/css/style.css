@@ -80,6 +80,14 @@ img {
   height: auto;
 }
 
+span i {
+  cursor: pointer;
+}
+
+span i:active {
+  color: red;
+}
+
 .inline-flex {
   display: inline-flex;
 }
