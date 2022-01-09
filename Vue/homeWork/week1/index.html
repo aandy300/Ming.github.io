@@ -42,8 +42,8 @@
                       {{ item.price }}
                     </td>
                     <td width="150">
-                      <span class="text-success">啟用</span>
-                      <span>未啟用</span>
+                      <span v-if="item.id == temp.id" class="text-success">啟用</span>
+                      <span >未啟用</span>
                     </td>
                     <td width="120">
                       <button v-on:click="checkInfo(item, index)" type="button" class="btn btn-primary">查看細節</button>
@@ -55,7 +55,7 @@
             </div>
             <div class="col-md-6">
               <h2>單一產品細節</h2>
-              <!-- <template> -->
+              <template v-if="temp.category">
                 <div class="card mb-3">
                   <img v-bind:src="temp.imageUrl" class="card-img-top primary-image" alt="主圖">
                   <div class="card-body">
@@ -66,17 +66,20 @@
                     <p class="card-text">商品描述：{{ temp.description }}</p>
                     <p class="card-text">商品內容：{{ temp.content }}</p>
                     <div class="d-flex">
-                      <p class="card-text me-2">{{ 不知道塞啥的 }}</p>
+                      <p class="card-text me-2">{{ temp.price }}</p>
                       <p class="card-text text-secondary"><del>{{ temp.origin_price }}</del></p>
-                      {{ 不知道塞啥的 }} / {{ temp.price }} 元
-                    </div>
-                  </div>
+                      {{ 不知道塞甚麼 }} / {{ 不知道塞甚麼 }} 元
+                    </div>                    
+                  </div>                  
                 </div>
-                <!-- <template> -->
+                <span v-for="img in temp.imagesUrl">
+                  <img :src="img" alt="" class="images m-2">
+                </span>
+                <template>
                   <img src="" alt="" class="images m-2">
                 </template>
               </template>
-              <p class="text-secondary">請選擇一個商品查看</p>
+              <p v-if="!temp.category" class="text-secondary">請選擇一個商品查看</p>
             </div>
           </div>
         </div>
@@ -91,7 +94,8 @@ const app = {
     return{
       temp:{},
       products:{},
-      count:0
+      count:0,
+      check:false
     }
   },
   methods: {
@@ -114,6 +118,7 @@ const app = {
       })
       // console.log(item.id, 'tempid', a[0], 'a')
       this.temp = a[0]
+      check:true
     }
   },
   created() {
