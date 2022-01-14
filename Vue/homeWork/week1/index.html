@@ -43,10 +43,11 @@
                     </td>
                     <td width="150">
                       <span v-if="item.id == temp.id" class="text-success">啟用</span>
-                      <span >未啟用</span>
+                      <span v-else="item.id == temp.id" class="text-danger">未啟用</span>
                     </td>
                     <td width="120">
-                      <button v-on:click="checkInfo(item, index)" type="button" class="btn btn-primary">查看細節</button>
+                      <!-- 可以直接 temp = item 這樣就不用再用一個func去處理了 -->
+                      <button v-on:click="temp=item" type="button" class="btn btn-primary">查看細節</button>
                     </td>
                   </tr>
                 </tbody>
@@ -67,17 +68,15 @@
                     <p class="card-text">商品內容：{{ temp.content }}</p>
                     <div class="d-flex">
                       <p class="card-text me-2">{{ temp.price }}</p>
-                      <p class="card-text text-secondary"><del>{{ temp.origin_price }}</del></p>
-                      {{ 不知道塞甚麼 }} / {{ 不知道塞甚麼 }} 元
+                      <p class="card-text text-secondary"><del>{{ temp.origin_price }}</del></p>                      
                     </div>                    
                   </div>                  
                 </div>
-                <span v-for="img in temp.imagesUrl">
-                  <img :src="img" alt="" class="images m-2">
-                </span>
-                <template>
-                  <img src="" alt="" class="images m-2">
-                </template>
+                <ul class="list-unstyled d-flex">
+                  <li v-for="img in temp.imagesUrl">
+                      <img :src="img"  class="images m-2" alt="">
+                  </li>
+                </ul>                
               </template>
               <p v-if="!temp.category" class="text-secondary">請選擇一個商品查看</p>
             </div>
@@ -105,6 +104,7 @@ const app = {
       this.products = importData
       this.count = this.products.length
     },
+    // v-on:click="temp=item" 取代下面func
     checkInfo(item, index){
       // console.log('checkInfo func()', item.id, index)
       // let a = this.products.filter(function(item){
@@ -113,12 +113,12 @@ const app = {
       // console.log(a)
       
       // let tempid = item.id
-      const a = this.products.filter(function(this_products_item){
-        return this_products_item.id == item.id
-      })
-      // console.log(item.id, 'tempid', a[0], 'a')
-      this.temp = a[0]
-      check:true
+      // const a = this.products.filter(function(this_products_item){
+      //   return this_products_item.id == item.id
+      // })
+      // // console.log(item.id, 'tempid', a[0], 'a')
+      // this.temp = a[0]
+      // check:true
     }
   },
   created() {
