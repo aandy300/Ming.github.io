@@ -42,6 +42,8 @@
                       {{ item.price }}
                     </td>
                     <td width="150">
+                      <!-- 下面if else 可以改成 三元運算? A 可以但是沒辦法套用到 B5的class樣式 只有改文字而已 -->
+                      <!-- <span  class="text-success"> {{ item.id == temp.id ? '啟用' : '未啟用'}}</span> -->
                       <span v-if="item.id == temp.id" class="text-success">啟用</span>
                       <span v-else="item.id == temp.id" class="text-danger">未啟用</span>
                     </td>
@@ -104,7 +106,7 @@ const app = {
       this.products = importData
       this.count = this.products.length
     },
-    // v-on:click="temp=item" 取代下面func
+    // v-on:click="temp=item" 取代下面func 直接 把點到的目標 寫入 temp 就不用再那撈資料比對id在寫入
     checkInfo(item, index){
       // console.log('checkInfo func()', item.id, index)
       // let a = this.products.filter(function(item){
