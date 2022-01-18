@@ -77,6 +77,11 @@ const app = Vue.createApp({
       })
     }
   },
+  mounted() {
+    this.getToken()
+    this.checkLogin()
+    this.getData()    
+  },
   
 })
 app.mount('#app')
