@@ -14,7 +14,11 @@
   <body>
     <div class="container">
       <div id="app" class="container">
-
+        <br>
+        <div class="alert alert-warning alert-dismissible fade show" role="alert">
+          <strong>Holy guacamole!</strong> You should check in on some of those fields below.
+          <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
         <div class="text-end mt-4">
           <button class="btn btn-primary" @click="openModal()">
             建立新的產品
@@ -58,10 +62,9 @@
                 <span v-else="temp.id == item.id" class="text-danger">未啟用</span>
               </td>
               <td>
-                <button @click="temp=item" type="button" class="btn btn-primary">查看細節</button>
+                <button @click="temp=item , testfunc()" type="button" class="btn btn-primary">查看細節</button>
               </td>
-              <td width="120">
-                <!-- <button v-on:click="delData(item.id)" type="button" class="btn btn-sm btn-outline-danger move deleteBtn" data-action="remove" data-id=""> 刪除 </button> -->
+              <td width="120">                
                 <div class="btn-group">
                   <button type="button" class="btn btn-outline-primary btn-sm">
                     編輯
@@ -70,9 +73,7 @@
                     刪除
                   </button>
                 </div>
-              </td>
-              <!-- 抓資料 BTN -->
-              <!-- <button v-on:click="getToken(), checkLogin(), getData()" type="button" class="btn btn-sm btn-outline-danger move deleteBtn" data-action="remove" data-id=""> 抓資料 </button> -->
+              </td>              
             </tr>
           </tbody>
 
@@ -83,16 +84,38 @@
           <div class="modal-dialog">
             <div class="modal-content">
               <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                <h5 class="modal-title" id="exampleModalLabel">新增商品</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
               </div>
               <div class="modal-body">
-                ...
-                {{ text }}
+                ...  {{ text }}
+                <form action="">
+                  <label for="">主要圖片</label>
+                  <input v-model="addProduct.data.imageUrl" type="text" placeholder="請輸入圖片連結">
+                  <label for="">多圖新增</label>
+                  <input type="button" value="新增圖片">
+                  <label for="">標題</label>
+                  <input v-model="addProduct.data.title" type="text" placeholder="請輸入標題">
+                  <label for="">分類</label>
+                  <input v-model="addProduct.data.category" type="text" placeholder="請輸入分類">
+                  <label for="">單位</label>
+                  <input v-model="addProduct.data.unit" type="text" placeholder="請輸入單位">
+                  <label for="">原價</label>
+                  <input v-model="addProduct.data.origin_price" type="text" placeholder="請輸入原價">
+                  <label for="">售價</label>
+                  <input v-model="addProduct.data.price" type="text" placeholder="請輸入售價">
+                  <hr>
+                  <label for="">產品描述</label>
+                  <input v-model="addProduct.data.description" type="text" placeholder="請輸入產品描述">
+                  <label for="">說明內容</label>
+                  <input v-model="addProduct.data.content" type="text" placeholder="請輸入說明內容">
+                  <input v-model="addProduct.data.is_enabled" type="checkbox">
+                  <label for="">是否啟用</label>                  
+                </form>
               </div>
               <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary" @click="closeModal()">Save changes</button>
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">取消</button>
+                <button type="button" class="btn btn-primary" @click="closeModal() , addProductPOST()">確認</button>
               </div>
             </div>
           </div>
@@ -114,6 +137,10 @@
             </div>                  
           </div>
           <ul class="list-unstyled d-flex">
+            <!-- <li v-for="img in temp.imageUrl"> -->
+              <img :src="temp.imageUrl"  class="images ms-2 img-fluid max-width: 10%" width="500" 
+              height="500" alt="">
+            <!-- </li> -->
             <li v-for="img in temp.imagesUrl">
                 <img :src="img"  class="images m-2 img-fluid max-width: 30%" alt="">
             </li>
@@ -125,7 +152,7 @@
     <script src='https://cdnjs.cloudflare.com/ajax/libs/axios/0.9.1/axios.min.js'
             integrity='sha512-Xk3wWei2TGrsh9kDSBKUMIjw/86sLUvhtnv9f7fOuIwhhiUTKz8szkWkzHthrM5Bb3Bu9idSzkxOrkzhcneuiw=='
             crossorigin='anonymous'></script>
-    <script src="js/test.js"></script>
+    <script src="js/list.js"></script>
     <script >
 
     </script>
