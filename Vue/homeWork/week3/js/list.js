@@ -131,7 +131,7 @@ const app = Vue.createApp({
     myModal = new bootstrap.Modal(document.querySelector('#exampleModal'))
     // mydelModal = new bootstrap.Modal(document.querySelector('#exampleModal'))
     mydelModal = new bootstrap.Modal(document.querySelector('#delModal'))
-    // this.openModal()
+    this.openModal('new')
   },
 
 
