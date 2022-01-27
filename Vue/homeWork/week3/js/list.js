@@ -67,7 +67,9 @@ const app = Vue.createApp({
     delData(delTargetId){
       axios.delete( `${url}/api/${ path }/admin/product/${ delTargetId }`)
       .then((res) =>{        
-        this.temp = {}
+        this.temp.data = {
+          imagesUrl: [],     
+        }
         this.getData()
         console.log(delTargetId+ ' 已刪除此id商品')
       })
@@ -131,7 +133,7 @@ const app = Vue.createApp({
     myModal = new bootstrap.Modal(document.querySelector('#exampleModal'))
     // mydelModal = new bootstrap.Modal(document.querySelector('#exampleModal'))
     mydelModal = new bootstrap.Modal(document.querySelector('#delModal'))
-    this.openModal('new')
+    // this.openModal('new')
   },
 
 
