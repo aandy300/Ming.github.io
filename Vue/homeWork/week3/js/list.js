@@ -2,16 +2,15 @@
 const url = 'https://vue3-course-api.hexschool.io/v2'
 const path = 'ming123'
 const modal = document.querySelector('#exampleModal')
+const delModal = document.querySelector('#delModal')
 let myModal = ''
+let mydelModal = ''
 const app = Vue.createApp({
   data(){
     return{
       products : {        
       },
       temp:{        
-      },
-      text: '123',
-      addProduct:{        
         "data": {
           "title": "[賣]動物園造型衣服3",
           "category": "衣服2",
@@ -28,14 +27,19 @@ const app = Vue.createApp({
             "",
             "",
             ""
-          ]
-        }        
-      }
+          ],
+          "id": ""
+        },      
+      },      
+      isNew: false,
     }
   },
-  methods: {  
-    testfunc(){
-      console.log(this.temp)
+  methods: { 
+    testt(){
+
+    },
+    checkInfo(item){            
+      this.temp.data = item      
     },
     checkLogin(){
       // token處理
@@ -57,8 +61,7 @@ const app = Vue.createApp({
         this.products = res.data.products
       })
       .catch((err) =>{
-        console.dir(err)
-        console.log(err)
+        alert(res.data.message);
       })
     },
     delData(delTargetId){
@@ -66,39 +69,72 @@ const app = Vue.createApp({
       .then((res) =>{        
         this.temp = {}
         this.getData()
-        console.log(delTargetId)
+        console.log(delTargetId+ ' 已刪除此id商品')
       })
       .catch((err) =>{
-        console.dir(err)
-        console.log(err)
+        alert(res.data.message);
       })
     },
-    addProductPOST(){
-      axios.post( `${url}/api/${ path }/admin/product`, this.addProduct)
+    // css面板調整 、 多圖片上傳問題
+    addProductPOST(){      
+      axios.post( `${url}/api/${ path }/admin/product`, this.temp)
       .then((res) =>{                
         console.dir('新增商品成功')
         this.getData()     
       })
       .catch((err) =>{
-        console.dir(err)
-        console.log(err)
         alert(err.status + ' 請正確填寫商品資訊')
       })  
     },
-    openModal(){      
-      myModal.show()         
+    // 等改送出的OBJ格式
+    // 因為openModal那邊已經更新資料(this.temp.data = { ...item } 包含ID了) 所以這裡直接引用TEMP的ID就可以了
+    editProduct(){
+      console.log(this.temp)
+      axios.put( `${url}/api/${ path }/admin/product/${ this.temp.data.id }`, this.temp)
+      .then((res) =>{        
+        this.getData()
+        console.log(res.status+ ' 成功修改商品')
+      })
+      .catch((err) =>{    
+        alert(err.data.message);
+      })
     },
-    closeModal(){      
-      myModal.hide()
+    openModal(status, item){    
+      if(status == 'edit'){
+        myModal.show()
+        this.temp.data = { ...item }        
+      }
+      else if(status == 'del'){
+        mydelModal.show()
+        console.log(item.id, item)
+        this.temp.title = item.title
+        this.temp.id = item.id
+      }else if(status == 'new'){
+        this.temp.data = {
+          imagesUrl: [],     
+        }
+        myModal.show()
+      } 
+      
+    },
+    closeModal(status){      
+      if(status == 'del'){
+        mydelModal.hide()
+      }else{
+        myModal.hide()
+      } 
     },
   },
   mounted() {    
     this.checkLogin()
     this.getData()
     myModal = new bootstrap.Modal(document.querySelector('#exampleModal'))
-    this.openModal()
+    // mydelModal = new bootstrap.Modal(document.querySelector('#exampleModal'))
+    mydelModal = new bootstrap.Modal(document.querySelector('#delModal'))
+    // this.openModal()
   },
 
 
 })
 app.mount('#app')
+

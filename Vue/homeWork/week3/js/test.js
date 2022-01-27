@@ -35,8 +35,7 @@ const app = Vue.createApp({
         this.products = res.data.products
       })
       .catch((err) =>{
-        console.dir(err)
-        console.log(err)
+        alert(res.data.message);
       })
     },
     delData(delTargetId){
@@ -46,8 +45,7 @@ const app = Vue.createApp({
         this.getData()
       })
       .catch((err) =>{
-        console.dir(err)
-        console.log(err)
+        alert(res.data.message);
       })
     },
     openModal(){      
