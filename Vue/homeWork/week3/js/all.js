@@ -15,7 +15,7 @@ const app = Vue.createApp({
       axios.post( `${url}/admin/signin`,this.user)
         .then((res) => {
           console.log(res)
-          const {token, expired} = res.data
+          const {token, expired} = res.data // 抓出 token & 到期時間
           document.cookie = `mingToken=${ token }; expires=${ new Date(expired) }`          
           window.location = 'list.html'
         })

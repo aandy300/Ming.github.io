@@ -1,8 +1,10 @@
 // 課程 API 申請：https://vue3-course-api.hexschool.io/
 const url = 'https://vue3-course-api.hexschool.io/v2'
 const path = 'ming123'
-const modal = document.querySelector('#exampleModal')
-const delModal = document.querySelector('#delModal')
+// 換成老師的 Modal
+const modal = document.querySelector('#productModal')
+const delProductModal = document.querySelector('#delModal')
+
 let myModal = ''
 let mydelModal = ''
 const app = Vue.createApp({
@@ -10,6 +12,7 @@ const app = Vue.createApp({
     return{
       products : {        
       },
+      lastInfo : '',
       temp:{        
         "data": {
           "title": "[賣]動物園造型衣服3",
@@ -129,10 +132,10 @@ const app = Vue.createApp({
   },
   mounted() {    
     this.checkLogin()
-    this.getData()
-    myModal = new bootstrap.Modal(document.querySelector('#exampleModal'))
-    // mydelModal = new bootstrap.Modal(document.querySelector('#exampleModal'))
-    mydelModal = new bootstrap.Modal(document.querySelector('#delModal'))
+    this.getData()        
+    // 換成老師的 Modal 模板
+    myModal = new bootstrap.Modal(document.querySelector('#productModal'))
+    mydelModal = new bootstrap.Modal(document.querySelector('#delProductModal'))        
     // this.openModal('new')
   },
 
