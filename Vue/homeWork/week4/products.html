@@ -81,15 +81,16 @@
           </tbody>
         </table>
         <p>目前有 <span id="productCount">{{ products.length }}</span> 項產品</p>
-        <!-- 分頁 -->
+        
+        <!-- 分頁元件 -->
         <pagination_obj :pages="pagination" @get-data="getData"></pagination_obj>
         
-        <!-- Modal new edit -->
+        <!-- 新增、編輯modal元件 -->
         <new_edit_obj :temp="temp" :is-new="isNew" 
         @close-modal="closeModal" @add-product-post="addProductPost" @edit-product="editProduct">
         </new_edit_obj>
   
-        <!-- Modal del -->
+        <!-- 刪除modal元件 -->
         <del_obj :temp="temp" @close-modal="closeModal" @del-data="delData"></del_obj>
   
         <!-- 查看細項 -->

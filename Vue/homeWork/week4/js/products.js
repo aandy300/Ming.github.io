@@ -5,7 +5,7 @@ const path = 'ming123'
 let myModal = ''
 let mydelModal = ''
 
-// 元件化 del temp 等幾絕 import export 問題
+// 元件 import
 import { del_obj, new_edit_obj } from '../component/modalComponent.js'
 import { pagination_obj } from '../component/pagination.js'
 
@@ -45,7 +45,8 @@ const app = Vue.createApp({
         alert('token錯誤，將轉回登入頁面!')
       })
     },
-    // 追加 抓資料分頁Ver
+    // 追加 更改成 抓資料分頁Ver
+    // (page = 1) 預設值
     getData(page = 1){
       axios.get( `${url}/api/${ path }/admin/products/?page=${ page }`)
       .then((res) =>{                

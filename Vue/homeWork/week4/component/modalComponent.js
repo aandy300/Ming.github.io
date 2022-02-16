@@ -1,3 +1,4 @@
+// modal 元件
 const del_obj ={
     data(){
       return{
@@ -157,7 +158,8 @@ const new_edit_obj ={
             <div class="modal-footer">
               <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">
                 取消
-              </button>            
+              </button> 
+              <!-- 新增or修改按鍵 -->           
               <button v-if="inside_isNew = inside_isNew" type="button" class="btn btn-primary" @click="$emit( 'closeModal') , $emit( 'addProductPost') ">確認新增</button>            
               <button v-else type="button" class="btn btn-primary" @click="$emit( 'closeModal') , $emit( 'editProduct') ">確認修改</button>
             </div>
