@@ -80,7 +80,9 @@
             </tr>
           </tbody>
         </table>
-
+        <p>目前有 <span id="productCount">{{ products.length }}</span> 項產品</p>
+        <!-- 分頁 -->
+        <pagination_obj :pages="pagination" @get-data="getData"></pagination_obj>
         
         <!-- Modal new edit -->
         <new_edit_obj :temp="temp" :is-new="isNew" 
@@ -112,9 +114,8 @@
                 <img :src="img"  class="images m-2 img-fluid max-width: 30%" alt="">
             </li>
           </ul>                
-        </template>
+        </template>        
 
-        <p>目前有 <span id="productCount">{{ products.length }}</span> 項產品</p>
       </div>
     </div>
     <script src='https://cdnjs.cloudflare.com/ajax/libs/axios/0.9.1/axios.min.js'

@@ -6,7 +6,8 @@ let myModal = ''
 let mydelModal = ''
 
 // 元件化 del temp 等幾絕 import export 問題
-import { del_obj, new_edit_obj } from './modalComponent.js'
+import { del_obj, new_edit_obj } from '../component/modalComponent.js'
+import { pagination_obj } from '../component/pagination.js'
 
 const app = Vue.createApp({
   data(){
@@ -17,11 +18,13 @@ const app = Vue.createApp({
         "data": {},      
       },      
       isNew: false,
+      pagination: {},
     }
   },
   components:{
     del_obj,
-    new_edit_obj
+    new_edit_obj,
+    pagination_obj,
   }
   ,
   methods: { 
@@ -42,10 +45,12 @@ const app = Vue.createApp({
         alert('token錯誤，將轉回登入頁面!')
       })
     },
-    getData(){
-      axios.get( `${url}/api/${ path }/admin/products`)
+    // 追加 抓資料分頁Ver
+    getData(page = 1){
+      axios.get( `${url}/api/${ path }/admin/products/?page=${ page }`)
       .then((res) =>{                
         this.products = res.data.products
+        this.pagination = res.data.pagination
       })
       .catch((err) =>{
         alert(err.data.message);
