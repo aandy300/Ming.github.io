@@ -16,8 +16,10 @@
     <div class="container">
       <div id="app" class="container">
         <br>
+
+        <!-- 想做最後更新通知 待處理 -->
         <div class="alert alert-warning alert-dismissible fade show" role="alert">
-          <strong>{{ lastInfo }}</strong> You should check in on some of those fields below.
+          <strong>{{  }} lastInfo </strong> You should check in on some of those fields below.
           <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
         </div>
         <div class="text-end mt-4">
@@ -63,7 +65,6 @@
                 <span v-else="products.is_enabled" class="text-danger">未啟用</span>
               </td>
               <td>
-                <!-- temp=item -->
                 <button @click="checkInfo(item)" type="button" class="btn btn-primary">查看細節</button>
               </td>
               <td width="120">                
@@ -71,7 +72,6 @@
                   <button @click="openModal('edit', item), isNew = false" type="button" class="btn btn-outline-primary btn-sm">
                     編輯
                   </button>
-                  <!-- delData(item.id) -->
                   <button @click="openModal('del', item)" type="button" class="btn btn-outline-danger btn-sm">
                     刪除
                   </button>
@@ -81,7 +81,7 @@
           </tbody>
         </table>
 
-
+        
         <!-- Modal new edit -->
         <new_edit_obj :temp="temp" :is-new="isNew" 
         @close-modal="closeModal" @add-product-post="addProductPost" @edit-product="editProduct">

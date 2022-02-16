@@ -1,21 +1,12 @@
 const del_obj ={
     data(){
       return{
-        insideId: '',
         newTemp: ''
       }
     },
     props:[ 'temp' ],
     created(){
       this.newTemp = this.temp
-    },
-    methods:{
-      closeModal(value){
-        this.$emit('closeModal', value)
-      },
-      delData(){
-        this.$emit('delData')
-      },
     },
     template:  
     `
@@ -30,13 +21,14 @@ const del_obj ={
             </div>
             <div class="modal-body">
               是否刪除
-              <strong class="text-danger">{{  }} 待 修正 外面要帶入 temp.data.title  </strong> 商品(刪除後將無法恢復)。
+              <strong class="text-danger"> {{ newTemp.title }} </strong> 商品(刪除後將無法恢復)。
             </div>
             <div class="modal-footer">
               <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">
                 取消
               </button>
-              <button type="button" class="btn btn-danger" @click="closeModal('del') , delData()">確認刪除</button>
+              <!-- 確定刪除按鍵 -->
+              <button type="button" class="btn btn-danger" @click="$emit( 'closeModal', 'del'), $emit( 'delData')">確認刪除</button>
             </div>
           </div>
         </div>        
@@ -51,25 +43,12 @@ const new_edit_obj ={
         inside_isNew: false
       }
     },
-    methods:{
-      closeModal(){
-        this.$emit('closeModal')
-      },
-      addProductPost(){
-        console.log('inside post add')
-        this.$emit('addProductPost')
-      },
-      editProduct(){
-        this.$emit('editProduct')
-      }
-    },
     updated () { 
       this.inside_isNew = this.isNew
     },
     props:[ 'temp', 'isNew' ],
     created() {
       this.newTemp = this.temp
-      this.inside_isNew = this.isNew
     },
     template:  
     `
@@ -179,8 +158,8 @@ const new_edit_obj ={
               <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">
                 取消
               </button>            
-              <button v-if="inside_isNew = inside_isNew" type="button" class="btn btn-primary" @click="closeModal() , addProductPost()">確認新增</button>            
-              <button v-else type="button" class="btn btn-primary" @click="closeModal() , editProduct()">確認修改</button>
+              <button v-if="inside_isNew = inside_isNew" type="button" class="btn btn-primary" @click="$emit( 'closeModal') , $emit( 'addProductPost') ">確認新增</button>            
+              <button v-else type="button" class="btn btn-primary" @click="$emit( 'closeModal') , $emit( 'editProduct') ">確認修改</button>
             </div>
           </div>
         </div>

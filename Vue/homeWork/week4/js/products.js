@@ -1,9 +1,6 @@
 // 課程 API 申請：https://vue3-course-api.hexschool.io/
 const url = 'https://vue3-course-api.hexschool.io/v2'
 const path = 'ming123'
-// 換成老師的 Modal
-const modal = document.querySelector('#productModal')
-const delProductModal = document.querySelector('#delModal')
 
 let myModal = ''
 let mydelModal = ''
@@ -16,7 +13,6 @@ const app = Vue.createApp({
     return{
       products : {        
       },
-      lastInfo : '',
       temp:{        
         "data": {},      
       },      
