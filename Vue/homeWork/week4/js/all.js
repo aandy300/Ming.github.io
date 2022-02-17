@@ -17,7 +17,7 @@ const app = Vue.createApp({
           console.log(res)
           const {token, expired} = res.data // 抓出 token & 到期時間
           document.cookie = `mingToken=${ token }; expires=${ new Date(expired) }`          
-          window.location = 'list.html'
+          window.location = 'products.html'
         })
         .catch((err) => {
           console.dir(err)
