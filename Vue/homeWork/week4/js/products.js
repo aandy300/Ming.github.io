@@ -61,13 +61,13 @@ const app = Vue.createApp({
       })
     },
     delData(){
-      axios.delete( `${url}/api/${ path }/admin/product/${ this.temp.id }`)
+      axios.delete( `${url}/api/${ path }/admin/product/${ this.temp.data.id }`)
       .then((res) =>{        
         this.temp.data = {
           imagesUrl: [],     
         }
         this.getData()
-        console.log(` ${ this.temp.id }`+ ' 已刪除此id商品')
+        console.log(` ${ this.temp.data.id }`+ ' 已刪除此id商品')
       })
       .catch((err) =>{
         alert(err.data.message);
@@ -102,15 +102,14 @@ const app = Vue.createApp({
       })
     },
     openModal(status, item){    
+      this.temp.data = { ...item }
+
       if(status == 'edit'){
-        myModal.show()
-        this.temp.data = { ...item }        
+        myModal.show()                
       }
       else if(status == 'del'){
         mydelModal.show()
-        console.log(item.id, item)
-        this.temp.title = item.title
-        this.temp.id = item.id
+        console.log(item.id, item)        
       }else if(status == 'new'){
         this.temp.data = {
           imagesUrl: [],     
