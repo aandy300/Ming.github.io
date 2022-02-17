@@ -16,7 +16,8 @@ const app = Vue.createApp({
       },
       temp:{        
         "data": {},      
-      },      
+      },
+      nowInfo:{},      
       isNew: false,
       pagination: {},
     }
@@ -29,7 +30,8 @@ const app = Vue.createApp({
   ,
   methods: { 
     checkInfo(item){            
-      this.temp.data = item      
+      this.nowInfo = {}
+      this.nowInfo = item      
     },
     checkLogin(){
       // token處理
@@ -47,9 +49,10 @@ const app = Vue.createApp({
     },
     // 追加 更改成 抓資料分頁Ver
     // (page = 1) 預設值
-    getData(page = 1){
+    getData(page = 1){      
       axios.get( `${url}/api/${ path }/admin/products/?page=${ page }`)
       .then((res) =>{                
+        this.nowInfo = {}
         this.products = res.data.products
         this.pagination = res.data.pagination
       })
@@ -76,6 +79,7 @@ const app = Vue.createApp({
       axios.post( `${url}/api/${ path }/admin/product`, this.temp)
       .then((res) =>{                
         console.dir('新增商品成功')
+        myModal.hide()
         this.getData()     
       })
       .catch((err) =>{
@@ -88,7 +92,8 @@ const app = Vue.createApp({
       console.log(this.temp)
       console.log('editProduct')
       axios.put( `${url}/api/${ path }/admin/product/${ this.temp.data.id }`, this.temp)
-      .then((res) =>{        
+      .then((res) =>{                
+        myModal.hide()
         this.getData()
         console.log(res.status+ ' 成功修改商品')
       })
@@ -121,6 +126,9 @@ const app = Vue.createApp({
         myModal.hide()
       } 
     },
+    createImages(){
+      console.log('待做 createImages')
+    }
   },
   mounted() {    
     this.checkLogin()

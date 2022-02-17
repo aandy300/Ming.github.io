@@ -1,14 +1,6 @@
 // modal 元件
 const del_obj ={
-    data(){
-      return{
-        newTemp: ''
-      }
-    },
     props:[ 'temp' ],
-    created(){
-      this.newTemp = this.temp
-    },
     template:  
     `
       <div id="delProductModal" ref="delProductModal" class="modal fade" tabindex="-1" aria-labelledby="delProductModalLabel" aria-hidden="true">
@@ -22,7 +14,7 @@ const del_obj ={
             </div>
             <div class="modal-body">
               是否刪除
-              <strong class="text-danger"> {{ newTemp.title }} </strong> 商品(刪除後將無法恢復)。
+              <strong class="text-danger"> {{ temp.title }} </strong> 商品(刪除後將無法恢復)。
             </div>
             <div class="modal-footer">
               <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">
@@ -95,8 +87,9 @@ const new_edit_obj ={
                     </div>
                   </div>
                   <div v-else>
-                    <button class="btn btn-outline-primary btn-sm d-block w-100"
-                      >@click="createImages" 移除的 這功能還沒做
+                  <!-- @createImages -->
+                    <button class="btn btn-outline-primary btn-sm d-block w-100" 
+                    @click="$emit('createImages')">
                       新增圖片
                     </button>
                   </div>
@@ -160,8 +153,8 @@ const new_edit_obj ={
                 取消
               </button> 
               <!-- 新增or修改按鍵 -->           
-              <button v-if="inside_isNew = inside_isNew" type="button" class="btn btn-primary" @click="$emit( 'closeModal') , $emit( 'addProductPost') ">確認新增</button>            
-              <button v-else type="button" class="btn btn-primary" @click="$emit( 'closeModal') , $emit( 'editProduct') ">確認修改</button>
+              <button v-if="inside_isNew = inside_isNew" type="button" class="btn btn-primary" @click="$emit( 'addProductPost') ">確認新增</button>            
+              <button v-else type="button" class="btn btn-primary" @click="$emit( 'editProduct') ">確認修改</button>
             </div>
           </div>
         </div>
