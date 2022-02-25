@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "AAeA,AAAA,KAAK,AAAA,2BAA2B,EAAC,KAAK,AAAA,2BAA2B,CAAC;EAC9D,kBAAkB,EAAE,IAAI;EACxB,MAAM,EAAE,CAAC;CAAG",
+    "sources": [
+        "../sass/list_style.sass"
+    ],
+    "names": [],
+    "file": "list_style.css"
+}
