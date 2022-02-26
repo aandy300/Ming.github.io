@@ -3,18 +3,57 @@
 const url = 'https://vue3-course-api.hexschool.io/v2'
 const path = 'ming123'
 
+const { defineRule, Form, Field, ErrorMessage, configure } = VeeValidate;
+const { required, email, min, max } = VeeValidateRules;
+const { localize, loadLocaleFromURL } = VeeValidateI18n;
 
+defineRule('required', required);
+defineRule('email', email);
+defineRule('min', min);
+defineRule('max', max);
+
+// VeeValidateI18n-loadLocaleFromURL 載入 中文語系 的對應 驗證資訊訊息
+loadLocaleFromURL('https://unpkg.com/@vee-validate/i18n@4.1.0/dist/locale/zh_TW.json');
+
+// VeeValidate 使用和相關設定 
+configure({ 
+  generateMessage: localize('zh_TW'), //啟用 locale
+  validateOnInput: true, // 輸入文字時立刻驗證 
+});
 
 const app = Vue.createApp({
   data() {
     return {
-      cartData: {},
+      cartData: {
+        // length 無校關係 生命週期原因 所以這裡事先寫好結構
+        carts:[]
+      },
       products: [],
       productsID: '',  
-      isLoadingItem: '',        
+      isLoadingItem: '',
+      form: {
+				user: {
+					name: '',
+					email: '',
+					tel: '',
+					address: '',
+				},
+				message: '',
+			},    
     }
   },
+  components: {
+    VForm: Form,
+    VField: Field,
+    ErrorMessage: ErrorMessage,
+  },
   methods: {
+    // rules 中可自訂函式來驗證結果 - 使用 v-bind 綁定 :rules="isPhone"
+    // 正則表達來自定規則
+    isPhone(value) {
+      const phoneNumber = /^(09)[0-9]{8}$/
+      return phoneNumber.test(value) ? true : '需要正確的電話號碼' // phoneNumber.test(外面表單輸入的值?) ? true的結果 : false的結果 嗎
+    },
     getData(){      
       axios.get( `${ url }/api/${ path }/products/all`)
       .then((res) =>{                    
@@ -97,6 +136,20 @@ const app = Vue.createApp({
         alert(err.data.message);
       })
     },
+    createOrder(){
+      const order = this.form
+      axios.post( `${ url }/api/${ path }/order`, { data: order } )      
+      .then((res) =>{                            
+        console.log('createOrder()', res)
+        this.$refs.form.resetForm()        
+        this.getCart()
+        this.form.message = ''
+        alert('已送出訂單')        
+      })
+      .catch((err) =>{
+        alert(err.data.message);
+      })
+    }
   },
   mounted() {
     this.getData()
@@ -113,7 +166,7 @@ app.component('productModal', {
       qty: 1,
     }
   },
-  props:[ 'id' ],
+  props:[ 'id', 'isLoadingItem' ],
   template: '#userProductModal',
   watch:{
     id(){
@@ -144,7 +197,9 @@ app.component('productModal', {
   },
   mounted(){
     this.modal = new bootstrap.Modal(this.$refs.modal)
+    console.log('VeeValidate', VeeValidate)
   },
 })
 
 app.mount('#app');
+
