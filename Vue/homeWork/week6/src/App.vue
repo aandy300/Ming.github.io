@@ -1,24 +1,14 @@
-// 這個是首頁?
 <template>
-  <nav>
-    <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link>
-  </nav>
+  <!-- <nav> -->
+    <!-- <router-link to="/">Home</router-link> | -->
+    <!-- <router-link to="/about">About</router-link> | -->
+    <!-- <router-link to="/front">front</router-link> | -->
+    <!-- <router-link to="/admin">dashboard</router-link> | -->
+  <!-- </nav> -->
+  <!-- <button class="btn btn-primary">123</button> -->
   <router-view/>
-  {{ name }}
-  <button type="button" class="btn btn-primary">Primary</button>
 </template>
 
 <style lang="scss">
-@import "bootstrap";
+  @import 'bootstrap/scss/bootstrap';
 </style>
-
-<script>
-export default {
-  data() {
-    return {
-      name: process.env.VUE_APP_NAME
-    }
-  }
-}
-</script>
