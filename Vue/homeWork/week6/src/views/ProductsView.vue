@@ -13,7 +13,7 @@
             </div>
             <div>
               <div class="card-footer">
-                <a href="#" class="btn btn-primary">Go somewhere</a>
+                <router-link class="btn btn-primary" :to="`/product/${item.id}`">詳細資訊</router-link>
               </div>
             </div>
           </div>
