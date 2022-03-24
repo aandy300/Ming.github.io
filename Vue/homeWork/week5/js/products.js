@@ -116,8 +116,7 @@ const app = Vue.createApp({
           imagesUrl: [],     
         }
         myModal.show()
-      } 
-      
+      }       
     },
     closeModal(status){      
       if(status == 'del'){

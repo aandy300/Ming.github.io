@@ -20,7 +20,6 @@
         </li>
     </ul>
   </nav>
-  123
 </template>
 
 <script>

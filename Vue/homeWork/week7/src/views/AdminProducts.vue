@@ -1,6 +1,5 @@
 <template>
     <div class="container">
-      <div id="app" class="container">
         <br>
         <!-- 想做最後更新通知 待處理 -->
         <div class="alert alert-warning alert-dismissible fade show" role="alert">
@@ -64,57 +63,38 @@
             </tr>
           </tbody>
         </table>
-        <p>目前顯示 <span id="productCount">{{ products.length }}</span> 項產品</p>
-        <!-- 分頁元件 -->
-        <ObjPagination :pages="pagination" @get-data="getData"></ObjPagination>
-        <!-- 新增、編輯modal元件 -->
-        <new_edit_obj :temp="temp" :is-new="isNew"
-        @create-images="createImages"
-        @add-product-post="addProductPost" @edit-product="editProduct">
-        </new_edit_obj>
-        <!-- 刪除modal元件 -->
-        <del_obj :temp="temp" @close-modal="closeModal" @del-data="delData"></del_obj>
-        <!-- 查看細項 -->
-        <template v-if="nowInfo.id">
-          <div class="card mb-3">
-            <div class="card-body">
-              <h5 class="card-title">
-                {{ nowInfo.title }}
-                <span class="badge bg-primary ms-2">{{ nowInfo.category }}</span>
-              </h5>
-              <p class="card-text">商品描述：{{ nowInfo.description }}</p>
-              <p class="card-text">商品內容：{{ nowInfo.content }}</p>
-              <div class="d-flex">
-                <p class="card-text me-2">{{ nowInfo.price }} 元</p>
-                <p class="card-text text-secondary"><del>{{ nowInfo.origin_price }} 元</del></p>
-              </div>
-            </div>
-          </div>
-          <ul class="list-unstyled d-flex">
-              <img :src="nowInfo.imageUrl"  class="images ms-2 img-fluid max-width: 10%" width="500" height="500" alt="">
-            <li v-for="img in nowInfo.imagesUrl" :key="img+1">
-                <img :src="img"  class="images m-2 img-fluid max-width: 30%" alt="">
-            </li>
-          </ul>
-        </template>
-      </div>
+            <p>目前顯示 <span id="productCount">{{ products.length }}</span> 項產品</p>
     </div>
+    <!-- ************************************************************************************** -->
+    <!-- 分頁元件 -->
+    <ObjPagination :pages="pagination" @get-data="getData"></ObjPagination>
+    <!-- 新增、編輯modal元件 -->
+
+    <!-- 刪除modal元件 -->
+    <ObjDelButtonModal :temp="temp" ref="delModal" @close-modal="closeModal" @del-data="delData"></ObjDelButtonModal>
+    <!-- 查看細項 -->
+    <button @click="openModal('del', item), checkInfo(item)" type="button" class="btn btn-outline-danger btn-sm">刪除</button>
 </template>
 
 <script>
-import ObjPagination from '@/components/Obj_Pagination.vue'
-// import ObjAdminProductsList from '@/components/Obj_AdminProducts.vue'
-
+    import ObjPagination from '@/components/Obj_Pagination.vue'
+    import ObjDelButtonModal from '@/components/Obj_DelButtonModal.vue'
+    // import ObjAdminProductsList from '@/components/Obj_AdminProducts.vue'
 export default {
     data() {
         return {
             nowInfo: {},
             products: {},
-            pagination: ''
+            pagination: '',
+            temp: {
+                // eslint-disable-next-line quote-props
+                'data': {}
+            }
         }
     },
     components: {
-        ObjPagination
+        ObjPagination,
+        ObjDelButtonModal
         // ObjAdminProductsList
     },
     methods: {
@@ -148,11 +128,55 @@ export default {
             .catch((err) => {
                 alert(err.data.message)
             })
+        },
+        delData(){
+            console.log('delData...')
+            // this.$http.delete(`${process.env.VUE_APP_url}/api/${process.env.VUE_APP_path}/admin/product/${this.temp.data.id}`)
+            // .then((res) => {
+            // this.temp.data = {
+            //     imagesUrl: []
+            // }
+            // this.getData()
+            //     console.log(` ${this.temp.data.id}` + ' 已刪除此id商品')
+            // })
+            // .catch((err) => {
+            //     alert(err.data.message)
+            // })
+        },
+        openModal(status, item){
+            // this.temp.data = { ...item }
+            if (status === 'edit'){
+                // myModal.show()
+                this.modal.show()
+            } else if (status === 'del'){
+                console.log(this.$refs)
+                const DelButtonModal = this.$refs.delModal
+                console.log(this.DelButtonModal)
+                DelButtonModal.openModal()
+                // console.log(item.id, item)
+            } else if (status === 'new'){
+                this.temp.data = {}
+                this.temp.data = {
+                imagesUrl: []
+                }
+                // myModal.show()
+                this.modal.show()
+            }
+        },
+        closeModal(status){
+        if (status === 'del'){
+            console.log('mydelModal.hide()')
+        } else {
+            console.log('mydelModal.hide() else')
+            }
         }
     },
     mounted() {
         this.checkLogin()
         this.getData()
+        // myModal = new bootstrap.Modal(document.querySelector('#productModal'))
+        // mydelModal = new bootstrap.Modal(document.querySelector('#delProductModal'))
+        // this.modal = new Modal(this.$refs.modal)
     }
 }
 </script>

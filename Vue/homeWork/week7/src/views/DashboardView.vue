@@ -9,13 +9,13 @@
             <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav">
                 <li class="nav-item">
-                    <router-link class="nav-link" to="/admin/login" >登入</router-link>
-                </li>
-                <li class="nav-item">
                     <router-link class="nav-link" to="/admin/products" >商品列表</router-link>
                 </li>
                 <li class="nav-item">
                     <router-link class="nav-link" to="/admin/coupon" >優惠卷</router-link>
+                </li>
+                <li class="nav-item">
+                    <router-link class="nav-link" to="/#" >登出</router-link>
                 </li>
             </ul>
             </div>
