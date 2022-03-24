@@ -1,5 +1,5 @@
 <template>
-    <div id="productModal" ref="productModal" class="modal fade" tabindex="-1" aria-labelledby="productModalLabel" aria-hidden="true">
+    <div id="productModal" ref="modal" class="modal fade" tabindex="-1" aria-labelledby="productModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-xl">
           <div class="modal-content border-0">
             <div class="modal-header bg-dark text-white">
@@ -104,8 +104,8 @@
                 取消
               </button>
               <!-- 新增or修改按鍵 -->
-              <button v-if="inside_isNew = inside_isNew" type="button" class="btn btn-primary" @click="$emit( 'addProductPost') ">確認新增</button>
-              <button v-else type="button" class="btn btn-primary" @click="$emit( 'editProduct') ">確認修改</button>
+              <button v-if="inside_isNew = inside_isNew" type="button" class="btn btn-primary" @click="$emit('addProductPost'), closeModal()">確認新增</button>
+              <button v-else type="button" class="btn btn-primary" @click="$emit('editProduct', closeModal())">確認修改</button>
             </div>
           </div>
         </div>
@@ -114,6 +114,8 @@
 
 <script>
 
+import Moadl from 'bootstrap/js/dist/modal'
+
 export default {
     data(){
       return {
@@ -121,17 +123,29 @@ export default {
         inside_isNew: false
       }
     },
-    updated() {
-        this.inside_isNew = this.isNew
-    },
     props: ['temp', 'isNew'],
     watch: {
         temp(){
             this.newTemp = this.temp
+        },
+        isNew(){
+            this.inside_isNew = this.isNew
+        }
+    },
+    methods: {
+        openModal(){
+            this.modal.show()
+            console.log('isNew:', this.isNew, 'inside_New:', this.inside_isNew)
+        },
+        closeModal(){
+            this.modal.hide()
         }
     },
     created() {
         this.newTemp = this.temp
+    },
+    mounted() {
+        this.modal = new Moadl(this.$refs.modal)
     }
 }
 </script>

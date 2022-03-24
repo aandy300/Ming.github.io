@@ -36,8 +36,18 @@ const routes = [
         component: () => import('../views/AdminCoupon.vue')
       },
       {
+        path: 'order',
+        component: () => import('../views/AdminOrder.vue')
+      },
+      {
         path: 'login',
         component: () => import('../views/AdminLogin.vue')
+      },
+      {
+        // 有做 但是暫時沒用到
+        // 要啟用才能查看，那乾脆看編輯資訊就好or看前台的產品細項 處理不能這後端才能處理
+        path: 'adminproduct/:id',
+        component: () => import('../views/AdminProductView.vue')
       }
     ]
   }

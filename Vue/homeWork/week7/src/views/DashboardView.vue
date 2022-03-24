@@ -15,7 +15,10 @@
                     <router-link class="nav-link" to="/admin/coupon" >優惠卷</router-link>
                 </li>
                 <li class="nav-item">
-                    <router-link class="nav-link" to="/#" >登出</router-link>
+                    <router-link class="nav-link" to="/admin/order" >訂單頁面</router-link>
+                </li>
+                <li class="nav-item">
+                    <router-link class="nav-link" @click.prevent="logout" to="/admin/login" >登出</router-link>
                 </li>
             </ul>
             </div>
@@ -23,3 +26,19 @@
     </nav>
     <router-view></router-view>
 </template>
+
+<script>
+export default {
+    methods: {
+        logout() {
+            this.$http.post(`${process.env.VUE_APP_url}/logout`)
+            .then((res) => {
+                console.log(res)
+            })
+            .catch((error) => {
+                console.dir(error)
+            })
+        }
+    }
+}
+</script>

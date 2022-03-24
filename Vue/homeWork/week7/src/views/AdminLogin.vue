@@ -44,14 +44,33 @@ export default {
         }
     },
     methods: {
+        // 確認登入並做toeken?
+        checkLogin(){
+            // token處理
+            // eslint-disable-next-line no-useless-escape
+            const token = document.cookie.replace(/(?:(?:^|.*;\s*)mingToken\s*\=\s*([^;]*).*$)|^.*$/, '$1')
+            // eslint-disable-next-line dot-notation
+            this.$http.defaults.headers.common['Authorization'] = token
+            // token處理結束
+            this.$http.post('https://vue3-course-api.hexschool.io/v2/api/user/check')
+            .then((res) => {
+                console.log('checkLogin()', '確認登入成功', res)
+                this.$router.push('/admin/products') // $router.push() 取代原先跳轉頁面
+            })
+            .catch((err) => {
+                console.log(err, '沒有登入資訊，請先登入過一次')
+                this.$router.push('/admin/login') // $router.push() 取代原先跳轉頁面
+            })
+        },
         siginIn(){
         this.$http.post(`${process.env.VUE_APP_url}/admin/signin`, this.user)
         .then((res) => {
-          console.log(res)
-          const { token, expired } = res.data // 抓出 token & 到期時間
-          document.cookie = `mingToken=${token}; expires=${new Date(expired)}` // token有效時間
+            console.log(res)
+            const { token, expired } = res.data // 抓出 token & 到期時間
+            document.cookie = `mingToken=${token}; expires=${new Date(expired)}` // token有效時間
+            this.checkLogin()
         //   window.location = 'products.html' // 原本跳轉頁面
-        this.$router.push('/admin/products') // $router.push() 取代原先跳轉頁面
+            this.$router.push('/admin/products') // $router.push() 取代原先跳轉頁面
         })
         .catch((err) => {
           console.dir(err)
@@ -61,6 +80,7 @@ export default {
     }
     },
     mounted() {
+        // this.checkLogin()
         console.log('跑登入', this.user.username, this.user.password)
     }
 }

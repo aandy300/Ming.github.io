@@ -11,10 +11,10 @@
                     <router-link class="nav-link" to="/admin/login" >後台</router-link>
                 </li>
                 <li class="nav-item">
-                    <router-link class="nav-link" to="products" >商品列表</router-link>
+                    <router-link class="nav-link" to="/products" >商品列表</router-link>
                 </li>
                 <li class="nav-item">
-                    <router-link class="nav-link" to="cart" >購物車</router-link>
+                    <router-link class="nav-link" to="/cart" >購物車</router-link>
                 </li>
                 <!-- <li class="nav-item">
                 <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
