@@ -57,13 +57,11 @@
                   <tr>
                     <th>下單時間</th>
                     <td>{{ neworderTemp.create_at}}</td>
-                    <!-- <td>{{ $filters.date(neworderTemp.create_at) }}</td> -->
                   </tr>
                   <tr>
                     <th>付款時間</th>
                     <td>
                       <span v-if="neworderTemp.paid_date">
-                        <!-- {{ $filters.date(neworders.paid_date) }} -->
                       </span>
                       <span v-else>時間不正確</span>
                     </td>
@@ -80,7 +78,6 @@
                   <tr>
                     <th>總金額</th>
                     <td>
-                      <!-- {{ $filters.currency(neworders.total) }} -->
                       {{ neworderTemp.total }}
                     </td>
                   </tr>
@@ -98,7 +95,6 @@
                     </th>
                     <td>{{ item.qty }} / {{ item.product.unit }}</td>
                     <td class="text-end">
-                      <!-- {{ $filters.currency(item.final_total) }} -->
                       {{ item.final_total }}
                     </td>
                   </tr>
@@ -167,7 +163,6 @@ export default {
         })
         .catch((err) => {
             console.dir(err)
-            // alert(`${err.status}, ${err.data.message}`)
             this.$router.push('/admin/login') // $router.push() 取代原先跳轉頁面
         })
       },
@@ -183,12 +178,10 @@ export default {
           is_paid: item.is_paid
         }
         this.$http.put(`${process.env.VUE_APP_url}/api/${process.env.VUE_APP_path}/admin/order/${item.id}`, { data: paid })
-        // this.$http.put(api, { data: paid })
         .then((res) => {
           this.closeModal()
           this.$emit('resetorderlist')
           console.log(res, res.status, '成功更新')
-          // this.getOrders(this.currentPage)
         })
         .catch((err) => {
           console.dir(err.response, '錯誤訊息')

@@ -40,7 +40,6 @@
               type="button"
               class="btn btn-outline-secondary"
             >
-              <!-- <i v-show="isLoadingItem === item.id" class="fas fa-spinner fa-pulse"></i> -->
               查看更多
             </button>
             <button
@@ -97,10 +96,6 @@ export default {
             .then((res) => {
             console.log('addToCart()', res)
             emitter.emit('get-cart')
-            // this.getCart()
-            // :disabled停止用
-            // this.isLoadingItem = ''
-            // this.$refs.productModal.closeMoadl()
             })
             .catch((err) => {
             alert(err.data.message)
@@ -109,7 +104,6 @@ export default {
     },
     mounted() {
         this.getData()
-        // this.getCart()
     }
 }
 </script>

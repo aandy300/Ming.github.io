@@ -42,7 +42,6 @@
                 <span v-else class="text-danger">未啟用</span>
               </td>
               <td>
-                <!-- <button @click="checkInfo(item)" type="button" class="btn btn-primary">查看細節</button> -->
                 <router-link class="btn btn-primary" :to="`/product/${item.id}`">詳細資訊</router-link>
               </td>
               <td width="120">
@@ -62,13 +61,11 @@
             <!-- 分頁元件 -->
             <ObjPagination :pages="pagination" @get-data="getData"></ObjPagination>
     </div>
-    <!-- ************************************************************************************** -->
-
+    <!-- 元件 -->
     <!-- 新增、編輯modal元件 -->
     <ObjEditNewItemButtonModal :temp="temp" :is-new="isNew" ref="productModal" @edit-product="editProduct" @add-product-post="addProductPost"></ObjEditNewItemButtonModal>
     <!-- 刪除modal元件 -->
     <ObjDelButtonModal :temp="temp" ref="delModal" @close-modal="closeModal" @del-data="delData"></ObjDelButtonModal>
-    <!-- 查看細項 -->
 
 </template>
 
@@ -115,7 +112,6 @@ export default {
             })
             .catch((err) => {
                 console.dir(err)
-                // alert(`${err.status}, ${err.data.message}`)
                 this.$router.push('/admin/login') // $router.push() 取代原先跳轉頁面
             })
         },
@@ -205,9 +201,6 @@ export default {
     mounted() {
         this.checkLogin()
         this.getData()
-        // myModal = new bootstrap.Modal(document.querySelector('#productModal'))
-        // mydelModal = new bootstrap.Modal(document.querySelector('#delProductModal'))
-        // this.modal = new Modal(this.$refs.modal)
     }
 }
 </script>
