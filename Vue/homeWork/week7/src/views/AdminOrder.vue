@@ -36,7 +36,9 @@
     <!-- to orders modal -->
             <tbody id="productList">
                 <tr v-for=" item in orders" :key="item.id">
-                    <td width="120">{{ item.create_at }} </td>
+                    <!-- ! 傻眼 可以直接使用在下面這行 不需要 func() 去轉換 or 物件轉陣列再轉換 暈倒.... -->
+                    <!-- 轉換成ISO格式 > 以T分隔轉換成陣列 > 轉乘字串 > 刪除尾巴五個字元 0, -5 > 文字取代 , to - -->
+                    <td width="120">{{ new Date(item.create_at * 1000).toISOString().split('T').toString().slice(0, -5).replace(',', '-') }}</td>
                     <td width="120"> {{ item.user.email }} </td>
                         <td width="120">
                             <div v-for=" item in item.products" :key="item.id" width="100">
@@ -154,8 +156,8 @@
     <!-- obj orders in props -->
     <!-- props 搞錯 以為是 data 結構 媽的結果浪費一堆時間 是 裡面的 props: [這個名稱] -->
     <!-- @get-orders="getOrders" -->
-    <ObjOrdersEditModal :orderTemp="orderTemp" ref="orderMoadl" @resetorderlist="getOrders"></ObjOrdersEditModal>
-    <ObjOrdersDelModal :orderTemp="orderTemp" ref="orderMoadl" @resetorderlist="getOrders"></ObjOrdersDelModal>
+    <ObjOrdersEditModal :orderTemp="orderTemp" ref="orderEditMoadl" @resetorderlist="getOrders"></ObjOrdersEditModal>
+    <ObjOrdersDelModal :orderTemp="orderTemp" ref="orderDelMoadl" @resetorderlist="getOrders"></ObjOrdersDelModal>
     <ObjPagination :pages="pagination" @get-data="getOrders"></ObjPagination>
 </template>
 
@@ -194,15 +196,25 @@ export default {
                 console.dir(err)
             })
         },
+        // 這裡需要分流 $ref上面的元件引用都一樣 現在編輯也開到了刪除  待解決
         openModal(status, item){
+            // 做分流
+            // 這邊解構 轉存置 orderTemp 傳入 Moadl 裡面 該筆的資訊
             this.orderTemp = { ...item }
-            // console.log('openModal-order')
-            const orderMoadl = this.$refs.orderMoadl
-            orderMoadl.openModal()
+            if (status === 'edit'){
+                const orderEditMoadl = this.$refs.orderEditMoadl
+                orderEditMoadl.openModal()
+            } else if (status === 'del'){
+                console.log(this.$refs)
+                const orderDelModal = this.$refs.orderDelMoadl
+                orderDelModal.openModal()
+                // console.log(item.id, item)
+            }
         }
     },
     mounted() {
         this.getOrders()
+        // this.timeChange()
     }
 }
 </script>
