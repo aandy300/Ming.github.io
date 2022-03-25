@@ -960,9 +960,6 @@ footer .bot_link_group_right .icon {
     max-height: 0px;
     overflow: hidden;
     /*隱藏選單結束*/
-  }
-  .menu-show .top_btn_right {
-    max-height: 150px;
     transition: max-height 0.3s;
     width: 100%;
     position: absolute;
@@ -970,14 +967,14 @@ footer .bot_link_group_right .icon {
     top: 54px;
     background-color: #1c1c1c;
   }
-  .menu-show .top_menu {
+  .top_menu {
     z-index: 100;
   }
-  .menu-show .top_menu .top_btn_right {
+  .top_menu .top_btn_right {
     display: flex;
     flex-direction: column;
   }
-  .menu-show .top_menu .top_btn_right li {
+  .top_menu .top_btn_right li {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -985,15 +982,18 @@ footer .bot_link_group_right .icon {
     background-color: black;
     text-align: center;
   }
-  .menu-show .top_menu .top_btn_right li a {
+  .top_menu .top_btn_right li a {
     width: 100%;
     background-color: #1c1c1c;
   }
-  .menu-show .top_menu .top_btn_right li a:hover {
+  .top_menu .top_btn_right li a:hover {
     background-color: gray;
   }
-  .menu-show .top_menu .top_btn_right li a:active {
+  .top_menu .top_btn_right li a:active {
     background-color: gray;
+  }
+  .menu-show .top_btn_right {
+    max-height: 150px;
   }
   .container .layer1 .mid_slogan {
     position: static;

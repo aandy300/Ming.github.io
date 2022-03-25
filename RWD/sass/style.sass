@@ -69,6 +69,7 @@ html,body
 // Footer
 @import '_Footer'
 
+// 斷點
 @media(max-width: 536px)
 
     // header
@@ -129,68 +130,47 @@ html,body
         max-height: 0px
         overflow: hidden  
         /*隱藏選單結束*/  
+        
+        // transition 沒辦法逆向
+        // 簡單講: 因為逆向時class消失，所以便瞬間。 應該要移到上面.menu-show之外才對。
+        // 下面轉移上來的 除了height
+        transition: max-height 0.3s
+        width: 100%            
+        position: absolute
+        z-index: 100
+        top: 54px
+        background-color: rgb(28, 28, 28)       
+    .top_menu                                  
+        z-index: 100
+        .top_btn_right
+            display: flex
+            // 三攔 = row 直式 = column
+            // flex-direction: row
+            flex-direction: column
+            li
+                display: flex                
+                justify-content: center
+                align-items: center
+                width: 100%                
+                background-color: black
+                text-align: center                
+                a
+                    width: 100%
+                    background-color: #1c1c1c                    
+                a:hover
+                    background-color: gray            
+                a:active
+                    background-color: gray 
+
 
     // 因為是下在body 所以在最外層 在內層指定不到
     // 展開 JQ 在body追加 .menu-show
     .menu-show        
-        // 三攔式
-        // .top_btn_right
-        //     max-height: none                                    
-        //     width: 100%
-        //     overflow: visible
-        //     position: absolute
-        //     z-index: 100
-        //     top: 54px
-        //     background-color: rgb(28, 28, 28) 
-        // .top_menu                         
-        //     z-index: 100
-        //     .top_btn_right
-        //     li
-        //         display: flex
-        //         justify-content: center
-        //         align-items: center
-        //         width: 100%                
-        //         background-color: black
-        //         text-align: center                
-        //         a
-        //             width: 100%
-        //             background-color: #1c1c1c                    
-        //         a:hover
-        //             background-color: gray            
-        //         a:active
-        //             background-color: gray     
-        //
-        
-        // 直式ver
         .top_btn_right
+            // 給高度 直式時最高150px 三攔自適應
             max-height: 150px
-            // transition: 需要max-height height沒用                        
-            transition: max-height 0.3s
-            width: 100%            
-            position: absolute
-            z-index: 100
-            top: 54px
-            background-color: rgb(28, 28, 28)              
-        .top_menu                                  
-            z-index: 100
-            .top_btn_right
-                display: flex
-                flex-direction: column
-                li
-                    display: flex                
-                    justify-content: center
-                    align-items: center
-                    width: 100%                
-                    background-color: black
-                    text-align: center                
-                    a
-                        width: 100%
-                        background-color: #1c1c1c                    
-                    a:hover
-                        background-color: gray            
-                    a:active
-                        background-color: gray                                        
-
+            // transition: 需要max-height height沒用          
+                                                                           
     // index
     .container        
         .layer1
