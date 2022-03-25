@@ -1,6 +1,9 @@
 <template>
     <nav aria-label="Page navigation example">
-        <ul class="pagination">
+      <!-- 至中ver -->
+        <ul class="pagination justify-content-center">
+      <!-- 靠左ver -->
+        <!-- <ul class="pagination"> -->
         <li class="page-item" :class="{ disabled : !pages.has_pre }" >
             <a class="page-link" href="#" aria-label="Previous" @click.prevent=" $emit('get-data', inside_pages.current_page - 1)" >
             <span aria-hidden="true">&laquo;</span>

@@ -12,10 +12,10 @@
                     <router-link class="nav-link" to="/admin/products" >商品列表</router-link>
                 </li>
                 <li class="nav-item">
-                    <router-link class="nav-link" to="/admin/coupon" >優惠卷</router-link>
+                    <router-link class="nav-link" to="/admin/order" >訂單頁面</router-link>
                 </li>
                 <li class="nav-item">
-                    <router-link class="nav-link" to="/admin/order" >訂單頁面</router-link>
+                    <router-link class="nav-link disabled" to="/admin/coupon" >優惠卷(還沒做)</router-link>
                 </li>
                 <li class="nav-item">
                     <router-link class="nav-link" @click.prevent="logout" to="/admin/login" >登出</router-link>
