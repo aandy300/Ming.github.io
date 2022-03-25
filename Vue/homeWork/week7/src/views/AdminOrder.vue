@@ -35,8 +35,8 @@
     <!-- 想抓物件屬性名稱 印出商品名稱 如何略過or直接抓到品項id -->
     <!-- to orders modal -->
             <tbody id="productList">
-                <tr v-for=" (item, index) in orders" :key="item.id">
-                    <td width="120"> {{ index }} {{ item.create_at }} </td>
+                <tr v-for=" item in orders" :key="item.id">
+                    <td width="120">{{ item.create_at }} </td>
                     <td width="120"> {{ item.user.email }} </td>
                         <td width="120">
                             <div v-for=" item in item.products" :key="item.id" width="100">
@@ -56,7 +56,7 @@
                         <button @click="openModal('edit', item)" type="button" class="btn btn-outline-primary btn-sm">
                             編輯
                         </button>
-                        <button @click="openModal('del', item), checkInfo(item)" type="button" class="btn btn-outline-danger btn-sm">
+                        <button @click="openModal('del', item)" type="button" class="btn btn-outline-danger btn-sm">
                             刪除
                         </button>
                         </div>
@@ -153,32 +153,41 @@
     <!-- {{ orders }} -->
     <!-- obj orders in props -->
     <!-- props 搞錯 以為是 data 結構 媽的結果浪費一堆時間 是 裡面的 props: [這個名稱] -->
-    <ObjOrdersModal :orders="orders" :orderTemp="orderTemp" ref="orderMoadl"></ObjOrdersModal>
+    <!-- @get-orders="getOrders" -->
+    <ObjOrdersEditModal :orderTemp="orderTemp" ref="orderMoadl" @resetorderlist="getOrders"></ObjOrdersEditModal>
+    <ObjOrdersDelModal :orderTemp="orderTemp" ref="orderMoadl" @resetorderlist="getOrders"></ObjOrdersDelModal>
+    <ObjPagination :pages="pagination" @get-data="getOrders"></ObjPagination>
 </template>
 
 <script>
 
-import ObjOrdersModal from '@/components/Obj_OrdersModal.vue'
+import ObjOrdersEditModal from '@/components/Obj_OrdersEditModal.vue'
+import ObjOrdersDelModal from '@/components/Obj_OrdersDelModal.vue'
+import ObjPagination from '@/components/Obj_Pagination.vue'
 
 export default {
     data() {
         return {
             orders: [],
-            orderTemp: {}
+            orderTemp: {},
+            pagination: ''
         }
     },
     components: {
-        ObjOrdersModal
+        ObjOrdersEditModal,
+        ObjOrdersDelModal,
+        ObjPagination
     },
     methods: {
-        getOrders(){
-            console.log('getProducts')
+        getOrders(page = 1){
+            console.log('getOrders()')
             // const { id } = this.$route.params  // 解構的寫法
-            this.$http(`${process.env.VUE_APP_url}/api/${process.env.VUE_APP_path}/orders`)
+            this.$http(`${process.env.VUE_APP_url}/api/${process.env.VUE_APP_path}/orders?page=${page}`)
             .then(res => {
-                console.log(res)
+                // console.log(res)
+                // console.log(this.orders)
                 this.orders = res.data.orders
-                console.log(this.orders)
+                this.pagination = res.data.pagination
             })
             .catch(err => {
                 console.log(err)
@@ -187,7 +196,7 @@ export default {
         },
         openModal(status, item){
             this.orderTemp = { ...item }
-            console.log('openModal-order')
+            // console.log('openModal-order')
             const orderMoadl = this.$refs.orderMoadl
             orderMoadl.openModal()
         }
