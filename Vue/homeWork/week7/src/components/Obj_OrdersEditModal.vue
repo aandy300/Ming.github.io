@@ -80,6 +80,7 @@
                   <tr>
                     <th>總金額</th>
                     <td>
+                      <!-- FILTERS JS自己的看助教回答 currency幣別轉換套件? -->
                       <!-- {{ $filters.currency(neworders.total) }} -->
                       {{ neworderTemp.total }}
                     </td>
