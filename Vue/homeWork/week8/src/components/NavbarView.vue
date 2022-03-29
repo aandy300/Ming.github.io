@@ -4,9 +4,10 @@
         <nav class="navbar px-0 navbar-expand-lg navbar-light bg-white">
           <!-- 中央名稱 -->
           <router-link class="navbar-brand position-absolute" style="left: 50%; transform: translate(-50%, -50%); top: 50%;" to="/">品牌名稱</router-link>
+          <!-- RWD icon -->
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon">123</span>
-            <i class="bi bi-cart"></i>
+            <span class="navbar-toggler-icon"></span>
+            <!-- <i class="bi bi-cart"></i> -->
           </button>
           <!-- 連結 -->
           <div class="collapse navbar-collapse bg-white custom-header-md-open" id="navbarNav">

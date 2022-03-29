@@ -1,4 +1,5 @@
 import { createApp } from 'vue'
+import 'bootstrap'
 import 'bootstrap-icons/font/bootstrap-icons.css'
 import axios from 'axios'
 import VueAxios from 'vue-axios'

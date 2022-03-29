@@ -5,8 +5,6 @@
         <a class="nav-item nav-link text-nowrap px-2" href="#">Lorem ipsum</a>
         <a class="nav-item nav-link text-nowrap px-2" href="#">Lorem ipsum</a>
         <a class="nav-item nav-link text-nowrap px-2 active" href="#">Lorem ipsum <span class="sr-only">(current)</span></a>
-        <a class="nav-item nav-link text-nowrap px-2" href="#">Lorem ipsum</a>
-        <a class="nav-item nav-link text-nowrap px-2" href="#">Lorem ipsum</a>
       </div>
     </nav>
     <div class="container mt-md-5 mt-3 mb-7">
@@ -15,7 +13,10 @@
         <!-- V-FOR -->
         <div class="col-md-3" v-for="item in products" :key="item.id" >
           <div class="card border-0 mb-4 position-relative">
-            <img :src="item.imageUrl" class="card-img-top rounded-0" alt="...">
+            <!-- <img :src="item.imageUrl" class="card-img-top rounded-0" alt="..."> -->
+            <div :style="{backgroundImage: `url(${item.imageUrl})`}"
+            style="height: 325px; background-size: cover; background-position:center center">
+            </div>
             <!-- 商品單向頁面 ${id} -->
             <!-- 我的最愛 icon -->
             <router-link to="" >
@@ -24,9 +25,13 @@
             <!-- 商品資料 -->
             <div class="card-body p-0">
               <h4 class="mb-0 mt-3">
-                <router-link class="card-text text-muted" to="" style="text-decoration:none; color:">{{item.title}}</router-link>
+                <!-- text-decoration:none; 去除底線 -->
+                <router-link class="card-text text-muted" to="" style="text-decoration:none;">
+                  <!-- 限制title size得用p、英文字跟中文 rem不太一樣、滑鼠hover顏色 -->
+                  <p style="height: 1.8rem; overflow:hidden;" onmouseover="this.style.color='#B08968';" onmouseout="this.style.color='';">{{item.title}}</p>
+                </router-link>
               </h4>
-              <p class="card-text text-muted mb-0">{{item.description}}</p>
+              <p class="card-text text-muted mb-0" style="height: 4.5rem; overflow:hidden;">{{item.description}}</p>
               <p class="text-muted mt-3">NT$ {{item.price}} / {{item.unit}}</p>
             </div>
           </div>
