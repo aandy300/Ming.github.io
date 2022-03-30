@@ -12,11 +12,8 @@
           <!-- 連結 -->
           <div class="collapse navbar-collapse bg-white custom-header-md-open" id="navbarNav">
             <ul class="navbar-nav">
-              <li class="nav-item active">
-                <router-link class="nav-link ps-0" to="/about">關於我們</router-link>
-              </li>
               <li class="nav-item">
-                <router-link class="nav-link" to="/products">品牌特色</router-link>
+                <router-link class="nav-link" to="/about">品牌特色</router-link>
               </li>
               <li class="nav-item">
                 <router-link class="nav-link" to="/products">產品列表</router-link>
@@ -28,7 +25,7 @@
               <router-link class="nav-link" to="products">
                 <i class="bi bi-heart-fill btn btn-sm fs-6"></i>
               </router-link>
-              <router-link class="nav-link" to="products">
+              <router-link class="nav-link" to="/cart">
                 <i class="bi bi-cart position-relative btn btn-sm px-1 fs-6">
                     <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">{{ cartData.carts.length }}</span>
                 </i>

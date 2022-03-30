@@ -7,10 +7,14 @@ const routes = [
     component: () => import('../views/Front/HomeView.vue'),
     children: [
       {
-        path: 'about',
+        path: 'aabout',
         component: () => import('../views/Front/AboutView.vue')
       }
     ]
+  },
+  {
+    path: '/about',
+    component: () => import('../views/Front/AboutView.vue')
   },
   {
     path: '/products',
@@ -21,7 +25,11 @@ const routes = [
     component: () => import('../views/Front/ProductView.vue')
   },
   {
-    path: '/swiper', // id
+    path: '/cart',
+    component: () => import('../views/Front/CartView.vue')
+  },
+  {
+    path: '/swiper',
     component: () => import('../views/Front/SwiperView.vue')
   }
 ]
