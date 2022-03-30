@@ -2,9 +2,10 @@
     <!-- 分類 -->
     <nav class="navbar navbar-expand-lg navbar-light justify-content-center border border-start-0 border-end-0 border-top border-bottom">
       <div class="navbar-nav flex-row overflow-auto navbar-custom-scroll">
-        <a class="nav-item nav-link text-nowrap px-2" href="#">Lorem ipsum</a>
-        <a class="nav-item nav-link text-nowrap px-2" href="#">Lorem ipsum</a>
-        <a class="nav-item nav-link text-nowrap px-2 active" href="#">Lorem ipsum <span class="sr-only">(current)</span></a>
+        <a class="nav-item nav-link text-nowrap px-2" href="#">全部商品</a>
+        <a class="nav-item nav-link text-nowrap px-2" href="#">文物書籍</a>
+        <a class="nav-item nav-link text-nowrap px-2" href="#">周邊雜誌</a>
+        <a class="nav-item nav-link text-nowrap px-2" href="#">其他用品<span class="sr-only">(current)</span></a>
       </div>
     </nav>
     <div class="container mt-md-5 mt-3 mb-7">
@@ -29,11 +30,16 @@
                 <!-- text-decoration:none; 去除底線 -->
                 <router-link class="card-text text-muted" :to="`/product/${item.id}`" style="text-decoration:none;">
                   <!-- 限制title size得用p、英文字跟中文 rem不太一樣、滑鼠hover顏色 -->
-                  <p style="height: 1.8rem; overflow:hidden;" onmouseover="this.style.color='#B08968';" onmouseout="this.style.color='';">{{item.title}}</p>
+                  <p class="fs-6 m-0" style="height: 3rem; overflow:hidden;" onmouseover="this.style.color='#B08968';" onmouseout="this.style.color='';">{{item.title}}</p>
                 </router-link>
               </h4>
               <p class="card-text text-muted mb-0" style="height: 4.5rem; overflow:hidden;">{{item.description}}</p>
-              <p class="text-muted mt-3">NT$ {{item.price}} / {{item.unit}}</p>
+              <!-- 原本的價目 -->
+              <!-- <p class="text-muted mt-3">NT$ {{item.price}} / {{item.unit}}</p> -->
+              <!-- <p class="text-muted mt-3">NT$ {{item.price}} / {{item.unit}}</p> -->
+              <button type="button" class="btn btn-secondary position-absolute bottom-0 start-0 mb-2">加入購物車</button>
+              <p class="mb-0 text-muted text-end mt-2"><del>NT$ {{item.origin_price}}</del></p>
+              <p class="h4 fw-bold text-end mt-1 fs-5">NT$ {{item.price}}</p>
             </div>
           </div>
         </div>
