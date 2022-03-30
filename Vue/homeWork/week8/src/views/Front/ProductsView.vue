@@ -20,13 +20,14 @@
             <!-- 商品單向頁面 ${id} -->
             <!-- 我的最愛 icon -->
             <router-link to="" >
-              <i class="bi bi-heart-fill position-absolute" style="right: 10px; top: 10px"></i>
+              <!-- bi-heart-fill 實心 -->
+              <i class="bi bi-suit-heart position-absolute btn btn-lg" style="right: 3px; top: 3px; color:red;"></i>
             </router-link>
             <!-- 商品資料 -->
             <div class="card-body p-0">
               <h4 class="mb-0 mt-3">
                 <!-- text-decoration:none; 去除底線 -->
-                <router-link class="card-text text-muted" to="" style="text-decoration:none;">
+                <router-link class="card-text text-muted" :to="`/product/${item.id}`" style="text-decoration:none;">
                   <!-- 限制title size得用p、英文字跟中文 rem不太一樣、滑鼠hover顏色 -->
                   <p style="height: 1.8rem; overflow:hidden;" onmouseover="this.style.color='#B08968';" onmouseout="this.style.color='';">{{item.title}}</p>
                 </router-link>
@@ -77,7 +78,6 @@ export default {
       .catch((err) => {
         console.dir(err)
       })
-      console.log('123')
     }
   },
   mounted() {
