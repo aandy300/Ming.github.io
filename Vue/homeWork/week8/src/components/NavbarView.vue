@@ -13,6 +13,9 @@
           <div class="collapse navbar-collapse bg-white custom-header-md-open" id="navbarNav">
             <ul class="navbar-nav">
               <li class="nav-item">
+                <router-link class="nav-link" to="/">首頁</router-link>
+              </li>
+              <li class="nav-item">
                 <router-link class="nav-link" to="/about">品牌特色</router-link>
               </li>
               <li class="nav-item">

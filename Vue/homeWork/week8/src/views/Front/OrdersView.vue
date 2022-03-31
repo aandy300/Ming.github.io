@@ -30,7 +30,7 @@
                     </td>
                     <td width="120">
                         <div class="btn-group">
-                          <button @click="openModal('edit', item)" type="button" class="btn btn-outline-primary btn-sm">
+                          <button @click="openModal(item)" type="button" class="btn btn-outline-primary btn-sm">
                               更改資訊
                           </button>
                           <router-link :to="`/pay/${item.id}`">
@@ -44,7 +44,7 @@
             </tbody>
         </table>
     </div>
-
+    <ModalEdit ref="modaledit" :single-order-data-temp="singleOrderDataTemp"></ModalEdit>
     <!-- 元件 -->
     <!-- <ObjOrdersEditModal :orderTemp="orderTemp" ref="orderEditMoadl" @resetorderlist="getOrders"></ObjOrdersEditModal>
     <ObjOrdersDelModal :orderTemp="orderTemp" ref="orderDelMoadl" @resetorderlist="getOrders"></ObjOrdersDelModal>
@@ -55,20 +55,20 @@
 
 // import ObjOrdersEditModal from '@/components/Obj_OrdersEditModal.vue'
 // import ObjOrdersDelModal from '@/components/Obj_OrdersDelModal.vue'
-// import ObjPagination from '@/components/Obj_Pagination.vue'
+import ModalEdit from '@/components/ModalEdit.vue'
 
 export default {
     data() {
         return {
             orders: [],
-            orderTemp: {},
+            singleOrderDataTemp: {},
             pagination: ''
         }
     },
     components: {
         // ObjOrdersEditModal,
         // ObjOrdersDelModal,
-        // ObjPagination
+        ModalEdit
     },
     methods: {
         getOrders(page = 1){
@@ -78,6 +78,7 @@ export default {
             .then(res => {
                 this.orders = res.data.orders
                 this.pagination = res.data.pagination
+                console.log('orders', this.orders)
             })
             .catch(err => {
                 console.log(err)
@@ -85,17 +86,16 @@ export default {
             })
         },
         // 這裡需要分流 $ref上面的元件引用都一樣 現在編輯也開到了刪除  待解決
-        openModal(status, item){
+        openModal(item){
             // 這邊解構 轉存置 orderTemp 傳入 Moadl 裡面 該筆的資訊
-            this.orderTemp = { ...item }
-            if (status === 'edit'){
-                const orderEditMoadl = this.$refs.orderEditMoadl
-                orderEditMoadl.openModal()
-            } else if (status === 'del'){
-                console.log(this.$refs)
-                const orderDelModal = this.$refs.orderDelMoadl
-                orderDelModal.openModal()
-            }
+            this.singleOrderDataTemp = { ...item }
+            const ModalEdit = this.$refs.modaledit
+            ModalEdit.openModal()
+            // else if (status === 'del'){
+            //     console.log(this.$refs)
+            //     const orderDelModal = this.$refs.orderDelMoadl
+            //     orderDelModal.openModal()
+            // }
         }
     },
     mounted() {

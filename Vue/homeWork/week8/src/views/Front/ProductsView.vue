@@ -3,7 +3,7 @@
     <nav class="navbar navbar-expand-lg navbar-light justify-content-center border border-start-0 border-end-0 border-top border-bottom">
       <div class="navbar-nav flex-row overflow-auto navbar-custom-scroll">
         <!-- 點擊後改 data === 會無效 一個 = 就好 -->
-        <a class="nav-item nav-link text-nowrap px-2" @click="category = 'all'" onclick="event.preventDefault()" href="#">全部商品</a>
+        <a class="nav-item nav-link text-nowrap px-2" @click="category = 'all', getData()" onclick="event.preventDefault()" href="#">全部商品</a>
         <a class="nav-item nav-link text-nowrap px-2" @click="pagination = {total_pages: 1}, category = 'type1'" onclick="event.preventDefault()" href="#">文物書籍</a>
         <a class="nav-item nav-link text-nowrap px-2" @click="pagination = {total_pages: 1}, category = 'type2'" onclick="event.preventDefault()" href="#">周邊雜誌</a>
         <a class="nav-item nav-link text-nowrap px-2" @click="pagination = {total_pages: 1}, category = 'type3'" onclick="event.preventDefault()" href="#">其他用品<span class="sr-only">(current)</span></a>
