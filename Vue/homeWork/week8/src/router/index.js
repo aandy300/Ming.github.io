@@ -36,7 +36,8 @@ const routes = [
 
 const router = createRouter({
   history: createWebHashHistory(),
-  routes
+  routes,
+  linkActiveClass: 'active' // 啟用的連結 要追加的 class 名稱 Bootstrap的樣式 = active
 })
 
 export default router

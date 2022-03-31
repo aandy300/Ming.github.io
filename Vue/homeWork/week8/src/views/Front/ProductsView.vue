@@ -47,45 +47,34 @@
           </div>
         </div>
       </div>
-      <!-- 分頁按鈕 -->
-      <nav class="d-flex justify-content-center">
-        <ul class="pagination">
-          <li class="page-item">
-            <a class="page-link" href="#" aria-label="Previous">
-              <span aria-hidden="true">&laquo;</span>
-            </a>
-          </li>
-          <li class="page-item active"><a class="page-link" href="#">1</a></li>
-          <li class="page-item"><a class="page-link" href="#">2</a></li>
-          <li class="page-item"><a class="page-link" href="#">3</a></li>
-          <li class="page-item">
-            <a class="page-link" href="#" aria-label="Next">
-              <span aria-hidden="true">&raquo;</span>
-            </a>
-          </li>
-        </ul>
-      </nav>
+      <!-- 分頁元件 -->
+      <PaginationView :pages="pagination" @get-data="getData"></PaginationView>
     </div>
 </template>
 
 <script>
 
 import emitter from '@/libs/emitter'
-
+import PaginationView from '@/components/PaginationView.vue'
 export default {
   data() {
     return {
-      category: 'all',
-      products: []
+      category: 'all', // 商品分類 分流用
+      products: [], // API抓下來儲存商品用
+      pagination: '' // 分頁用
     }
+  },
+  components: {
+    PaginationView
   },
   methods: {
     // 抓商品資料
-    getData(){
-      this.$http.get(`${process.env.VUE_APP_url}/api/${process.env.VUE_APP_path}/products/all`)
+    getData(page = 1){
+      this.$http.get(`${process.env.VUE_APP_url}/api/${process.env.VUE_APP_path}/products/?page=${page}`)
       .then((res) => {
         console.log(res)
         this.products = res.data.products
+        this.pagination = res.data.pagination
         console.log(this.products)
       })
       .catch((err) => {
