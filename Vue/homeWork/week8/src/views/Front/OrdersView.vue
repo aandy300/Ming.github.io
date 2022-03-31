@@ -31,7 +31,7 @@
                     <td width="120">
                         <div class="btn-group">
                           <button @click="openModal(item)" type="button" class="btn btn-outline-primary btn-sm">
-                              更改資訊
+                              收件資訊
                           </button>
                           <router-link :to="`/pay/${item.id}`">
                             <button type="button" class="btn btn-outline-danger btn-sm">
