@@ -14,8 +14,8 @@
         <!-- 商品單項 -->
         <!-- V-FOR -->
         <!-- <div class="col-md-3" v-for="item in products" :key="item.id" > -->
-        <!-- <div class="col-md-3" v-for="item in filterDate(products)" :key="item.id" > -->
-        <div class="col-md-3" v-for="item in filterDate(productsAll)" :key="item.id" >
+        <div class="col-md-3" v-for="item in filterDate(products)" :key="item.id" >
+        <!-- <div class="col-md-3" v-for="item in filterDate(productsAll)" :key="item.id" > -->
           <div class="card border-0 mb-4 position-relative">
             <!-- <img :src="item.imageUrl" class="card-img-top rounded-0" alt="..."> -->
             <div :style="{backgroundImage: `url(${item.imageUrl})`}"
@@ -135,7 +135,7 @@ export default {
   },
   mounted() {
     this.getData()
-    this.getDataAll()
+    // this.getDataAll()
   }
 }
 </script>
