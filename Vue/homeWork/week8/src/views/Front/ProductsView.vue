@@ -4,9 +4,9 @@
       <div class="navbar-nav flex-row overflow-auto navbar-custom-scroll">
         <!-- 點擊後改 data === 會無效 一個 = 就好 -->
         <a class="nav-item nav-link text-nowrap px-2" @click="category = 'all'" onclick="event.preventDefault()" href="#">全部商品</a>
-        <a class="nav-item nav-link text-nowrap px-2" @click="category = 'type1'" onclick="event.preventDefault()" href="#">文物書籍</a>
-        <a class="nav-item nav-link text-nowrap px-2" @click="category = 'type2'" onclick="event.preventDefault()" href="#">周邊雜誌</a>
-        <a class="nav-item nav-link text-nowrap px-2" @click="category = 'type3'" onclick="event.preventDefault()" href="#">其他用品<span class="sr-only">(current)</span></a>
+        <a class="nav-item nav-link text-nowrap px-2" @click="pagination = {total_pages: 1}, category = 'type1'" onclick="event.preventDefault()" href="#">文物書籍</a>
+        <a class="nav-item nav-link text-nowrap px-2" @click="pagination = {total_pages: 1}, category = 'type2'" onclick="event.preventDefault()" href="#">周邊雜誌</a>
+        <a class="nav-item nav-link text-nowrap px-2" @click="pagination = {total_pages: 1}, category = 'type3'" onclick="event.preventDefault()" href="#">其他用品<span class="sr-only">(current)</span></a>
       </div>
     </nav>
     <div class="container mt-md-5 mt-3 mb-7">
@@ -15,7 +15,7 @@
         <!-- V-FOR -->
         <!-- <div class="col-md-3" v-for="item in products" :key="item.id" > -->
         <!-- <div class="col-md-3" v-for="item in filterDate(products)" :key="item.id" > -->
-        <div class="col-md-3" v-for="item in filterDate(products)" :key="item.id" >
+        <div class="col-md-3" v-for="item in filterDate(productsAll)" :key="item.id" >
           <div class="card border-0 mb-4 position-relative">
             <!-- <img :src="item.imageUrl" class="card-img-top rounded-0" alt="..."> -->
             <div :style="{backgroundImage: `url(${item.imageUrl})`}"
@@ -60,7 +60,8 @@ export default {
   data() {
     return {
       category: 'all', // 商品分類 分流用
-      products: [], // API抓下來儲存商品用
+      products: [], // API抓下來儲存商品用 - 分頁ver
+      productsAll: [], // API抓下來儲存商品用 - allver
       pagination: '' // 分頁用
     }
   },
@@ -68,7 +69,7 @@ export default {
     PaginationView
   },
   methods: {
-    // 抓商品資料
+    // 抓商品資料 - 分頁
     getData(page = 1){
       this.$http.get(`${process.env.VUE_APP_url}/api/${process.env.VUE_APP_path}/products/?page=${page}`)
       .then((res) => {
@@ -76,6 +77,16 @@ export default {
         this.products = res.data.products
         this.pagination = res.data.pagination
         console.log(this.products)
+      })
+      .catch((err) => {
+        console.dir(err)
+      })
+    },
+    // 抓商品資料 - All
+    getDataAll(){
+      this.$http.get(`${process.env.VUE_APP_url}/api/${process.env.VUE_APP_path}/products/all`)
+      .then((res) => {
+        this.productsAll = res.data.products
       })
       .catch((err) => {
         console.dir(err)
@@ -124,6 +135,7 @@ export default {
   },
   mounted() {
     this.getData()
+    this.getDataAll()
   }
 }
 </script>

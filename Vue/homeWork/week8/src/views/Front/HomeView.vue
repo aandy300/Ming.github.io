@@ -301,7 +301,7 @@
         </div>
       </div>
     </div>
-    <div class="container my-7">
+    <!-- <div class="container my-7">
       <div class="row">
         <div class="col-md-6">
           <img src="https://images.unsplash.com/photo-1490312278390-ab64016e0aa9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80" alt="" class="img-fluid">
@@ -320,8 +320,8 @@
           <p class="text-muted">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna.</p>
         </div>
       </div>
-    </div>
-    <div class="bg-light py-4">
+    </div> -->
+    <!-- <div class="bg-light py-4">
       <div class="container">
         <div class="d-flex flex-column flex-md-row justify-content-between align-items-md-center align-items-start">
           <p class="mb-0 fw-bold">Lorem ipsum dolor sit amet.</p>
@@ -335,7 +335,7 @@
           </div>
         </div>
       </div>
-    </div>
+    </div> -->
 
   <router-view/>
 </template>
