@@ -86,9 +86,9 @@ export default {
             })
         },
         // 這裡需要分流 $ref上面的元件引用都一樣 現在編輯也開到了刪除  待解決
-        openModal(item){
+        openModal(data){
             // 這邊解構 轉存置 orderTemp 傳入 Moadl 裡面 該筆的資訊
-            this.singleOrderDataTemp = { ...item }
+            this.singleOrderDataTemp = { ...data }
             const ModalEdit = this.$refs.modaledit
             ModalEdit.openModal()
             // else if (status === 'del'){
