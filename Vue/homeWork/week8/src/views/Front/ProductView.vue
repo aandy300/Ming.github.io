@@ -213,7 +213,7 @@ export default {
       this.$http.post(`${process.env.VUE_APP_url}/api/${process.env.VUE_APP_path}/cart`, { data })
       .then((res) => {
         console.log('addToCart()', res)
-        emitter.emit('get-cart')
+        emitter.emit('get-cart') // 此處觸發 NAVBAR接收
       })
       .catch((err) => {
         console.dir(err.data.message)

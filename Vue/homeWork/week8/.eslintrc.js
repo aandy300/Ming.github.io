@@ -20,6 +20,7 @@ module.exports = {
     // 命名需要雙名稱 - 例外的名稱
     'vue/multi-word-component-names': ['error', { ignores: ['Form', 'Field'] }],
     // 縮排規格 - 關閉
-    indent: 'off'
+    indent: 'off',
+    'vue/no-unused-components': 'off'
   }
 }

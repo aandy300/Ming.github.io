@@ -40,7 +40,7 @@
               <!-- 原本的價目 -->
               <!-- <p class="text-muted mt-3">NT$ {{item.price}} / {{item.unit}}</p> -->
               <!-- <p class="text-muted mt-3">NT$ {{item.price}} / {{item.unit}}</p> -->
-              <button type="button" class="btn btn-secondary position-absolute bottom-0 start-0 mb-2 disabled">加入購物車</button>
+              <button @click.prevent="addToCart(item)" type="button" class="btn btn-secondary position-absolute bottom-0 start-0 mb-2">加入購物車</button>
               <p class="mb-0 text-muted text-end mt-2"><del>NT$ {{item.origin_price}}</del></p>
               <p class="h4 fw-bold text-end mt-1 fs-5">NT$ {{item.price}}</p>
             </div>
@@ -69,6 +69,9 @@
 </template>
 
 <script>
+
+import emitter from '@/libs/emitter'
+
 export default {
   data() {
     return {
@@ -113,6 +116,21 @@ export default {
         )
         return newArray
       }
+    },
+    // 加入購物車 這裡 用html傳進來的 item抓id、qty先暫時用預設 還沒有做數量功能
+    addToCart(item, qty = 1){
+      const data = {
+        product_id: item.id,
+        qty
+      }
+      this.$http.post(`${process.env.VUE_APP_url}/api/${process.env.VUE_APP_path}/cart`, { data })
+      .then((res) => {
+        console.log('addToCart()', res)
+        emitter.emit('get-cart') // 此處觸發 NAVBAR接收
+      })
+      .catch((err) => {
+        console.dir(err.data.message)
+      })
     }
   },
   mounted() {
