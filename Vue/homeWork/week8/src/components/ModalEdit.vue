@@ -96,6 +96,7 @@ export default {
         singleOrderDataTemp(){
             // 同個記憶體原因? 會變成跟外層的 singleOrderDataTemp 改modal字也會改到外面 明明裡面是用裡面的資料 外面是用外面的資料?
             this.inside = this.singleOrderDataTemp
+            // 用 mitter 解決吧 外面觸發 傳進來裡面轉存
             console.log('watch()', this.singleOrderDataTemp)
         }
     },

@@ -185,16 +185,24 @@
     <!-- 新版 -->
     <!-- 大圖容器 -->
     <div class="position-relative">
-      <!-- 大img -->
-      <div class="position-absolute" style="top:0; bottom:0; left:0; right:0; background-image: url(https://images.unsplash.com/photo-1480399129128-2066acb5009e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80);
-      background-position: center center; opacity: 0.1;">
-      </div>
-      <div class="container d-flex flex-column" style="min-height: 100vh;">
+      <!-- 大img origin -->
+      <!-- <div class="position-absolute"
+        style="width: 100%; height: 100%; z-index:5; top:0; bottom:0; left:0; right:0; background-image: url(https://i.imgur.com/ue0HBQY.jpg);
+        background-position: center center; opacity: 0.4; background-size: cover;">
+      </div> -->
+
+      <!-- 容器原始 -->
+      <!-- <div class="container d-flex flex-column" style="min-height: 100vh;"> -->
+      <div class="container d-flex flex-column" style="min-height: 100vh;
+      background-image: url(https://i.imgur.com/zlRhPl1.jpg); background-position: center center; background-size: cover;">
         <div class="row justify-content-center my-auto">
           <div class="col-md-4 text-center">
-            <h2>Lorem ipsum.</h2>
-            <p class="text-muted mb-0">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod.</p>
-            <button class="btn btn-dark rounded-0 mt-6">Lorem ipsum.</button>
+            <router-link style="text-decoration:none;" to="/products">
+            <!-- 室內書香 氛圍舒適適宜閱讀 幽靜 戶外鳥語，相映成趣，知識寶庫 閱讀成了一件愜意  沉浸於書的世界 世外桃源 清閒安逸 開闊 拓展 視野 釋然。如釋重負。釋放壓力 無拘無束-->
+              <h2 style="color:white">書香環繞 幽靜疏朗<br>此刻開始你的治癒</h2>
+            <p style="color:white" class=" mb-0">在這知識的寶庫，總有一本書會吸引到你。</p>
+            <button class="btn btn-dark rounded-0 mt-4">了解更多</button>
+            </router-link>
           </div>
         </div>
       </div>
@@ -205,7 +213,7 @@
         <div class="col-md-4 mt-md-4">
           <div class="card border-0 mb-4">
             <img
-              src="https://images.unsplash.com/photo-1502743780242-f10d2ce370f3?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1916&q=80"
+              src="https://i.imgur.com/CwDtw8n.jpg"
               class="card-img-top rounded-0"
               alt="..."
             />
@@ -223,8 +231,9 @@
         <div class="col-md-4 mt-md-4">
           <div class="card border-0 mb-4">
             <img
-              src="https://images.unsplash.com/photo-1502743780242-f10d2ce370f3?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1916&q=80"
+              src="https://i.imgur.com/KBUrjVQ.jpg"
               class="card-img-top rounded-0"
+              style="background-position: center center;"
               alt="..."
             />
             <div class="card-body text-center">
@@ -241,7 +250,7 @@
         <div class="col-md-4 mt-md-4">
           <div class="card border-0 mb-4">
             <img
-              src="https://images.unsplash.com/photo-1502743780242-f10d2ce370f3?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1916&q=80"
+              src="https://i.imgur.com/h9Z1SMk.jpg"
               class="card-img-top rounded-0"
               alt="..."
             />
