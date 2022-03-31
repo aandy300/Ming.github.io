@@ -7,8 +7,16 @@
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        Vertically centered Modal content here
-          {{inside_singleOrderDataTemp}}
+          <!-- {{inside_singleOrderDataTemp}} -->
+          <v-form @submit="createOrder" ref="form" class="col-md-6" v-slot="{ errors }">
+                  <div class="mb-3">
+        <label for="email" class="form-label">Email</label>
+        <v-field v-model="inside_singleOrderDataTemp.user.email" id="email" name="email" type="email" class="form-control"
+                  :class="{ 'is-invalid': errors['email'] }" placeholder="請輸入 Email" rules="email"
+                ></v-field>
+        <error-message name="email" class="invalid-feedback"></error-message>
+      </div>
+          </v-form>
       </div>
       <!-- 案扭曲 -->
       <div class="modal-footer"></div>
@@ -16,6 +24,10 @@
         <button type="button" class="btn btn-primary">No</button>
         <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancel</button> -->
       </div>
+      <div class="my-5 row justify-content-center">
+    <!-- @submit="createOrder" -->
+
+  </div>
     </div>
   </div>
 </template>
@@ -28,14 +40,27 @@ export default {
     data(){
       return {
         newTemp: '',
-        inside_singleOrderDataTemp: {}
+        cartData: {
+          // length 無校關係 生命週期原因 所以這裡事先寫好結構
+          carts: []
+        },
+        inside_singleOrderDataTemp: {
+          user: {
+            name: '',
+            email: '',
+            tel: '',
+            address: ''
+          },
+          message: ''
+        }
       }
     },
     props: ['singleOrderDataTemp'],
     watch: {
         singleOrderDataTemp(){
-            this.inside_singleOrderDataTemp = this.singleOrderDataTemp
-            console.log('watch()', this.inside_singleOrderDataTemp)
+            this.inside_singleOrderDataTemp.user = this.singleOrderDataTemp.user
+            console.log('watch()', this.singleOrderDataTemp)
+            console.log('this.inside_singleOrderDataTemp.user', this.inside_singleOrderDataTemp.user)
         }
     },
     methods: {
@@ -48,6 +73,7 @@ export default {
     },
     mounted() {
         this.modal = new Moadl(this.$refs.modal)
+        // this.openModal()
     }
 }
 </script>
