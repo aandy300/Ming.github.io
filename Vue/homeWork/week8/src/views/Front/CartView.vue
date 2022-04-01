@@ -82,7 +82,6 @@
   <div class="my-5 row justify-content-center">
     <!-- @submit="createOrder" -->
     <v-form @submit="createOrder" ref="form" class="col-md-6" v-slot="{ errors }" >
-      {{ errors }}
       <div class="mb-3">
         <label for="email" class="form-label">Email</label>
         <v-field v-model="form.user.email" id="email" name="email" type="email" class="form-control"
@@ -128,7 +127,7 @@
 
 <script>
 
-// import emitter from '@/libs/emitter'
+import emitter from '@/libs/emitter'
 
 export default {
   data() {
@@ -178,6 +177,10 @@ export default {
         console.log('updataCartItem()', res)
         this.getCart()
         this.isLoadingItem = ''
+        // 這是通知 致行 navbar 的
+        emitter.emit('get-cart', () => {
+          this.getCart()
+        })
       })
       .catch((err) => {
         console.dir(err.data.message)
@@ -191,6 +194,10 @@ export default {
       .then((res) => {
         console.log('removeCartItem()', res)
         this.getCart()
+        // 這是通知 致行 navbar 的
+        emitter.emit('get-cart', () => {
+          this.getCart()
+        })
         this.isLoadingItem = ''
       })
       .catch((err) => {
@@ -203,6 +210,10 @@ export default {
       .then((res) => {
         console.log('removeAllCartItem()', res)
         this.getCart()
+        // 這是通知 致行 navbar 的
+        emitter.emit('get-cart', () => {
+          this.getCart()
+        })
       })
       .catch((err) => {
         alert(err.data.message)
@@ -216,6 +227,10 @@ export default {
         this.$refs.form.resetForm()
         this.getCart()
         this.form.message = ''
+        // 這是通知 致行 navbar 的
+        emitter.emit('get-cart', () => {
+          this.getCart()
+        })
         console.log('已送出訂單')
       })
       .catch((err) => {

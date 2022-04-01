@@ -1,49 +1,53 @@
 <template>
-    <div class="container-fluid mt-3 position-relative">
-        <table class="table mt-4">
-            <thead>
-            <tr>
-                <th>購買時間</th>
-                <th>Email</th>
-                <th>購買款項</th>
-                <th>應付金額</th>
-                <th>是否付款</th>
-                <th>編輯</th>
-            </tr>
-            </thead>
-            <tbody></tbody>
-            <tbody id="productList">
-                <tr v-for=" item in orders" :key="item.id">
-                    <!-- ! 傻眼 可以直接使用在下面這行 不需要 func() 去轉換 or 物件轉陣列再轉換 暈倒.... -->
-                    <!-- 轉換成ISO格式 > 以T分隔轉換成陣列 > 轉乘字串 > 刪除尾巴五個字元 0, -5 > 文字取代 , to - -->
-                    <td width="120">{{ new Date(item.create_at * 1000).toISOString().split('T').toString().slice(0, -5).replace(',', '-') }}</td>
-                    <td width="120"> {{ item.user.email }} </td>
+<div class="container">
+    <!-- <div class="row"> -->
+        <div class="container container-fluid mt-3 position-relative">
+            <table class="table mt-4">
+                <thead>
+                <tr>
+                    <th>購買時間</th>
+                    <th>Email</th>
+                    <th>購買款項</th>
+                    <th>應付金額</th>
+                    <th>是否付款</th>
+                    <th>編輯</th>
+                </tr>
+                </thead>
+                <tbody></tbody>
+                <tbody id="productList">
+                    <tr v-for=" item in orders" :key="item.id">
+                        <!-- ! 傻眼 可以直接使用在下面這行 不需要 func() 去轉換 or 物件轉陣列再轉換 暈倒.... -->
+                        <!-- 轉換成ISO格式 > 以T分隔轉換成陣列 > 轉乘字串 > 刪除尾巴五個字元 0, -5 > 文字取代 , to - -->
+                        <td width="120">{{ new Date(item.create_at * 1000).toISOString().split('T').toString().slice(0, -5).replace(',', '-') }}</td>
+                        <td width="120"> {{ item.user.email }} </td>
+                            <td width="120">
+                                <div v-for=" item in item.products" :key="item.id" width="100">
+                                    <td> {{ item.product.title }}</td>
+                                </div>
+                            </td>
+                        <td width="100"> $ {{ item.total }}  </td>
+                        <td width="100">
+                            <span v-if="item.is_paid" class="text-success">已付款</span>
+                            <span v-else class="text-danger">尚未付款</span>
+                        </td>
                         <td width="120">
-                            <div v-for=" item in item.products" :key="item.id" width="100">
-                                <td> {{ item.product.title }}</td>
+                            <div class="btn-group">
+                            <button @click="openModal(item)" type="button" class="btn btn-outline-primary btn-sm">
+                                收件資訊
+                            </button>
+                            <router-link :to="`/pay/${item.id}`">
+                                <button type="button" class="btn btn-outline-danger btn-sm">
+                                前去付款
+                                </button>
+                            </router-link>
                             </div>
                         </td>
-                    <td width="100"> $ {{ item.total }}  </td>
-                    <td width="100">
-                        <span v-if="item.is_paid" class="text-success">已付款</span>
-                        <span v-else class="text-danger">尚未付款</span>
-                    </td>
-                    <td width="120">
-                        <div class="btn-group">
-                          <button @click="openModal(item)" type="button" class="btn btn-outline-primary btn-sm">
-                              收件資訊
-                          </button>
-                          <router-link :to="`/pay/${item.id}`">
-                            <button type="button" class="btn btn-outline-danger btn-sm">
-                              前去付款
-                            </button>
-                          </router-link>
-                        </div>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    <!-- </div> -->
+</div>
     <ModalEdit ref="modaledit" :single-order-data-temp="singleOrderDataTemp"></ModalEdit>
     <!-- 元件 -->
     <!-- <ObjOrdersEditModal :orderTemp="orderTemp" ref="orderEditMoadl" @resetorderlist="getOrders"></ObjOrdersEditModal>
