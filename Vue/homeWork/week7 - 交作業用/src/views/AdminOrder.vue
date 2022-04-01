@@ -1,6 +1,6 @@
 <template>
     <div class="container-fluid mt-3 position-relative">
-        <table class="table mt-4">
+        <table class="table mt-9">
             <thead>
             <tr>
                 <th>購買時間</th>

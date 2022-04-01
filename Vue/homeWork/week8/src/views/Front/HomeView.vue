@@ -200,7 +200,7 @@
             <router-link style="text-decoration:none;" to="/products">
               <h2 style="color:white">書香環繞 幽靜疏朗<br>此刻開始你的知識饗宴</h2>
             <p style="color:white" class=" mb-0">在這知識的寶庫，總有一本書會吸引到你。</p>
-            <button class="btn btn-dark rounded-0 mt-4">了解更多</button>
+            <button class="btn btn-dark rounded-0 mt-4">查看書籍</button>
             </router-link>
           </div>
         </div>
