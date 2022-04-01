@@ -346,3 +346,28 @@
 
   <router-view/>
 </template>
+
+<style>
+/* body.home { */
+    /* background: red; */
+/* } */
+body.intro {
+    background: pink;
+}
+html, body {
+  height: 100%;
+}
+#app {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+</style>
+
+<script>
+export default {
+    beforeCreate: function() {
+        document.body.className = 'home'
+    }
+}
+</script>

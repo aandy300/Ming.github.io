@@ -22,7 +22,7 @@
                 <router-link class="nav-link" to="/products">產品列表</router-link>
               </li>
               <li class="nav-item">
-                <router-link class="nav-link" to="/myorders">付款</router-link>
+                <router-link class="nav-link disabled" to="/myorders">我的訂單</router-link>
               </li>
             </ul>
           </div>

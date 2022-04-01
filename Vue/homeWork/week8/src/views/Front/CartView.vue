@@ -1,5 +1,5 @@
 <template>
-
+<div class="container">
   <!-- 購物車列表 - ALL -->
   <div class="text-end">
     <button  @click="removeAllCartItem" :class=" {'disabled' :cartData.carts.length === 0 }"
@@ -122,7 +122,7 @@
     </v-form>
 
   </div>
-
+</div>
 </template>
 
 <script>
@@ -231,6 +231,7 @@ export default {
         emitter.emit('get-cart', () => {
           this.getCart()
         })
+        this.$router.push(`/pay/${res.data.orderId}`)
         console.log('已送出訂單')
       })
       .catch((err) => {
