@@ -4,11 +4,11 @@
     <router-link to="about">About</router-link> |
     <router-link to="products">products</router-link>
   </nav> -->
-  <div class="bk">
+  <!-- <div class="bk"> -->
     <NavBar></NavBar>
     <router-view/>
     <Footer></Footer>
-  </div>
+  <!-- </div> -->
 <!-- <button type="button" class="btn btn-primary">Primary</button>
 <button type="button" class="btn btn-secondary">Secondary</button>
 <button type="button" class="btn btn-success">Success</button>

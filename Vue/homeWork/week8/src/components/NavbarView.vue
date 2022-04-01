@@ -1,7 +1,7 @@
 <template>
      <div class="bg-white sticky-top">
       <div class="container">
-        <nav class="navbar px-0 navbar-expand-lg navbar-light bg-white">
+        <nav class="navbar navbar-expand-lg navbar-expand-lg navbar-light bg-white">
           <!-- 中央名稱 -->
           <router-link class="navbar-brand position-absolute" style="left: 50%; transform: translate(-50%, -50%); top: 50%;" to="/">日玥書坊</router-link>
           <!-- RWD icon -->
@@ -28,7 +28,7 @@
           </div>
           <!-- 右邊icon -->
           <div class="d-flex">
-              <router-link class="nav-link" to="products">
+              <router-link class="nav-link disabled" to="products">
                 <i class="bi bi-heart-fill btn btn-sm fs-6"></i>
               </router-link>
               <router-link class="nav-link" to="/cart">
