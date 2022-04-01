@@ -198,8 +198,8 @@
         <div class="row justify-content-center my-auto">
           <div class="col-md-4 text-center">
             <router-link style="text-decoration:none;" to="/products">
-            <!-- 室內書香 氛圍舒適適宜閱讀 幽靜 戶外鳥語，相映成趣，知識寶庫 閱讀成了一件愜意  沉浸於書的世界 世外桃源 清閒安逸 開闊 拓展 視野 釋然。如釋重負。釋放壓力 無拘無束-->
-              <h2 style="color:white">書香環繞 幽靜疏朗<br>此刻開始你的治癒</h2>
+            <!-- 此刻開始你的治癒 室內書香 氛圍舒適適宜閱讀 幽靜 戶外鳥語，相映成趣，知識寶庫 閱讀成了一件愜意  沉浸於書的世界 世外桃源 清閒安逸 開闊 拓展 視野 釋然。如釋重負。釋放壓力 無拘無束-->
+              <h2 style="color:white">書香環繞 幽靜疏朗<br>此刻開始你的知識饗宴</h2>
             <p style="color:white" class=" mb-0">在這知識的寶庫，總有一本書會吸引到你。</p>
             <button class="btn btn-dark rounded-0 mt-4">了解更多</button>
             </router-link>
@@ -218,11 +218,10 @@
               alt="..."
             />
             <div class="card-body text-center">
-              <h4>Lorem ipsum</h4>
+              <h4>舒適宜人的環境</h4>
               <div class="d-flex justify-content-between">
                 <p class="card-text text-muted mb-0">
-                  Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed
-                  diam nonumy eirmod.
+                  清幽靜謐的閱讀環境，讓環繞周圍的書香洗淨你的身心。
                 </p>
               </div>
             </div>
@@ -237,11 +236,10 @@
               alt="..."
             />
             <div class="card-body text-center">
-              <h4>Lorem ipsum</h4>
+              <h4>數量繁多的書籍</h4>
               <div class="d-flex justify-content-between">
                 <p class="card-text text-muted mb-0">
-                  Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed
-                  diam nonumy eirmod.
+                  恆河沙數的書籍，這邊不會有你想要而沒有的書籍。
                 </p>
               </div>
             </div>
@@ -255,11 +253,10 @@
               alt="..."
             />
             <div class="card-body text-center">
-              <h4>Lorem ipsum</h4>
-              <div class="d-flex justify-content-between">
+              <h4>來杯咖啡放鬆一下</h4>
+              <div class="d-flex justify-content-center">
                 <p class="card-text text-muted mb-0">
-                  Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed
-                  diam nonumy eirmod.
+                  喝杯香氣迷人、豐富口感的咖啡，提起你的精神，開始你的知識之旅。
                 </p>
               </div>
             </div>
@@ -267,7 +264,8 @@
         </div>
       </div>
     </div>
-    <div class="bg-light mt-7">
+
+    <!-- <div class="bg-light mt-7">
       <div class="container">
         <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
           <div class="carousel-inner">
@@ -309,7 +307,8 @@
           </a>
         </div>
       </div>
-    </div>
+    </div> -->
+
     <!-- <div class="container my-7">
       <div class="row">
         <div class="col-md-6">
