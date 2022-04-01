@@ -48,7 +48,7 @@
         </div>
       </div>
       <!-- 分頁元件 -->
-      <PaginationView :pages="pagination" @get-data="getData"></PaginationView>
+      <PaginationView class="mt-6" :pages="pagination" @get-data="getData"></PaginationView>
     </div>
 </template>
 
