@@ -99,7 +99,7 @@
 
       <div class="mb-3">
         <label for="tel" class="form-label">收件人電話</label>
-        <v-field v-model="form.user.tel" id="tel" name="電話" type="text" class="form-control" :class="{ 'is-invalid': errors['電話'] }"
+        <v-field v-model="form.user.tel" id="tel" name="電話" type="number" class="form-control" :class="{ 'is-invalid': errors['電話'] }"
                   placeholder="請輸入電話" :rules="isPhone" ></v-field>
         <error-message name="電話" class="invalid-feedback"></error-message>
       </div>
