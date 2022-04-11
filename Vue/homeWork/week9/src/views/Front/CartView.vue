@@ -26,20 +26,32 @@
         <p class="card-text text-center m-0">Step2</p>
         <p class="card-text text-center mb-2">建立訂單</p>
     </div> -->
-    <div style="max-width: 18rem;" class="col-3 d-flex align-items-center card text-white bg-secondary my-5 mx-4 rounded ">
+    <div style="max-width: 18rem;" class="col-3 d-none d-sm-block card text-white bg-secondary my-5 mx-4 rounded ">
+      <div class="d-flex flex-column flex-nowrap justify-content-center align-items-center">
       <i class="bi bi-check2-circle mt-2" style="font-size:40px"></i>
         <p class="card-text text-center m-0">Step1</p>
         <p class="card-text text-center mb-2">確認訂單</p>
+      </div>
     </div>
-    <div style="max-width: 18rem;" class="col-3 d-flex align-items-center card text-balck bg-info my-5 mx-4 rounded">
+    <div style="max-width: 18rem;" class="col-3 d-none d-sm-block card text-balck bg-info my-5 mx-4 rounded">
+      <div class="d-flex flex-column flex-nowrap justify-content-center align-items-center">
+        <i class="bi bi-dash-circle-dotted mt-2" style="font-size:40px"></i>
+        <p class="card-text text-center m-0">Step2</p>
+        <p class="card-text text-center mb-2">建立訂單</p>
+      </div>
+    </div>
+    <div style="max-width: 18rem;" class="col-3 d-none d-sm-block card text-balck bg-info my-5 mx-4 rounded">
+      <div class="d-flex flex-column flex-nowrap justify-content-center align-items-center">
+        <i class="bi bi-dash-circle-dotted mt-2" style="font-size:40px"></i>
+        <p class="card-text text-center m-0">Step3</p>
+        <p class="card-text text-center mb-2">付款</p>
+      </div>
+    </div>
+    <!-- for rwd 顯示 單個 購買狀態 -->
+    <div style="max-width: 18rem;" class="col-10 d-flex align-items-center d-block d-sm-none card text-balck bg-info my-5 mx-4 rounded">
       <i class="bi bi-dash-circle-dotted mt-2" style="font-size:40px"></i>
         <p class="card-text text-center m-0">Step2</p>
         <p class="card-text text-center mb-2">建立訂單</p>
-    </div>
-    <div style="max-width: 18rem;" class="col-3 d-flex align-items-center card text-balck bg-info my-5 mx-4 rounded">
-      <i class="bi bi-dash-circle-dotted mt-2" style="font-size:40px"></i>
-        <p class="card-text text-center m-0">Step3</p>
-        <p class="card-text text-center mb-2">付款</p>
     </div>
   </div>
   <div class="row">
