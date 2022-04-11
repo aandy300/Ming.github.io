@@ -10,12 +10,17 @@
               </div> -->
             <!-- 如果用 `url(${product.imageUrl})` 會出現抓不到結構 ? or 先訂好結構解決 -->
             <!-- <div style="height: 550px; width: 400px; background-size: cover; background-position:center center" class="card border-0 mb-4 position-relative"> -->
-            <div style="height: 550px; background-size: cover; background-position:center center" class="card border-0 mb-4 position-relative">
-            <div :style="{backgroundImage: `url(${product.imageUrl})`}"
-            style="height: 550px; background-size: cover; background-position:center center">
-            </div>
-
-            </div>
+              <!--  d-flex justify-content-center align-items-center -->
+            <!-- <div style="" class="card border-0 mb-4 position-relative"> -->
+            <!-- <div :style="{backgroundImage: `url(${product.imageUrl})`}"
+            style="height: 550px; background-size: cover; background-position:center center"> -->
+              <!-- <img class="img-fluid" style="height: 550px;" :src="product.imageUrl" alt=""> -->
+            <!-- </div> -->
+            <!-- </div> -->
+            <figure class="figure d-flex flex-column justify-content-center align-items-center mt-5">
+              <img style="height: 550px" :src="product.imageUrl" alt="" class="figure-img img-fluid rounded">
+              <!-- <figcaption class="figure-caption text-start">圖片僅供參考</figcaption> -->
+            </figure>
             <!-- 圖片調整 要再寫 CSS 先用上面的 -->
             <!-- <dir style="height:200px; width:200px;">
               <img :src="product.imageUrl" alt="">
@@ -48,7 +53,7 @@
               <router-link class="breadcrumb-item" to="/">首頁</router-link>
               <router-link class="breadcrumb-item" to="/products">產品列表</router-link>
               <!-- pointer-events: none; 無效手掌 evnt-->
-              <router-link class="breadcrumb-item text-primary" style="text-decoration:none;  cursor: text;" aria-current="page" :to="`/product/${id}`">商品細項</router-link>
+              <router-link class="breadcrumb-item text-primary" style="text-decoration:none;  cursor: text;" aria-current="page" to="">商品細項</router-link>
             </ol>
           </nav>
           <!-- 商品詳細項目 -->
@@ -102,7 +107,6 @@ import emitter from '@/libs/emitter'
 export default {
   data() {
     return {
-      id: '', // 產品細項轉址自己用
       qty: 1,
       product: {
         imageUrl: '',
@@ -158,7 +162,6 @@ export default {
   },
   mounted() {
     this.getProduct()
-    this.id = this.$route.params.id // 產品細項轉址自己用
   }
 }
 </script>
