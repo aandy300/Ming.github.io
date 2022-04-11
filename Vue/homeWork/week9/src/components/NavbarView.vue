@@ -3,7 +3,7 @@
       <div class="container">
         <nav class="navbar navbar-expand-lg navbar-expand-lg navbar-light bg-white">
           <!-- 中央名稱 -->
-          <router-link class="navbar-brand position-absolute" style="left: 50%; transform: translate(-50%, -50%); top: 50%;" to="/">日玥書坊</router-link>
+          <router-link class="navbar-brand position-absolute d-none d-sm-block" style="left: 50%; transform: translate(-50%, -50%); top: 50%;" to="/">日玥書坊</router-link>
           <!-- RWD icon -->
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -11,6 +11,7 @@
           </button>
           <!-- 連結 -->
           <div class="collapse navbar-collapse bg-white custom-header-md-open" id="navbarNav">
+            <!-- d-flex justify-content-center align-items-center -->
             <ul class="navbar-nav">
               <li class="nav-item">
                 <router-link class="nav-link" to="/">首頁</router-link>

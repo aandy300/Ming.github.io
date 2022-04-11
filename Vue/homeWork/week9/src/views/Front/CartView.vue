@@ -2,7 +2,7 @@
 <div v-if="ready === true" class="container">
   <!-- card 付款狀態 -->
   <div v-if="cartData.carts.length === 0" class="d-flex justify-content-center my-5">
-    <div class="col-6 card text-center" style="">
+    <div class="col-md-6 card text-center" style="">
       <div class="card-body">
         <strong ><p class="m-0 text-primary" style="font-size: 2rem;">購物車目前沒有東西哦</p></strong>
         <router-link to="/products">
