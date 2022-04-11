@@ -2,9 +2,32 @@
 <template>
 <div v-if="ready" class="container">
   <div class="row">
+    <!-- 付款狀態 new -->
+    <div class="row d-flex flex-nowrap justify-content-center align-items-center">
+      <div style="max-width: 18rem;" class="col-3 d-flex align-items-center card text-white bg-secondary my-5 mx-4 rounded ">
+        <i class="bi bi-check2-circle mt-2" style="font-size:40px"></i>
+          <p class="card-text text-center m-0">Step1</p>
+          <p class="card-text text-center mb-2">確認訂單</p>
+      </div>
+      <div style="max-width: 18rem;" class="col-3 d-flex align-items-center card text-white bg-secondary my-5 mx-4 rounded ">
+        <i class="bi bi-check2-circle mt-2" style="font-size:40px"></i>
+          <p class="card-text text-center m-0">Step2</p>
+          <p class="card-text text-center mb-2">建立訂單</p>
+      </div>
+      <div v-if="order.is_paid" style="max-width: 18rem;" class="col-3 d-flex align-items-center card text-white bg-secondary my-5 mx-4 rounded ">
+        <i class="bi bi-check2-circle mt-2" style="font-size:40px"></i>
+          <p class="card-text text-center m-0">Step3</p>
+          <p class="card-text text-center mb-2">付款</p>
+      </div>
+      <div v-else style="max-width: 18rem;" class="col-3 d-flex align-items-center card text-balck bg-info my-5 mx-4 rounded">
+        <i class="bi bi-dash-circle-dotted mt-2" style="font-size:40px"></i>
+          <p class="card-text text-center m-0">Step3</p>
+          <p class="card-text text-center mb-2">付款</p>
+      </div>
+    </div>
     <!-- card 付款狀態 -->
-    <div class="container">
-      <div class="card text-center my-5 mx-5" style="">
+    <div class="d-flex justify-content-center">
+      <div class="col-6 card text-center" style="">
         <div class="card-header"></div>
         <div class="card-body">
           <strong v-if="order.is_paid"><p class="m-0" style="font-size: 2rem; color:green;">已付款</p></strong>
@@ -13,7 +36,6 @@
         <div class="card-footer text-muted"></div>
       </div>
     </div>
-
     <!-- 表單資訊 -->
     <div class="container mt-5">
       <div class="row row-cols-1 row-cols-md-2 row-cols-lg-2">
@@ -117,8 +139,8 @@
                       </tbody>
                     </table>
                     <!-- 確認付款 -->
-                    <div class="modal-footer">
-                      <button type="button" class="btn btn-primary" @click="payOrder()">確認付款</button>
+                    <div class="">
+                      <button type="button" class="btn btn-primary col-12" @click="payOrder()">確認付款</button>
                     </div>
         </div>
       </div>
@@ -182,11 +204,15 @@ export default {
       .then(res => {
         console.log('pay() ok end')
         this.getOrders()
+        this.scrollToTop()
       })
       .catch(err => {
           console.log(err)
           console.dir(err)
       })
+    },
+    scrollToTop(){
+      window.scrollTo(0, 0)
     }
   },
   mounted() {

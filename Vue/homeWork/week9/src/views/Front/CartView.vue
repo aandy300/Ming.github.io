@@ -1,13 +1,47 @@
 <template>
-<div class="container">
-      <div class="card text-center my-5 mx-5" style="">
-        <div class="card-header"></div>
-        <div class="card-body">
-          <strong><p class="m-0" style="font-size: 2rem; color:green;">購買狀態 待修正</p></strong>
-        </div>
-        <div class="card-footer text-muted"></div>
+<div v-if="ready === true" class="container">
+  <!-- card 付款狀態 -->
+  <div v-if="cartData.carts.length === 0" class="d-flex justify-content-center my-5">
+    <div class="col-6 card text-center" style="">
+      <div class="card-body">
+        <strong ><p class="m-0 text-primary" style="font-size: 2rem;">購物車目前沒有東西哦</p></strong>
+        <router-link to="/products">
+        <button class="col-4 btn btn-outline-primary mt-2" type="button">前去購買</button>
+        </router-link>
       </div>
-
+    </div>
+  </div>
+  <!-- 購買步驟狀態 -->
+  <div v-else class="row d-flex flex-nowrap justify-content-center align-items-center">
+    <!-- style="max-width: 18rem;" -->
+    <!-- OKver -->
+    <!-- <div style="max-width: 18rem;" class="col-3 d-flex align-items-center card text-white bg-secondary my-5 mx-4 rounded ">
+      <i class="bi bi-check2-circle mt-2" style="font-size:40px"></i>
+        <p class="card-text text-center m-0">Step1</p>
+        <p class="card-text text-center mb-2">確認訂單</p>
+    </div> -->
+    <!-- wait ver -->
+    <!-- <div style="max-width: 18rem;" class="col-3 d-flex align-items-center card text-balck bg-info my-5 mx-4 rounded">
+      <i class="bi bi-dash-circle-dotted mt-2" style="font-size:40px"></i>
+        <p class="card-text text-center m-0">Step2</p>
+        <p class="card-text text-center mb-2">建立訂單</p>
+    </div> -->
+    <div style="max-width: 18rem;" class="col-3 d-flex align-items-center card text-white bg-secondary my-5 mx-4 rounded ">
+      <i class="bi bi-check2-circle mt-2" style="font-size:40px"></i>
+        <p class="card-text text-center m-0">Step1</p>
+        <p class="card-text text-center mb-2">確認訂單</p>
+    </div>
+    <div style="max-width: 18rem;" class="col-3 d-flex align-items-center card text-balck bg-info my-5 mx-4 rounded">
+      <i class="bi bi-dash-circle-dotted mt-2" style="font-size:40px"></i>
+        <p class="card-text text-center m-0">Step2</p>
+        <p class="card-text text-center mb-2">建立訂單</p>
+    </div>
+    <div style="max-width: 18rem;" class="col-3 d-flex align-items-center card text-balck bg-info my-5 mx-4 rounded">
+      <i class="bi bi-dash-circle-dotted mt-2" style="font-size:40px"></i>
+        <p class="card-text text-center m-0">Step3</p>
+        <p class="card-text text-center mb-2">付款</p>
+    </div>
+  </div>
   <div class="row">
     <!-- 購物車列表 - 商品列表 -->
     <div class="col-xl-6">
@@ -16,7 +50,7 @@
       <!-- 清空購物車 - 按鈕 -->
       <div class="text-end">
         <button  @click="removeAllCartItem" :class=" {'disabled' :cartData.carts.length === 0 }"
-          class="btn btn-outline-danger" type="button">清空購物車</button>
+          class="btn btn-outline-primary" type="button">清空購物車</button>
       </div>
       <!-- 清空購物車 - 按鈕 結束 -->
       </div>
@@ -135,7 +169,7 @@
             <textarea v-model="form.message" id="message" class="form-control" cols="30" rows="10" ></textarea>
           </div>
           <div class="text-end">
-            <button type="submit" class="col-12 btn btn-danger" :disabled="Object.keys(errors).length > 0 || cartData.carts.length === 0 "
+            <button type="submit" class="col-12 btn btn-primary" :disabled="Object.keys(errors).length > 0 || cartData.carts.length === 0 "
                     >送出訂單</button>
           </div>
         </v-form>
@@ -154,6 +188,7 @@ import emitter from '@/libs/emitter'
 export default {
   data() {
     return {
+      ready: false,
       cartData: {
         // length 無校關係 生命週期原因 所以這裡事先寫好結構
         carts: []
@@ -181,6 +216,7 @@ export default {
       this.$http.get(`${process.env.VUE_APP_url}/api/${process.env.VUE_APP_path}/cart`)
       .then((res) => {
         this.cartData = res.data.data
+        this.ready = true
         console.log('getCart()', res)
       })
       .catch((err) => {
