@@ -3,10 +3,15 @@
     <nav class="navbar navbar-expand-lg navbar-light justify-content-center border border-start-0 border-end-0 border-top border-bottom">
       <div class="navbar-nav flex-row overflow-auto navbar-custom-scroll">
         <!-- 點擊後改 data === 會無效 一個 = 就好 -->
-        <a class="nav-item nav-link text-nowrap px-2" @click="category = 'all', getData()" onclick="event.preventDefault()" href="#">全部商品</a>
+        <!-- // 原本分類用 現在使用 query 分類 所以沒用到了 -->
+        <!-- <a class="nav-item nav-link text-nowrap px-2" @click="category = 'all', getData()" onclick="event.preventDefault()" href="#">全部商品</a>
         <a class="nav-item nav-link text-nowrap px-2" @click="pagination = {total_pages: 1}, category = 'type1'" onclick="event.preventDefault()" href="#">文物書籍</a>
         <a class="nav-item nav-link text-nowrap px-2" @click="pagination = {total_pages: 1}, category = 'type2'" onclick="event.preventDefault()" href="#">周邊雜誌</a>
-        <a class="nav-item nav-link text-nowrap px-2" @click="pagination = {total_pages: 1}, category = 'type3'" onclick="event.preventDefault()" href="#">其他用品<span class="sr-only">(current)</span></a>
+        <a class="nav-item nav-link text-nowrap px-2" @click="pagination = {total_pages: 1}, category = 'type3'" onclick="event.preventDefault()" href="#">其他用品<span class="sr-only">(current)</span></a> -->
+        <a class="nav-item nav-link text-nowrap px-2" @click="getData()" onclick="event.preventDefault()" href="#">全部商品</a>
+        <a class="nav-item nav-link text-nowrap px-2" @click="pagination = {total_pages: 1}, getData(1, '分類一')" onclick="event.preventDefault()" href="#">文物書籍</a>
+        <a class="nav-item nav-link text-nowrap px-2" @click="pagination = {total_pages: 1}, getData(1, '分類二')" onclick="event.preventDefault()" href="#">周邊雜誌</a>
+        <a class="nav-item nav-link text-nowrap px-2" @click="pagination = {total_pages: 1}, getData(1, '分類三')" onclick="event.preventDefault()" href="#">其他用品<span class="sr-only">(current)</span></a>
       </div>
     </nav>
     <div class="container mt-md-5 mt-3 mb-7">
@@ -14,7 +19,8 @@
         <!-- 商品單項 -->
         <!-- V-FOR -->
         <!-- <div class="col-md-3" v-for="item in products" :key="item.id" > -->
-        <div class="col-md-3" v-for="item in filterDate(products)" :key="item.id" >
+        <!-- <div class="col-md-3" v-for="item in filterDate(products)" :key="item.id" > -->
+        <div class="col-md-3" v-for="item in products" :key="item.id" >
         <!-- <div class="col-md-3" v-for="item in filterDate(productsAll)" :key="item.id" > -->
           <div class="card border-0 mb-4 position-relative">
             <!-- <img :src="item.imageUrl" class="card-img-top rounded-0" alt="..."> -->
@@ -70,8 +76,13 @@ export default {
   },
   methods: {
     // 抓商品資料 - 分頁
-    getData(page = 1){
-      this.$http.get(`${process.env.VUE_APP_url}/api/${process.env.VUE_APP_path}/products/?page=${page}`)
+    getData(page = 1, category){
+      let url = `${process.env.VUE_APP_url}/api/${process.env.VUE_APP_path}/products/?page=${page}`
+      if (category) {
+        console.log('456')
+        url = `${process.env.VUE_APP_url}/api/${process.env.VUE_APP_path}/products/?page=${page}&category=${category}`
+      }
+      this.$http.get(url)
       .then((res) => {
         console.log(res)
         this.products = res.data.products
@@ -93,30 +104,31 @@ export default {
       })
     },
     // 分流後 跑 商品array 篩選裡面物件的值 > 轉存篩選目標 > 回傳篩選目標
-    filterDate(item){
-      console.log('filterDate')
-      if (this.category === 'all'){
-        return item
-      } else if (this.category === 'type1'){
-        // 篩選另存 > 回傳篩選結果
-        const newArray = item.filter(item =>
-          item.category === '分類一'
-        )
-        return newArray
-      } else if (this.category === 'type2'){
-        // 篩選另存 > 回傳篩選結果
-        const newArray = item.filter(item =>
-          item.category === '分類二'
-        )
-        return newArray
-      } else if (this.category === 'type3'){
-        // 篩選另存 > 回傳篩選結果
-        const newArray = item.filter(item =>
-          item.category === '分類三'
-        )
-        return newArray
-      }
-    },
+    // 原本分類用 現在使用 query 分類 所以沒用到了
+    // filterDate(item){
+    //   console.log('filterDate')
+    //   if (this.category === 'all'){
+    //     return item
+    //   } else if (this.category === 'type1'){
+    //     // 篩選另存 > 回傳篩選結果
+    //     const newArray = item.filter(item =>
+    //       item.category === '分類一'
+    //     )
+    //     return newArray
+    //   } else if (this.category === 'type2'){
+    //     // 篩選另存 > 回傳篩選結果
+    //     const newArray = item.filter(item =>
+    //       item.category === '分類二'
+    //     )
+    //     return newArray
+    //   } else if (this.category === 'type3'){
+    //     // 篩選另存 > 回傳篩選結果
+    //     const newArray = item.filter(item =>
+    //       item.category === '分類三'
+    //     )
+    //     return newArray
+    //   }
+    // },
     // 加入購物車 這裡 用html傳進來的 item抓id、qty先暫時用預設 還沒有做數量功能
     addToCart(item, qty = 1){
       const data = {
