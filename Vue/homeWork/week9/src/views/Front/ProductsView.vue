@@ -30,8 +30,9 @@
             <!-- 商品單向頁面 ${id} -->
             <!-- 我的最愛 icon -->
             <router-link to="" >
-              <!-- bi-heart-fill 實心 -->
-              <i class="bi bi-suit-heart position-absolute btn btn-lg" style="right: 3px; top: 3px; color:red;"></i>
+              <!-- 判定是否在 favor 裡面 -->
+              <i v-if="favorite.includes(item.id)" @click="toggleFavorite(item.id)" class="bi bi-heart-fill position-absolute btn btn-lg" style="right: 3px; top: 3px; color:red;"></i>
+              <i v-else @click="toggleFavorite(item.id)" class="bi bi-suit-heart position-absolute btn btn-lg" style="right: 3px; top: 3px; color:red;"></i>
             </router-link>
             <!-- 商品資料 -->
             <div class="card-body p-0">
@@ -68,26 +69,26 @@ export default {
       category: 'all', // 商品分類 分流用
       products: [], // API抓下來儲存商品用 - 分頁ver
       productsAll: [], // API抓下來儲存商品用 - allver
-      pagination: '' // 分頁用
+      pagination: '', // 分頁用
+      favorite: JSON.parse(localStorage.getItem('favorite')) || [] // favorlist 儲存用 - 抓 localStorage 的資料 (需要轉乘json才能使用 localStorage存的是文字) (需要有預設值 [] 因為一開始是空的話會出錯 ex ? 結構問題)
     }
   },
   components: {
     PaginationView
   },
   methods: {
-    // 抓商品資料 - 分頁
+    // 抓商品資料 - 分頁 + 分類
     getData(page = 1, category){
       let url = `${process.env.VUE_APP_url}/api/${process.env.VUE_APP_path}/products/?page=${page}`
       if (category) {
-        console.log('456')
         url = `${process.env.VUE_APP_url}/api/${process.env.VUE_APP_path}/products/?page=${page}&category=${category}`
       }
       this.$http.get(url)
       .then((res) => {
-        console.log(res)
+        // console.log(res)
         this.products = res.data.products
         this.pagination = res.data.pagination
-        console.log(this.products)
+        // console.log(this.products)
       })
       .catch((err) => {
         console.dir(err)
@@ -143,6 +144,29 @@ export default {
       .catch((err) => {
         console.dir(err.data.message)
       })
+    },
+    // 最愛狀態更換 - findIndex 判定 id是否存在 不存在加入 存在刪除
+    toggleFavorite(id){
+      console.log('favor')
+      const favoriteId = this.favorite.findIndex(item => item === id)
+      console.log(favoriteId)
+      if (favoriteId === -1){ //  findIndex 沒有的話會 -1 而 -1 也是 true
+        this.favorite.push(id)
+        console.log(this.favorite)
+      } else { // findIndex 有的話會回傳 目標在array的 index位置
+        this.favorite.splice(favoriteId, 1)
+        console.log(this.favorite, favoriteId)
+      }
+    }
+  },
+  watch: {
+    favorite: { // 因為是 陣列 所以需要 深層監聽
+      handler(){ // 控制器
+        // localStorage.setItem('自訂的欄位名稱', 要帶入的 JSON檔案 )
+        // localStorage 沒辦法存 JSON 所以得先轉成字串
+        localStorage.setItem('favorite', JSON.stringify(this.favorite)) // 資料變動的時候寫入到 localStorage
+      },
+      deep: true // 深層監聽
     }
   },
   mounted() {
