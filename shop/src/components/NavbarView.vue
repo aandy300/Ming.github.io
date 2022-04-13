@@ -43,22 +43,6 @@
         </nav>
       </div>
     </div>
-    <!-- 商品頁面的 NAV BAR 正常 參考用? -->
-      <!-- <nav class="navbar navbar-expand-lg navbar-light px-0">
-        <a class="navbar-brand" href="./index.html">Navbar</a>
-        <button type="button" class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup">
-          <div class="navbar-nav">
-            <a class="nav-item nav-link me-4 active" href="./index.html">Home <span class="sr-only">(current)</span></a>
-            <a class="nav-item nav-link me-4" href="./product.html">Product</a>
-            <a class="nav-item nav-link me-4" href="./detail.html">Detail</a>
-            <a class="nav-item nav-link" href="./cart.html"><i class="fas fa-shopping-cart"></i></a>
-          </div>
-        </div>
-      </nav> -->
-    <!-- 商品頁面的 NAV BAR 正常 參考用? END -->
 </template>
 
 <script>
