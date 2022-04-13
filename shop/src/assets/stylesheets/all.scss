@@ -1,8 +1,0 @@
-// ~ = /node_modules 資料夾
-// 1. Include functions first (so you can manipulate colors, SVGs, calc, etc) // 載入B5函式
-@import "~bootstrap/scss/functions"; // 原生 sass func()
-// 2. Include any default variable overrides here // 要複寫的檔案
-@import "./helpers/variables"; // 自訂義的變數
-// 3. Include remainder of required Bootstrap stylesheets // 包含所需的 Bootstrap 樣式表的其餘部分
-// 4. Include any optional Bootstrap components as you like // 根據需要包含任何可選的 Bootstrap 組件
-@import "~bootstrap/scss/bootstrap"; // 這邊直接載入全部
