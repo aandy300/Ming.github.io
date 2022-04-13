@@ -6,7 +6,7 @@
       <div class="card-body">
         <strong ><p class="m-0 text-primary" style="font-size: 2rem;">購物車目前沒有東西哦</p></strong>
         <router-link to="/products">
-        <button class="col-4 btn btn-outline-primary mt-2" type="button">前去購買</button>
+        <button type="button" class="col-4 btn btn-outline-primary mt-2">前去購買</button>
         </router-link>
       </div>
     </div>
@@ -61,8 +61,8 @@
       <h4>訂單內容</h4>
       <!-- 清空購物車 - 按鈕 -->
       <div class="text-end">
-        <button  @click="removeAllCartItem" :class=" {'disabled' :cartData.carts.length === 0 }"
-          class="btn btn-outline-primary" type="button">清空購物車</button>
+        <button type="button" @click="removeAllCartItem" :class=" {'disabled' :cartData.carts.length === 0 }"
+          class="btn btn-outline-primary">清空購物車</button>
       </div>
       <!-- 清空購物車 - 按鈕 結束 -->
       </div>
@@ -164,8 +164,8 @@
 
           <div class="mb-3">
             <label for="tel" class="form-label">收件人電話</label>
-            <v-field v-model="form.user.tel" id="tel" name="電話" type="number" class="form-control" :class="{ 'is-invalid': errors['電話'] }"
-                      placeholder="請輸入電話" :rules="isPhone" ></v-field>
+            <v-field v-model="form.user.tel" id="number" name="電話" type="number" class="form-control" :class="{ 'is-invalid': errors['電話'] }"
+                      placeholder="請輸入電話" :rules="isPhone" style="-webkit-appearance: none;" ></v-field>
             <error-message name="電話" class="invalid-feedback"></error-message>
           </div>
 
@@ -320,3 +320,10 @@ export default {
   }
 }
 </script>
+
+<style lang="sass">
+  input::-webkit-outer-spin-button
+  input::-webkit-inner-spin-button
+    -webkit-appearance: none
+    margin: 0
+</style>

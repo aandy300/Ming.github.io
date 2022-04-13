@@ -1,25 +1,7 @@
 <template>
-  <!-- <nav>
-    <router-link to="/">Home</router-link> |
-    <router-link to="about">About</router-link> |
-    <router-link to="products">products</router-link>
-  </nav> -->
-  <!-- <div class="bk"> -->
-    <NavBar></NavBar>
-    <router-view/>
-    <Footer></Footer>
-  <!-- </div> -->
-<!-- <button type="button" class="btn btn-primary">Primary</button>
-<button type="button" class="btn btn-secondary">Secondary</button>
-<button type="button" class="btn btn-success">Success</button>
-<button type="button" class="btn btn-danger">Danger</button>
-<button type="button" class="btn btn-warning">Warning</button>
-<button type="button" class="btn btn-info">Info</button>
-<button type="button" class="btn btn-light">Light</button>
-<button type="button" class="btn btn-dark">Dark</button>
-<button type="button" class="btn btn-link">Link</button>
-<i class="bi bi-cart"></i> -->
-
+    <NavBar/>
+    <RouterView/>
+    <Footer/>
 </template>
 
 <script>
@@ -38,6 +20,6 @@ export default {
     // background-color: #FFF6EE
 </style>
 
-<style lang="scss">
+<style lang="sass">
 @import "./assets/stylesheets/all" // 已經是 lang="scss" 了 所以不用 .scss
 </style>

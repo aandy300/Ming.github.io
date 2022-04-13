@@ -45,11 +45,11 @@
               </h4>
               <p class="card-text text-muted mb-0" style="height: 4.5rem; overflow:hidden;">{{item.description}}</p>
               <!-- 原本的價目 -->
-              <!-- <p class="text-muted mt-3">NT$ {{item.price}} / {{item.unit}}</p> -->
-              <!-- <p class="text-muted mt-3">NT$ {{item.price}} / {{item.unit}}</p> -->
+              <!-- <p class="text-muted mt-3">NT$ {{ item.price }} / {{ item.unit }}</p> -->
+              <!-- <p class="text-muted mt-3">NT$ {{ item.price }} / {{ item.unit }}</p> -->
               <button @click.prevent="addToCart(item)" type="button" class="btn btn-secondary position-absolute bottom-0 start-0 mb-2">加入購物車</button>
-              <p class="mb-0 text-muted text-end mt-2"><del>NT$ {{item.origin_price}}</del></p>
-              <p class="h4 fw-bold text-end mt-1 fs-5">NT$ {{item.price}}</p>
+              <p class="mb-0 text-muted text-end mt-2"><del>NT$ {{ item.origin_price }}</del></p>
+              <p class="h4 fw-bold text-end mt-1 fs-5">NT$ {{ item.price }}</p>
             </div>
           </div>
         </div>

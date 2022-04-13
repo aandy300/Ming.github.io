@@ -5,7 +5,7 @@
           <!-- 中央名稱 -->
           <router-link class="navbar-brand position-absolute d-none d-sm-block" style="left: 50%; transform: translate(-50%, -50%); top: 50%;" to="/">日玥書坊</router-link>
           <!-- RWD icon -->
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
             <!-- <i class="bi bi-cart"></i> -->
           </button>
@@ -46,7 +46,7 @@
     <!-- 商品頁面的 NAV BAR 正常 參考用? -->
       <!-- <nav class="navbar navbar-expand-lg navbar-light px-0">
         <a class="navbar-brand" href="./index.html">Navbar</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+        <button type="button" class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup">

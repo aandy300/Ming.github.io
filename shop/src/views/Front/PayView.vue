@@ -78,7 +78,7 @@
                       <router-link :to="`/product/${item.product_id}`">
                       <td style="white-space: nowrap;">
                         <i class="bi bi-link-45deg p-2"></i>
-                        {{item.product.title}}
+                        {{ item.product.title }}
                       </td>
                       </router-link>
                     </div>
@@ -86,13 +86,13 @@
                   <!-- 數量 -->
                   <td>
                     <div v-for="item in order.products" :key="item.id">
-                      <td>{{item.product.price}} x {{item.qty}} {{item.product.unit}}</td>
+                      <td>{{ item.product.price }} x {{ item.qty }} {{ item.product.unit }}</td>
                     </div>
                   </td>
                   <!-- 總金額 -->
                   <td class="text-end">
                     <div v-for="item in order.products" :key="item.id">
-                      <td>{{item.total}}</td>
+                      <td>{{ item.total }}</td>
                     </div>
                   </td>
             </tbody>
@@ -102,7 +102,7 @@
                     <div class="position-absolute start-50">
                       <div class="d-flex d-flex align-items-center justify-content-center flex-nowrap">
                         <div class="d-flex flex-nowrap fs-2 fw-bolder" style="white-space: nowarp; word-break: keep-all;">總金額: </div>
-                        <div class="text-end" style="color:red; font-size:1.5rem"><strong>{{order.total}}</strong></div>
+                        <div class="text-end" style="color:red; font-size:1.5rem"><strong>{{ order.total }}</strong></div>
                       </div>
                     </div>
                   </div>
@@ -163,21 +163,6 @@
                     </div>
         </div>
       </div>
-      <!-- card 確認付款按鈕 -->
-      <!-- <div class="d-flex align-items-center justify-content-center">
-        <div class="card text-center my-5 " style="width:300px">
-          <div class="card-header">
-
-          </div>
-          <div class="card-body">
-
-            <a href="#" class="btn btn-primary">確認付款</a>
-          </div>
-          <div class="card-footer text-muted">
-
-          </div>
-        </div>
-      </div> -->
 
     </div>
   </div>
@@ -185,7 +170,6 @@
 </template>
 
 <script>
-
 export default {
   data() {
     return {
@@ -220,7 +204,7 @@ export default {
       const id = this.$route.params.id
       console.log(id)
       this.$http.post(`${process.env.VUE_APP_url}/api/${process.env.VUE_APP_path}/pay/${id}`)
-      .then(res => {
+      .then(() => {
         console.log('pay() ok end')
         this.getOrders()
         this.scrollToTop()

@@ -37,7 +37,7 @@
                   Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed
                   diam nonumy eirmod.
                 </p>
-                <button class="btn btn-outline-dark rounded-0 text-nowrap">
+                <button type="button" class="btn btn-outline-dark rounded-0 text-nowrap">
                   Lorem ipsum
                 </button>
               </div>
@@ -55,7 +55,7 @@
                   Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed
                   diam nonumy eirmod.
                 </p>
-                <button class="btn btn-outline-dark rounded-0 text-nowrap">
+                <button type="button" class="btn btn-outline-dark rounded-0 text-nowrap">
                   Lorem ipsum
                 </button>
               </div>
@@ -76,7 +76,7 @@
                   Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed
                   diam nonumy eirmod.
                 </p>
-                <button class="btn btn-outline-dark rounded-0 text-nowrap">
+                <button type="button" class="btn btn-outline-dark rounded-0 text-nowrap">
                   Lorem ipsum
                 </button>
               </div>
@@ -94,7 +94,7 @@
                   Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed
                   diam nonumy eirmod.
                 </p>
-                <button class="btn btn-outline-dark rounded-0 text-nowrap">
+                <button type="button" class="btn btn-outline-dark rounded-0 text-nowrap">
                   Lorem ipsum
                 </button>
               </div>
@@ -177,7 +177,7 @@
           <div class="col-md-4 text-center">
             <h3>Lorem ipsum</h3>
             <p class="text-muted">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod.</p>
-            <button class="btn btn-dark mt-4 rounded-0">Lorem ipsum</button>
+            <button type="button" class="btn btn-dark mt-4 rounded-0">Lorem ipsum</button>
           </div>
         </div>
       </div>
@@ -199,8 +199,8 @@
           <div class="col-md-4 text-center">
             <router-link style="text-decoration:none;" to="/products">
               <h2 style="color:white">書香環繞 幽靜疏朗<br>此刻開始你的知識饗宴</h2>
-            <p style="color:white" class=" mb-0">在這知識的寶庫，總有一本書會吸引到你。</p>
-            <button class="btn btn-dark rounded-0 mt-4">查看書籍</button>
+              <p style="color:white" class=" mb-0">在這知識的寶庫，總有一本書會吸引到你。</p>
+              <button type="button" class="btn btn-dark rounded-0 mt-4">查看書籍</button>
             </router-link>
           </div>
         </div>
@@ -335,7 +335,7 @@
           <div class="input-group w-md-50 mt-md-0 mt-3">
             <input type="text" class="form-control rounded-0" placeholder="" />
             <div class="input-group-append">
-              <button class="btn btn-dark rounded-0" type="button" id="search">
+              <button type="button" class="btn btn-dark rounded-0" type="button" id="search">
                 Lorem ipsum
               </button>
             </div>
@@ -344,7 +344,7 @@
       </div>
     </div> -->
 
-  <router-view/>
+  <RouterView/>
 </template>
 
 <style>
@@ -366,7 +366,7 @@ html, body {
 
 <script>
 export default {
-    beforeCreate: function() {
+    beforeCreate: () => {
         document.body.className = 'home'
     }
 }
