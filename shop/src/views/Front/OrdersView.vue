@@ -80,17 +80,11 @@ export default {
     },
     methods: {
         getOrders(page = 1){
-            console.log('getOrders()')
             // const { id } = this.$route.params  // 解構的寫法
             this.$http(`${process.env.VUE_APP_url}/api/${process.env.VUE_APP_path}/orders?page=${page}`)
             .then(res => {
                 this.orders = res.data.orders
                 this.pagination = res.data.pagination
-                console.log('orders', this.orders)
-            })
-            .catch(err => {
-                console.log(err)
-                console.dir(err)
             })
         },
         // 這裡需要分流 $ref上面的元件引用都一樣 現在編輯也開到了刪除  待解決
@@ -100,7 +94,6 @@ export default {
             const ModalEdit = this.$refs.modaledit
             ModalEdit.openModal()
             // else if (status === 'del'){
-            //     console.log(this.$refs)
             //     const orderDelModal = this.$refs.orderDelMoadl
             //     orderDelModal.openModal()
             // }

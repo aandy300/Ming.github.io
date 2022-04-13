@@ -229,7 +229,6 @@ export default {
       .then((res) => {
         this.cartData = res.data.data
         this.ready = true
-        console.log('getCart()', res)
       })
       .catch((err) => {
         alert(err.data.message)
@@ -243,8 +242,7 @@ export default {
       }
       this.isLoadingItem = item.id
       this.$http.put(`${process.env.VUE_APP_url}/api/${process.env.VUE_APP_path}/cart/${item.id}`, { data })
-      .then((res) => {
-        console.log('updataCartItem()', res)
+      .then(() => {
         this.getCart()
         this.isLoadingItem = ''
         // 這是通知 致行 navbar 的
@@ -262,7 +260,6 @@ export default {
       this.isLoadingItem = id
       this.$http.delete(`${process.env.VUE_APP_url}/api/${process.env.VUE_APP_path}/cart/${id}`)
       .then((res) => {
-        console.log('removeCartItem()', res)
         this.getCart()
         // 這是通知 致行 navbar 的
         emitter.emit('get-cart', () => {
@@ -278,7 +275,6 @@ export default {
     removeAllCartItem(){
       this.$http.delete(`${process.env.VUE_APP_url}/api/${process.env.VUE_APP_path}/carts`)
       .then((res) => {
-        console.log('removeAllCartItem()', res)
         this.getCart()
         // 這是通知 致行 navbar 的
         emitter.emit('get-cart', () => {
@@ -293,7 +289,6 @@ export default {
       const order = this.form
       this.$http.post(`${process.env.VUE_APP_url}/api/${process.env.VUE_APP_path}/order`, { data: order })
       .then((res) => {
-        console.log('createOrder()', res)
         this.$refs.form.resetForm()
         this.getCart()
         this.form.message = ''
@@ -302,10 +297,6 @@ export default {
           this.getCart()
         })
         this.$router.push(`/pay/${res.data.orderId}`)
-        console.log('已送出訂單')
-      })
-      .catch((err) => {
-        console.log(err.data.message)
       })
     },
     // 購物車相關結束

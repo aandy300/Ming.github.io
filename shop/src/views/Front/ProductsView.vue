@@ -85,10 +85,8 @@ export default {
       }
       this.$http.get(url)
       .then((res) => {
-        // console.log(res)
         this.products = res.data.products
         this.pagination = res.data.pagination
-        // console.log(this.products)
       })
       .catch((err) => {
         console.dir(err)
@@ -107,7 +105,6 @@ export default {
     // 分流後 跑 商品array 篩選裡面物件的值 > 轉存篩選目標 > 回傳篩選目標
     // 原本分類用 現在使用 query 分類 所以沒用到了
     // filterDate(item){
-    //   console.log('filterDate')
     //   if (this.category === 'all'){
     //     return item
     //   } else if (this.category === 'type1'){
@@ -137,8 +134,7 @@ export default {
         qty
       }
       this.$http.post(`${process.env.VUE_APP_url}/api/${process.env.VUE_APP_path}/cart`, { data })
-      .then((res) => {
-        console.log('addToCart()', res)
+      .then(() => {
         emitter.emit('get-cart') // 此處觸發 NAVBAR接收
       })
       .catch((err) => {
@@ -147,15 +143,11 @@ export default {
     },
     // 最愛狀態更換 - findIndex 判定 id是否存在 不存在加入 存在刪除
     toggleFavorite(id){
-      console.log('favor')
       const favoriteId = this.favorite.findIndex(item => item === id)
-      console.log(favoriteId)
       if (favoriteId === -1){ //  findIndex 沒有的話會 -1 而 -1 也是 true
         this.favorite.push(id)
-        console.log(this.favorite)
       } else { // findIndex 有的話會回傳 目標在array的 index位置
         this.favorite.splice(favoriteId, 1)
-        console.log(this.favorite, favoriteId)
       }
     }
   },

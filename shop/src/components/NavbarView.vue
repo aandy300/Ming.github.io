@@ -78,7 +78,6 @@ export default {
       this.$http.get(`${process.env.VUE_APP_url}/api/${process.env.VUE_APP_path}/cart`)
         .then((res) => {
           this.cartData = res.data.data
-          console.log('getCart()', res)
         })
         .catch((err) => {
           alert(err.data.message)

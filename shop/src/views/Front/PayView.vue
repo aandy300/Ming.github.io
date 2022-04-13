@@ -191,26 +191,18 @@ export default {
       // const { id } = this.$route.params  // 解構的寫法
       this.$http(`${process.env.VUE_APP_url}/api/${process.env.VUE_APP_path}/order/${id}`)
       .then(res => {
-          console.log('getOrders()', id, res)
           this.order = res.data.order
           this.ready = true
-      })
-      .catch(err => {
-          console.log(err)
-          console.dir(err)
       })
     },
     payOrder(){
       const id = this.$route.params.id
-      console.log(id)
       this.$http.post(`${process.env.VUE_APP_url}/api/${process.env.VUE_APP_path}/pay/${id}`)
       .then(() => {
-        console.log('pay() ok end')
         this.getOrders()
         this.scrollToTop()
       })
       .catch(err => {
-          console.log(err)
           console.dir(err)
       })
     },

@@ -117,12 +117,10 @@ export default {
   },
   methods: {
     getProduct() {
-      console.log('getProducts')
       const id = this.$route.params.id
       // const { id } = this.$route.params  // 解構的寫法
       this.$http.get(`${process.env.VUE_APP_url}/api/${process.env.VUE_APP_path}/product/${id}`)
         .then(res => {
-          console.log(res)
           this.product = res.data.product
           this.product.description = this.product.description.replace(/\n/g, '<br>')
           this.product.content = this.product.content.replace(/\n/g, '<br>')
@@ -130,7 +128,6 @@ export default {
         .catch((err) => {
           console.dir(err)
         })
-      console.log('123')
     },
     addToCart(qty = this.qty){
       const data = {
@@ -138,8 +135,7 @@ export default {
         qty
       }
       this.$http.post(`${process.env.VUE_APP_url}/api/${process.env.VUE_APP_path}/cart`, { data })
-      .then((res) => {
-        console.log('addToCart()', res)
+      .then(() => {
         emitter.emit('get-cart') // 此處觸發 NAVBAR接收
       })
       .catch((err) => {
@@ -151,7 +147,7 @@ export default {
         this.qty += 1
       } else if (status === '-'){
         if (this.qty <= 1){
-          console.log('已經是最小數量啦~~~')
+          // 已經是最小數量了
         } else {
           this.qty -= 1
         }
