@@ -146,34 +146,34 @@
     <h4 class="d-xl-none">收件人資訊</h4>
       <div class="my-3 row justify-content-center">
         <!-- @submit="createOrder" -->
-        <v-form @submit="createOrder" ref="form" class="col-md-9" v-slot="{ errors }" >
+        <Form @submit="createOrder" ref="form" class="col-md-9" v-slot="{ errors }" >
           <div class="mb-3">
             <label for="email" class="form-label">Email</label>
-            <v-field v-model="form.user.email" id="email" name="email" type="email" class="form-control"
+           <Field v-model="form.user.email" id="email" name="email" type="email" class="form-control"
                       :class="{ 'is-invalid': errors['email'] }" placeholder="請輸入 Email" rules="email"
-                    ></v-field>
-            <error-message name="email" class="invalid-feedback"></error-message>
+                    ></Field>
+            <ErrorMessage name="email" class="invalid-feedback"></ErrorMessage>
           </div>
 
           <div class="mb-3">
             <label for="name" class="form-label">收件人姓名</label>
-            <v-field v-model="form.user.name" id="name" name="姓名" type="text" class="form-control" :class="{ 'is-invalid': errors['姓名'] }"
-                      placeholder="請輸入姓名" rules="required"></v-field>
-            <error-message name="姓名" class="invalid-feedback"></error-message>
+            <Field v-model="form.user.name" id="name" name="姓名" type="text" class="form-control" :class="{ 'is-invalid': errors['姓名'] }"
+                      placeholder="請輸入姓名" rules="required"></Field>
+            <ErrorMessage name="姓名" class="invalid-feedback"></ErrorMessage>
           </div>
 
           <div class="mb-3">
             <label for="tel" class="form-label">收件人電話</label>
-            <v-field v-model="form.user.tel" id="number" name="電話" type="number" class="form-control" :class="{ 'is-invalid': errors['電話'] }"
-                      placeholder="請輸入電話" :rules="isPhone" style="-webkit-appearance: none;" ></v-field>
-            <error-message name="電話" class="invalid-feedback"></error-message>
+            <Field v-model="form.user.tel" id="number" name="電話" type="number" class="form-control" :class="{ 'is-invalid': errors['電話'] }"
+                      placeholder="請輸入電話" :rules="isPhone" style="-webkit-appearance: none;" ></Field>
+            <ErrorMessage name="電話" class="invalid-feedback"></ErrorMessage>
           </div>
 
           <div class="mb-3">
             <label for="address" class="form-label">收件人地址</label>
-            <v-field v-model="form.user.address" id="address" name="地址" type="text" class="form-control" :class="{ 'is-invalid': errors['地址'] }"
-                      placeholder="請輸入地址" rules="required" ></v-field>
-            <error-message name="地址" class="invalid-feedback"></error-message>
+            <Field v-model="form.user.address" id="address" name="地址" type="text" class="form-control" :class="{ 'is-invalid': errors['地址'] }"
+                      placeholder="請輸入地址" rules="required" ></Field>
+            <ErrorMessage name="地址" class="invalid-feedback"></ErrorMessage>
           </div>
 
           <div class="mb-3">
@@ -184,7 +184,7 @@
             <button type="submit" class="col-12 btn btn-primary" :disabled="Object.keys(errors).length > 0 || cartData.carts.length === 0 "
                     >送出訂單</button>
           </div>
-        </v-form>
+        </Form>
 
       </div>
     </div>
@@ -202,7 +202,7 @@ export default {
     return {
       ready: false,
       cartData: {
-        // length 無校關係 生命週期原因 所以這裡事先寫好結構
+        // length 無效關係 生命週期原因 所以這裡事先寫好結構
         carts: []
       },
       products: [],
